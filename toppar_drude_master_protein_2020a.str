@@ -3414,8 +3414,6 @@ OD2C1B   CD2O4A   623.00      1.239 ! NA bases, jal
 OD2C2B   PD1A     525.00      1.500 ! DMP, cmb, 06/09, lipids
 OD2C2C   PD1AN    525.00      1.500 ! DMP, nucleic acid
 !!
-OD2C2C   SD1A     525.00      1.493 ! SO4, a&a
-OD30B    SD1A     240.00      1.701 ! MSO4, a&a
 OD2C3A   CD2O3A   730.00      1.200 ! MAS, csd, EH 2007, PEML 2009  *** b0 should be 1.220 based on MP2/6-31g*, confirm 
 OD305A   CD315B   350.00      1.425 ! TF2M, cmb 
 OD305A   CD325B   350.00      1.425 ! THF, CSD/NDB survey, viv 
