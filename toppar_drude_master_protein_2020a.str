@@ -522,54 +522,6 @@ IC HTC1 NT    *CAT  HTC2   0.00    0.00  120.00    0.00   0.00
 IC HTC1 NT    *CAT  HTC3   0.00    0.00 -120.00    0.00   0.00 
 patch first none last none 
 
-RESI NMA           0.000 ! N-methylacetamide ! based on protein parameters ! confirmed that Hui and Roux are also using this
-!                        ! from jing
-!  Hl1           H
-!     \         /
-! Hl2--CL--C---N
-!     /    ||   \
-!  Hl3     O     Cc--Hc3  (typically cis to O)
-!               /  \
-!             Hc1  Hc2
-!
-GROUP
-ATOM CL   CD33C   -0.101  ALPHA -1.894  THOLE 2.122
-ATOM HL1  HDA3A    0.048
-ATOM HL2  HDA3A    0.048
-ATOM HL3  HDA3A    0.048
-ATOM C    CD2O1A   0.495  ALPHA -0.619  THOLE 0.317
-ATOM O    OD2C1A   0.000  ALPHA -0.579  THOLE 0.370
-ATOM N    ND2A2   -0.406  ALPHA -1.858  THOLE 0.126
-ATOM H    HDP1A    0.296
-ATOM CC   CD33C   -0.055  ALPHA -1.639  THOLE 2.122
-ATOM HC1  HDA3A    0.055
-ATOM HC2  HDA3A    0.055
-ATOM HC3  HDA3A    0.055
-ATOM LPA  LPDO1   -0.311
-ATOM LPB  LPDO1   -0.227
-
-BOND  HL1 CL   HL2 CL   HL3 CL
-BOND  CL  C    C   N    N   CC
-BOND  C   O    N   H
-BOND  HC1 CC   HC2 CC   HC3 CC
-BOND  O LPA    O   LPB
-
-IMPR  C  CL N  O   N  C  CC  H
-
-LONEPAIR relative LPA O C CL distance 0.30 angle 91.0 dihe 0.0
-LONEPAIR relative LPB O C CL distance 0.30 angle 91.0 dihe 180.0
-ANISOTROPY O C LPA LPB  A11  0.82322 A22  1.14332
-
-IC  N    C   CL   HL1        1.3400  115.20  180.00  114.23   1.1110
-IC  HL1  CL  C    O          1.1110  114.23    0.00  120.38   1.2390
-IC  CL   C   N    CC         1.5250  115.20  180.00  118.74   1.4430
-IC  CC   C   *N   H          1.4430  118.74  180.00  123.50   1.0250
-IC  HL1  C   *CL  HL2        1.1110  114.23  120.00  114.23   1.1110
-IC  HL1  C   *CL  HL3        1.1110  114.23 -120.00  114.23   1.1110
-IC  C    N   CC   HC1        1.3400  118.74  180.00  111.88   1.1110
-IC  HC1  N   *CC  HC2        1.1110  111.88  120.00  111.88   1.1110
-IC  HC1  N   *CC  HC3        1.1110  111.88 -120.00  111.88   1.1110
-
 RESI ALA           0.000 ! alanine
 ! 
 !     | 
@@ -4359,7 +4311,7 @@ DIHEDRALS
 !3) refit with only individual multiplicities of 1 through 6 
 !4) maintain the number of significant figures used below
 ! 
-HDP1A    ND2A1    CD2O1A   OD2C1A      2.000    2   180.00 ! ACEM 
+HDP1A    ND2A1    CD2O1A   OD2C1A      2.000    2   180.00 ! ACEM
 HDP1A    ND2A1    CD2O1A   CD31C       2.000    2   180.00 ! CT2/ACEM 
 HDP1A    ND2A1    CD2O1A   CD32C       2.000    2   180.00 ! ASN, ACEM 
 HDP1A    ND2A1    CD2O1A   CD33C       2.000    2   180.00 ! ACEM 
