@@ -4721,9 +4721,9 @@ PATCH FIRST NONE LAST NONE
 
 RESI DMPN         -1.000 ! Dimethylphosphate, nucleic acids, a&a
 GROUP
-ATOM P    PD1AN    1.192   ALPHA -0.974  THOLE 2.098 !         H11
-ATOM O13  OD2C2C  -0.856   ALPHA -0.931  THOLE 1.083 !         |
-ATOM O14  OD2C2C  -0.856   ALPHA -0.931  THOLE 1.083 !    H12--C1--H13  
+ATOM P    PD1A     1.192   ALPHA -0.974  THOLE 2.098 !         H11
+ATOM O13  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083 !         |
+ATOM O14  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083 !    H12--C1--H13  
 ATOM O11  OD30BN  -0.520   ALPHA -0.901  THOLE 0.181 !         |
 ATOM O12  OD30BN  -0.520   ALPHA -0.901  THOLE 0.181 !         O11
 ATOM C1   CD33C    0.202   ALPHA -1.642  THOLE 0.862 !         |
@@ -4768,7 +4768,7 @@ PATCH FIRST NONE LAST NONE
 RESI MP_0          0.000 ! Methylphosphate, neutral, a&a
 GROUP
 ATOM O1      OD30D    -0.520  ALPHA -0.901  THOLE 0.811   !           H11
-ATOM P1      PD1AN     1.376  ALPHA -0.974  THOLE 2.098   !            |
+ATOM P1      PD1A      1.376  ALPHA -0.974  THOLE 2.098   !            |
 ATOM O2      OD31D     0.000  ALPHA -0.927  THOLE 1.100   !      H13--C1--H12
 ATOM LP2A    LPDNA1   -0.253                              !            |
 ATOM LP2B    LPDNA1   -0.253                              !            O1
@@ -4777,7 +4777,7 @@ ATOM O3      OD31D     0.000  ALPHA -0.927  THOLE 1.100   !        O4==P1-O3
 ATOM LP3A    LPDNA1   -0.253                              !            |    \
 ATOM LP3B    LPDNA1   -0.253                              !            O2   H3
 ATOM H3      HDP1A     0.306                              !             \
-ATOM O4      OD2C2C   -0.776  ALPHA -0.921  THOLE 1.083   !              H2
+ATOM O4      OD2C2B   -0.776  ALPHA -0.921  THOLE 1.083   !              H2
 ATOM C1      CD33C     0.242  ALPHA -1.642  THOLE 0.862   !            
 ATOM H11     HDA3A     0.026                              !            
 ATOM H12     HDA3A     0.026                              !            
@@ -4808,13 +4808,13 @@ PATCH FIRST NONE LAST NONE
 RESI MP_1       -1.00    ! CH4O4P Methylphosphate, anionic
 GROUP
 ATOM O1      OD30D    -0.520  ALPHA -0.901  THOLE 0.811   !           H11
-ATOM P1      PD1AN     1.252  ALPHA -0.974  THOLE 2.098   !            |
+ATOM P1      PD1A      1.252  ALPHA -0.974  THOLE 2.098   !            |
 ATOM O2      OD31D     0.000  ALPHA -0.927  THOLE 1.100   !      H13--C1--H12
 ATOM LPA     LPDNA1   -0.273                              !            |
 ATOM LPB     LPDNA1   -0.273                              !            O1
 ATOM H2      HDP1A     0.266                              !            |
-ATOM O3      OD2C2C   -0.856  ALPHA -0.921  THOLE 1.083   !        O4==P1==O3 (-)
-ATOM O4      OD2C2C   -0.856  ALPHA -0.921  THOLE 1.083   !            |
+ATOM O3      OD2C2B   -0.856  ALPHA -0.921  THOLE 1.083   !        O4==P1==O3 (-)
+ATOM O4      OD2C2B   -0.856  ALPHA -0.921  THOLE 1.083   !            |
 ATOM C1      CD33C     0.182  ALPHA -1.642  THOLE 0.862   !            O2
 ATOM H11     HDA3A     0.026                              !             \
 ATOM H12     HDA3A     0.026                              !             H2
@@ -4849,10 +4849,10 @@ PATCH FIRST NONE LAST NONE
 RESI MP_2            -2.000 ! CH3O4P Methylphosphate, dianionic
 GROUP
 ATOM O1     OD30D    -0.740  ALPHA -0.901  THOLE 0.181         !          H11
-ATOM P1     PD1AN     1.792  ALPHA -0.974  THOLE 2.098         !          |
-ATOM O2     OD2C2C   -1.087  ALPHA -0.931  THOLE 1.083         !    H13--C1--H12
-ATOM O3     OD2C2C   -1.087  ALPHA -0.931  THOLE 1.083         !          |
-ATOM O4     OD2C2C   -1.087  ALPHA -0.931  THOLE 1.083         !         O1
+ATOM P1     PD1A      1.792  ALPHA -0.974  THOLE 2.098         !          |
+ATOM O2     OD2C2B   -1.087  ALPHA -0.931  THOLE 1.083         !    H13--C1--H12
+ATOM O3     OD2C2B   -1.087  ALPHA -0.931  THOLE 1.083         !          |
+ATOM O4     OD2C2B   -1.087  ALPHA -0.931  THOLE 1.083         !         O1
 ATOM C1     CD33C     0.161  ALPHA -1.642  THOLE 0.862         !          |
 ATOM H11    HDA3A     0.016                                    !  (-)O4==P1==O3(-)
 ATOM H12    HDA3A     0.016                                    !         ||
@@ -4876,9 +4876,9 @@ PATCH FIRST NONE LAST NONE
 
 RESI HP_1         -1.000 ! Hydrogenphosphate, anionic
 GROUP
-ATOM P1   PD1AN    1.220  ALPHA -1.244  THOLE 1.678 !        H1
-ATOM O3   OD2C2C  -0.856  ALPHA -0.951  THOLE 1.083 !       /
-ATOM O4   OD2C2C  -0.856  ALPHA -0.951  THOLE 1.083 !      O1
+ATOM P1   PD1A     1.220  ALPHA -1.244  THOLE 1.678 !        H1
+ATOM O3   OD2C2B  -0.856  ALPHA -0.951  THOLE 1.083 !       /
+ATOM O4   OD2C2B  -0.856  ALPHA -0.951  THOLE 1.083 !      O1
 ATOM O1   OD31D    0.000  ALPHA -1.291  THOLE 1.091 !      |
 ATOM LP1A LPDNA1  -0.253                            !  O4==P1==O3(-)
 ATOM LP1B LPDNA1  -0.253                            !      |
@@ -4908,10 +4908,10 @@ PATCH FIRST NONE LAST NONE
 
 RESI HP_2         -2.000 ! Hydrogenphosphate, dianionic
 GROUP
-ATOM P1   PD1AN    1.730  ALPHA -1.244  THOLE 1.678 !        H
-ATOM O2   OD2C2C  -1.087  ALPHA -0.951  THOLE 1.083 !       /
-ATOM O3   OD2C2C  -1.087  ALPHA -0.951  THOLE 1.083 !      O1
-ATOM O4   OD2C2C  -1.087  ALPHA -0.951  THOLE 1.083 !      |
+ATOM P1   PD1A     1.730  ALPHA -1.244  THOLE 1.678 !        H
+ATOM O2   OD2C2B  -1.087  ALPHA -0.951  THOLE 1.083 !       /
+ATOM O3   OD2C2B  -1.087  ALPHA -0.951  THOLE 1.083 !      O1
+ATOM O4   OD2C2B  -1.087  ALPHA -0.951  THOLE 1.083 !      |
 ATOM O1   OD31D   -0.000  ALPHA -1.291  THOLE 1.091 !  O4==P1--O3(-)
 ATOM LPA  LPDNA1  -0.345                            !      |
 ATOM LPB  LPDNA1  -0.345                            !      O2(-)
@@ -7348,10 +7348,10 @@ IC   C1   C2    C3    H33   1.5260  112.39  -30.77  110.82   1.0946
 RESI SO4          -2.000 ! Sulfate ion
 GROUP
 ATOM S    SD1A     2.000  ALPHA -0.930  THOLE 1.098 !           OS2(-1)
-ATOM OS1  OD2C2C  -1.000  ALPHA -0.990  THOLE 1.083 !            |
-ATOM OS2  OD2C2C  -1.000  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
-ATOM OS3  OD2C2C  -1.000  ALPHA -0.990  THOLE 1.083 !           ||
-ATOM OS4  OD2C2C  -1.000  ALPHA -0.990  THOLE 1.083 !           OS1
+ATOM OS1  OD2C2B  -1.000  ALPHA -0.990  THOLE 1.083 !            |
+ATOM OS2  OD2C2B  -1.000  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
+ATOM OS3  OD2C2B  -1.000  ALPHA -0.990  THOLE 1.083 !           ||
+ATOM OS4  OD2C2B  -1.000  ALPHA -0.990  THOLE 1.083 !           OS1
 
 BOND S  OS1  S  OS2  S  OS3  S  OS4
 IC   OS1   S     OS2   OS3         0.0000    0.00    0.00    0.00   0.0000
@@ -7363,9 +7363,9 @@ RESI MSO4         -1.000 ! Methylsulfate
 GROUP
 ATOM S    SD1A     1.330  ALPHA -0.930  THOLE 1.098 !           OS2(-1)
 ATOM OS1  OD30B   -0.560  ALPHA -0.670  THOLE 0.181 !            |
-ATOM OS2  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
-ATOM OS3  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 !            |
-ATOM OS4  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 !           OS1
+ATOM OS2  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
+ATOM OS3  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 !            |
+ATOM OS4  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 !           OS1
 ATOM C1   CD33C    0.240  ALPHA -1.642  THOLE 0.862 !             \
 ATOM H11  HDA3A    0.036                            !         H11-C1-H13
 ATOM H12  HDA3A    0.036                            !              |
@@ -7389,9 +7389,9 @@ IC    H11     OS1     *C1    H13          0.0000    0.00  180.00    0.00   0.000
 RESI MSNA         -1.000 ! Methylsulfonate
 GROUP
 ATOM S    SD1A     1.219  ALPHA -0.930  THOLE 1.098 !           OS2(-1)
-ATOM OS1  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 !            |
-ATOM OS2  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
-ATOM OS3  OD2C2C  -0.706  ALPHA -0.990  THOLE 1.083 !            |
+ATOM OS1  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 !            |
+ATOM OS2  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 ! (-1) OS2--S(+2)--OS4 (-1)
+ATOM OS3  OD2C2B  -0.706  ALPHA -0.990  THOLE 1.083 !            |
 ATOM C1   CD33C   -0.209  ALPHA -1.642  THOLE 0.862 !        H11-C1-H13
 ATOM H11  HDA3A    0.036                            !            |
 ATOM H12  HDA3A    0.036                            !            H12
@@ -7414,9 +7414,9 @@ RESI NMSM         -1.000 ! N-methyl sulfamate
 GROUP
 ATOM C1   CD33C    0.260  ALPHA -1.642  THOLE 0.862 !          H11
 ATOM S    SD1A     1.504  ALPHA -0.930  THOLE 1.098 !          |
-ATOM OS2  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !      H13-C1-H12
-ATOM OS3  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !          |
-ATOM OS4  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !          N-HN
+ATOM OS2  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !      H13-C1-H12
+ATOM OS3  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !          |
+ATOM OS4  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !          N-HN
 ATOM N    ND2A2   -0.782  ALPHA -1.942  THOLE 0.250 !          |
 ATOM HN   HDP1A    0.280                            !     OS3==S==OS4
 ATOM H11  HDA3A    0.026                            !          |
@@ -7439,9 +7439,9 @@ RESI NESM         -1.000 ! N-Ethyl sulfamate
 GROUP
 ATOM C1   CD32C    0.240  ALPHA -1.642  THOLE 0.862 !          H23
 ATOM S    SD1A     1.564  ALPHA -0.930  THOLE 1.098 !          |
-ATOM OS2  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !      C21-C2-C22
-ATOM OS3  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !          |
-ATOM OS4  OD2C2C  -0.780  ALPHA -0.990  THOLE 1.083 !      C11-C1-C12
+ATOM OS2  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !      C21-C2-C22
+ATOM OS3  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !          |
+ATOM OS4  OD2C2B  -0.780  ALPHA -0.990  THOLE 1.083 !      C11-C1-C12
 ATOM N    ND2A2   -0.782  ALPHA -1.942  THOLE 0.250 !          |
 ATOM HN   HDP1A    0.280                            !          N-HN
 ATOM H11  HDA2A    0.026                            !          |
@@ -7586,10 +7586,10 @@ ANGLES
 !atom types     Ktheta  Theta0   Kub     S0 
 !================================================== 
 !
-!OD30BN   PD1AN    OD31A     48.10    108.00  ! MP_1, ADM Jr., c36, to master
-!OD31A    PD1AN    OD2C2C    98.90    108.23  ! MP_1, ADM Jr., c36, to master
-!OD31A    PD1AN    OD31A     98.90    104.00  ! MP_0, ADM Jr., c36, to master
-!PD1AN    OD31A    HDP1A     30.00    115.00  40.0  2.35 ! MP_1, ADM Jr. c36, to master
+!OD30BN   PD1A     OD31A     48.10    108.00  ! MP_1, ADM Jr., c36, to master
+!OD31A    PD1A     OD2C2B    98.90    108.23  ! MP_1, ADM Jr., c36, to master
+!OD31A    PD1A     OD31A     98.90    104.00  ! MP_0, ADM Jr., c36, to master
+!PD1A     OD31A    HDP1A     30.00    115.00  40.0  2.35 ! MP_1, ADM Jr. c36, to master
 ! Thiolates, XZ
 SD2C2A   CD33A    HDA3A     35.00    112.42 ! Optimized, target: 111.38
 SD2C2B   CD32A    HDA2A     25.00    106.30 ! from SD31B    CD32A    HDA2A
@@ -7674,11 +7674,11 @@ DIHEDRALS
 ! 
 !HDP1A    ND2A1    CD2O1A   OD2C1A      2.000    2   180.00 ! comment for format
 !methylphosphates
-!CD33C    OD30BN   PD1AN    OD31A       0.950    2     0.00 !MP_1, adm jr., c36, to master
-!CD33C    OD30BN   PD1AN    OD31A       0.500    3     0.00 !MP_1, adm jr., to master
-!OD30BN   PD1AN    OD31A    HDP1A       0.300    3     0.00 !MP_1, adm jr., c36, to master
-!HDP1A    OD31A    PD1AN    OD2C2C      0.300    3     0.00 !MP_1, adm jr., c36, to master
-!HDP1A    OD31A    PD1AN    OD31A       0.300    3     0.00 !MP_1, adm jr., c36, to master
+!CD33C    OD30BN   PD1A     OD31A       0.950    2     0.00 !MP_1, adm jr., c36, to master
+!CD33C    OD30BN   PD1A     OD31A       0.500    3     0.00 !MP_1, adm jr., to master
+!OD30BN   PD1A     OD31A    HDP1A       0.300    3     0.00 !MP_1, adm jr., c36, to master
+!HDP1A    OD31A    PD1A     OD2C2B      0.300    3     0.00 !MP_1, adm jr., c36, to master
+!HDP1A    OD31A    PD1A     OD31A       0.300    3     0.00 !MP_1, adm jr., c36, to master
 !! Thiolates
 SD2C2B  CD32A    CD33A    HDA3A        0.175    3   180.00 ! from SD31B    CD32A    CD33A    HDA3A
 CD2R6A  CD2R6A   CD2R6A   CD2R6I       2.800    2   180.00 ! PHET, from BENZ
