@@ -198,8 +198,7 @@ MASS    -1 OD2C2B   15.99940 O  ! carboxylate O, anionic (phosphate), lipids
 MASS    -1 OD2C3A   15.99940 O  ! carbonyl O, neutral (esters) 
 MASS    -1 OD2C3B   15.99940 O  ! carbonyl O, esters in lipids
 MASS    -1 OD30A    15.99940 O  ! ether oxygen 
-MASS    -1 OD30B    15.99940 O  ! ester oxygen (phosphate), lipid
-MASS    -1 OD30BN   15.99940 O  ! ester oxygen (phosphate), nucleic acid
+MASS    -1 OD30B    15.99940 O  ! ester oxygen (phosphate), lipid & nucleic acids
 MASS    -1 OD30BR   15.99940 O  ! ester oxygen (phosphate), RNA specific
 MASS    -1 OD30C    15.99940 O  ! ester oxygen (esters)
 MASS    -1 OD30D    15.99940 O  ! ester oxygen (terminal phosphate), MP_1
@@ -3370,18 +3369,16 @@ OD306A   CD326B   360.00      1.415 ! THP, tetrahydropyran, viv
 OD30A    CD32E    360.00      1.415 ! DEET, diethylether, alex 
 OD30A    CD33E    360.00      1.415 ! DEET, diethylether, alex 
 !!
-OD30B    PD1A     240.00      1.600 ! DMP, cmb, 06/09, lipids, to master
+OD30B    PD1A     240.00      1.600 ! DMP, lipids and nucleic acids
 OD30D    PD1A     240.00      1.600 ! MP_1, nucleic acid
-OD30BN   PD1A     240.00      1.600 ! DMP, nucleic acid
-OD30BR   PD1A     240.00      1.600 ! DMP, nucleic acid, copied for RNA, jal
+OD30BR   PD1A     240.00      1.600 ! DMP, copied for RNA, jal
 !!
 OD30B    CD32A    335.00      1.420 ! DMP, csd, EH/IV 2007 
 OD30B    CD33A    335.00      1.420 ! DMP, csd, EH/IV 2007 
 
 OD30D    CD33C    335.00      1.440 ! from DMP, for MP_1
-OD30B    CD33C    335.00      1.440 ! DMP, cmb, 06/09 
-OD30BN   CD33C    335.00      1.440 ! DMP, nucleic acid
-OD30BR   CD33C    335.00      1.440 ! DMP, nucleic acid, copied for RNA, jal
+OD30B    CD33C    335.00      1.440 ! DMP, lipids and nucleic acids
+OD30BR   CD33C    335.00      1.440 ! DMP, copied for RNA, jal
 OD30B    HDP1A    536.50      0.970 ! CHOL, MEOH, not necessary for lipid 
 OD30C    CD2O3A   150.00      1.330 ! MAS, csd, EH 2007, PEML 2009 *** changed FC to match vibr. spectra *** 
 OD30C    CD31C    340.00      1.440 ! MAS, csd, EH 2007 
@@ -3705,16 +3702,13 @@ CD32E    OD30A    CD33E     95.00    109.70                  ! DEET, diethylethe
 CD33A    OD30A    CD33A     95.00    109.70                  ! DME dimethylether,viv 
 CD33E    OD30A    CD33E     95.00    109.70                  ! DME dimethylether,viv 
 !!
-PD1A     OD30B    CD32A     40.00    112.50                  ! DMP, lipids, to master
-PD1A     OD30BN   CD32A     40.00    112.50                  ! DMP, csd, nucleic acids
+PD1A     OD30B    CD32A     40.00    112.50                  ! DMP, lipids & nucleic acids
 PD1A     OD30BR   CD32A     40.00    112.50                  ! DMP, csd, nucleic acids, copied for RNA (jal)
-PD1A     OD30B    CD33A     40.00    112.50                  ! DMP, lipids, to master
-PD1A     OD30BN   CD33A     40.00    112.50                  ! DMP, csd, nucleic acids
+PD1A     OD30B    CD33A     40.00    112.50                  ! DMP, lipids & nucleic acids
 PD1A     OD30BR   CD33A     40.00    112.50                  ! DMP, csd, nucleic acids, copied for RNA (jal)
 !!
 PD1A     OD30D    CD33C     40.00    120.50   ! from DMP, nucleic acids, for MP_1
-PD1A     OD30B    CD33C     40.00    120.50                  ! DMP, lipids, to master
-PD1A     OD30BN   CD33C     40.00    120.50                  ! DMP, cmb, nucleic acids
+PD1A     OD30B    CD33C     40.00    120.50                  ! DMP, lipids & nucleic acids
 PD1A     OD30BR   CD33C     40.00    120.50                  ! DMP, cmb, nucleic acids, copied for RNA (jal)
 !!
 CD2O3A   OD30C    CD31C     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra 
@@ -3770,22 +3764,21 @@ OD2C2A   CD2O2A   CD32A     48.90    123.00   29.90   2.2930 ! CTER, PEML, ACET
 OD2C2A   CD2O2A   CD32C     40.00    109.30                  ! NTER, PEML, terminal Gly 
 OD2C2A   CD2O2A   CD33A     23.80    123.00   34.90   2.3910 ! ACET, PEML 
 !!
-OD2C2B   PD1A     OD2C2B   120.00    125.00 ! nucleic acids
+OD2C2B   PD1A     OD2C2B   120.00    125.00 ! DMP, lipids & nucleic acids
 OD2C2B   PD1A     OD30D     98.90    113.00 ! MP_1
-OD2C2B   PD1A     OD30BN    98.90    113.00 ! nucleic acids
+OD2C2B   PD1A     OD30B     98.90    113.00 ! DMP, lipids & nucleic acids
 OD2C2B   PD1A     OD30BR    98.90    113.00 ! for RNA (jal)
-OD30B    PD1A     OD30B     90.00    104.00 ! DMP, lipids
-OD30BN   PD1A     OD30BN    90.00    107.50 ! nucleic acids, to master
-OD30BR   PD1A     OD30BN    90.00    107.50 ! for RNA (jal), to master
+OD30B    PD1A     OD30B     90.00    107.50 ! DMP, lipids & nucleic acids
+OD30BR   PD1A     OD30B     90.00    107.50 ! for RNA (jal), to master
 !!
 OD30D    PD1A     OD31D     48.10    108.00                  ! MP_1 specific
 PD1A     OD31D    HDP1A     30.00    115.00   40.00   2.3500 ! MP_1 specific
 OD31D    PD1A     OD2C2B    98.90    111.00                  ! MP_1 specific
 OD31D    PD1A     OD31D     98.90    104.0                   ! MP_0 specific, c36
 !
-CD32C    OD30BN   PD1A      40.00    124.50 ! nucleic acids, to master
-CD315B   OD30BN   PD1A      40.00    114.50 ! nucleic acids, to master
-CD315B   OD30BR   PD1A      40.00    114.50 ! for RNA (jal), to master
+CD32C    OD30B    PD1A      40.00    124.50 ! nucleic acids
+CD315B   OD30B    PD1A      40.00    114.50 ! nucleic acids
+CD315B   OD30BR   PD1A      40.00    114.50 ! for RNA (jal)
 !!
 OD2C3A   CD2O3A   OD30C     90.00    123.00  160.00   2.2576 ! MAS, csd, EH 2007 
 OD2C3A   CD2O3A   OD31F     98.80    117.50  178.30   2.4240 ! ACEH, PEML 
@@ -4197,8 +4190,7 @@ HDA3B    CD33B    HDA3B     35.50    108.40    5.40   1.802  ! alkane, 3/92, spe
 ND2A2    CD33C    HDA3A     85.60    126.43 ! NMA+ALAD % 
 ND2A3    CD33C    HDA3A     51.50    109.50 ! DMA % 
 OD30D    CD33C    HDA3A     60.00    109.50 ! MP_1
-OD30B    CD33C    HDA3A     60.00    109.50 ! DMP, cmb, 06/09 
-OD30BN   CD33C    HDA3A     60.00    109.50 ! DMP, nucleic acids
+OD30B    CD33C    HDA3A     60.00    109.50 ! DMP, cmb, nucleic acids
 OD30BR   CD33C    HDA3A     60.00    109.50 ! DMP, nucleic acids, copied for RNA, jal
 OD30C    CD33C    HDA3A     60.00    109.50 ! MAS, charmm27 
 CD2O1A   CD33C    HDA3A     49.00    107.87 ! NMA+ALAD % 
@@ -5896,6 +5888,22 @@ HDP1C    CD2O1C   CD31C    CD33A        0.0017  6     0.00 !
 !! MGUAN/BGUAN fylin
 CD2N1A   ND2P1A   CD32A    HDA2C       0.000    3     0.00 ! ARG, c22
 HDP1B    ND2P1A   CD32A    HDA2C       0.000    3     0.00 ! ARG, c22
+
+!DMP, lipids & DNA backbone
+CD33C    OD30B    PD1A     OD2C2B      0.8520   1     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B      0.3200   2   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B      0.0732   3     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B      0.1860   4     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B      0.0002   5     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B      0.0151   6     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.6417   1   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.7706   2     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.1118   3     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.0905   4     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.0532   5   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B       0.0167   6   180.00 ! DMP, a&a
+PD1A     OD30B    CD33C    HDA3A       0.000    3     0.00 ! DMP, lipids & nucleic acids
+
 !phospates
 ! MP_1 below, lipid and nucleic acid phosphodiester dihedrals in respective toppar files
 CD33C    OD30D    PD1A     OD2C2B       0.1000  3     0.00 ! MP_1
@@ -7917,7 +7925,7 @@ OD2C3B   0.0   -0.1800     1.7500 ! from OD2C3B for lipids ! MAS,ACEH EML  JC-v2
 OD30A    0.0   -0.0600     1.7400 ! ether, 
 OD30B    0.0   -0.1700     1.7700 ! DMP, cmb, 06/09, lipids, merge with NA phosphate post 2017
 !! remove comments and following terms upon completion of RNA/DNA testing
-OD30BN   0.0   -0.1700     1.7700 ! DMP, nucleic acids, reset to OD30B, alex
+!!OD30BN   0.0   -0.1700     1.7700 ! DMP, nucleic acids, reset to OD30B, alex
 OD30BR   0.0   -0.1700     1.7700 ! DMP, nucleic acids, copied for RNA, jal, reset to OD30B, alex
 !!OD30BN   0.0   -0.0200     1.7500 ! DMP, nucleic acids
 !!OD30BR   0.0   -0.0200     1.7500 ! DMP, nucleic acids, copied for RNA, jal
@@ -8031,10 +8039,8 @@ LID     CLAD   -0.04647  3.80000 ! chloride, Savelyev-2015
 LID     ND2B1  -0.06928  3.60000 ! primary amine, nucleic acid bases, Savelyev-2015
 LID     ND2R6B -0.05477  3.60000 ! acceptor nitrogen in purines and pyrimidines, nucleic acids, Savelyev-2015
 LID     ND2R6C -0.06123  3.60000 ! acceptor nitrogen nucleic acids pyrimidines, Savelyev-2015
-LID     OD2C2B -0.04582  3.13500 ! phosphate anionic O, lipids, Savelyev-2015
-LID     OD2C2B -0.04582  3.13500 ! phosphate anionic O, nucleic acids, Savelyev-2015
-LID     OD30B  -0.02449  3.02000 ! phosphate ester O, lipids, Savelyev-2015
-LID     OD30BN -0.02449  3.02000 ! phosphate ester O, nucleic acids, Savelyev-2015
+LID     OD2C2B -0.04582  3.13500 ! phosphate anionic O, lipids & nucleic acids, Savelyev-2015
+LID     OD30B  -0.02449  3.02000 ! phosphate ester O, lipids & nucleic acids, Savelyev-2015
 LID     OD30BR -0.02449  3.02000 ! phosphate ester O, nucleic acids, Savelyev-2015, RNA specific
 
 !! NOTE (2/11/2019): NBFIX and NBTHOLE from Hui-2015 should be considered
@@ -8047,10 +8053,8 @@ SODD    ND2R6B -0.05600  3.79000 ! acceptor nitrogen in purines and pyrimidines,
 SODD    ND2R6C -0.06276  3.62000 ! acceptor nitrogen nucleic acids pyrimidines, Savelyev-2014
 SODD    OD2C1A -0.09000  2.88000 ! protein backbone/amide, Hui-2015
 SODD    OD2C2A -0.07939  3.47000 ! glu, asp, Noskov, 2018
-SODD    OD2C2B -0.04696  3.49668 ! phosphate anionic O, lipids, Savelyev-2014
-SODD    OD2C2B -0.04696  3.49668 ! phosphate anionic O, nucleic acids, Savelyev-2014
-SODD    OD30B  -0.02510  3.38168 ! phosphate ester O, lipids, Savelyev-2014
-SODD    OD30BN -0.02510  3.38168 ! phosphate ester O, nucleic acids, Savelyev-2014
+SODD    OD2C2B -0.04696  3.49668 ! phosphate anionic O, lipids & nucleic acids, Savelyev-2014
+SODD    OD30B  -0.02510  3.38168 ! phosphate ester O, lipids & nucleic acids, Savelyev-2014
 SODD    OD30BR -0.02510  3.38168 ! phosphate ester O, nucleic acids, Savelyev-2014, RNA specific
 SODD    OD30D  -0.02510  3.38168 ! phosphate ester O, MP_1
 SODD    OD31A  -0.06000  3.07000 ! ethanol, ser, thr, Hui-2015
@@ -8093,8 +8097,7 @@ MAGD    OD2C1A -0.10050  2.72900 ! protein backbone/amide LPDO1 on OD2C1A
 MAGD    OD2C1B -0.28833  2.43438 ! Cyt-O2, Thy-O2/O4, Ura-O2/O4, Gua-O6
 MAGD    OD2C2B -0.31211  2.59990 ! phosphate anionic O, lipids
 MAGD    OD2C2B -0.31211  2.59990 ! phosphate anionic O, nucleic acid
-MAGD    OD30B  -0.40592  4.40157 ! phosphate ester O, lipids
-MAGD    OD30BN -0.40592  4.40157 ! phosphate ester O, nucleic acids
+MAGD    OD30B  -0.40592  4.40157 ! phosphate ester O, lipids & nucleic acids
 MAGD    OD30BR -0.40592  4.40157 ! phosphate ester O, nucleic acids, RNA specific
 MAGD    OD30D  -0.40592  2.25157 ! phosphate ester O, MP_1
 
@@ -8477,8 +8480,7 @@ MAGD OD2C1A   1.07600 ! protein backbone/amide LPDO1 on OD2C1A
 MAGD OD2C1B   1.10900 ! Cyt-O2, Thy-O2/O4, Ura-O2/O4, Gua-O6
 MAGD OD2C2B   1.44900 ! lipids, phosphate anionic
 MAGD OD2C2B   1.44900 ! nucleic acids, phosphate anionic
-MAGD OD30B    1.15100 ! lipid, phosphate ester O
-MAGD OD30BN   1.15100 ! nucleic acids, phosphate ester O
+MAGD OD30B    1.15100 ! lipids and nucleic acids, phosphate ester O
 MAGD OD30BR   1.15100 ! nucleic acids, phosphate ester O, RNA specific
 MAGD OD30D    1.15100 ! nucleic acids, phosphate ester O, methylphosphates
 MAGD OD31D    1.95000 ! based on methylphosphate hydroxyl, transfer to other hydroxyls requires testing
