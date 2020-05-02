@@ -4297,7 +4297,7 @@ DIHEDRALS
 !3) refit with only individual multiplicities of 1 through 6 
 !4) maintain the number of significant figures used below
 ! 
-HDP1A    ND2A1    CD2O1A   OD2C1A      2.000    2   180.00 ! ACEM
+HDP1A    ND2A1    CD2O1A   OD2C1A      2.000    2   180.00 ! ACEM 
 HDP1A    ND2A1    CD2O1A   CD31C       2.000    2   180.00 ! CT2/ACEM 
 HDP1A    ND2A1    CD2O1A   CD32C       2.000    2   180.00 ! ASN, ACEM 
 HDP1A    ND2A1    CD2O1A   CD33C       2.000    2   180.00 ! ACEM 
