@@ -3140,7 +3140,7 @@ IC OE1  CD   OE2  HE2   0.0000  0.0000  0.0000  0.0000  0.0000
  
 !based on the optimized neutral propylamine, fylin 
 !!!!!!see NNEU above (?) 
-PRES LSN          0.000 ! patch for neutral lysine based on propylamine
+PRES LSN           0.000 ! patch for neutral lysine based on propylamine
                         ! use in a patch statement 
                         ! follow with AUTOgenerate ANGLes DIHEdrals command 
 DELETE ATOM HZ3
@@ -3194,7 +3194,7 @@ IC 2CA  2C   3N   3CA   0.0000  0.0000 180.0000  0.0000  0.0000
 IC 2C   3N   3CA  3C    0.0000  0.0000 180.0000  0.0000  0.0000 
 IC 2C   3CA  *3N  3HN   0.0000  0.0000 180.0000  0.0000  0.0000 
  
-PRES HS2          0.00 ! Patch for neutral His, move proton from ND1 to NE2 (convert HSD to HSE) 
+PRES HS2           0.000 ! Patch for neutral His, move proton from ND1 to NE2 (convert HSD to HSE) 
                        ! use in a patch statement 
                        ! follow with AUTOgenerate ANGLes DIHEdrals command 
 !                 HE1 
@@ -3239,7 +3239,7 @@ ACCEP ND1
 IC CE1  CD2  *NE2 HE2   0.0000  0.0000  180.0000  0.0000  0.0000 
 
  
-PRES KAC          0.00 ! patch for Lys (K) acetylation, jal
+PRES KAC           0.000 ! patch for Lys (K) acetylation, jal
 DELETE ATOM HZ1
 DELETE ATOM HZ2
 DELETE ATOM HZ3
@@ -5716,235 +5716,235 @@ CD33A    CD31A    CD31C    ND2A2        0.588  2     0.00 ! RMSE = 1.11304 0.088
 CD33A    CD31A    CD31C    ND2A2        0.736  3     0.00 ! RMSE = 1.11304
 !!  end
 
-CD2O1A   CD32C    CD31C    ND3P3A      1.432    1     0.00 ! PEML by analogy ASN NTER 
-CD2O1A   CD32C    CD31C    ND3P3A      1.356    2   180.00 ! PEML by analogy ASN NTER 
-CD2O1A   CD32C    CD31C    ND3P3A      0.038    3   180.00 ! PEML by analogy ASN NTER 
-ND3P3A   CD31C    CD32A    SD31B       0.562    1   180.00 ! PEML by analogy CYS NTER 
-ND3P3A   CD31C    CD32A    SD31B       0.192    2   180.00 ! PEML by analogy CYS NTER 
-ND3P3A   CD31C    CD32A    SD31B       1.696    3     0.00 ! PEML by analogy CYS NTER 
-CD2O2A   CD31C    CD32A    OD31A       0.834    1     0.00 ! PEML by analogy SER 
-CD2O2A   CD31C    CD32A    OD31A       0.664    2     0.00 ! PEML by analogy SER 
-CD2O2A   CD31C    CD32A    OD31A       1.064    3   180.00 ! PEML by analogy SER 
-CD2O3A   CD31C    CD32A    OD31A       0.834    1     0.00 ! PEML by analogy SER 
-CD2O3A   CD31C    CD32A    OD31A       0.664    2     0.00 ! PEML by analogy SER 
-CD2O3A   CD31C    CD32A    OD31A       1.064    3   180.00 ! PEML by analogy SER 
-CD2O3A   CD31C    CD31A    OD31A       0.834    1     0.00 ! PEML by analogy THR 
-CD2O3A   CD31C    CD31A    OD31A       0.664    2     0.00 ! PEML by analogy THR 
-CD2O3A   CD31C    CD31A    OD31A       1.064    3   180.00 ! PEML by analogy THR 
-CD2O2A   CD31C    CD32A    SD30B       0.834    1     0.00 ! alex by analogy CYS
-CD2O2A   CD31C    CD32A    SD30B       0.664    2     0.00 ! alex by analogy CYS 
-CD2O2A   CD31C    CD32A    SD30B       1.064    3   180.00 ! alex by analogy CYS 
-! FROM ANALOGY ABOVE - PEML: VERIFY !!!
-ND3A3    CD2O1A   CD31C    CD32B       0.200    3     0.00 ! PRO 
-HDA1C    CD31C    CD32A    OD31A       0.270    1     0.00 ! SER/PRO1, 1-propanol 
-HDA1C    CD31C    CD32A    OD31A       0.050    2     0.00 ! SER/PRO1, 1-propanol 
-HDA1C    CD31C    CD32A    OD31A       0.120    3     0.00 ! SER/PRO1, 1-propanol 
-HDA1C    CD31C    CD31A    OD31A       0.270    1     0.00 ! SER/PRO1, 1-propanol 
-HDA1C    CD31C    CD31A    OD31A       0.050    2     0.00 ! SER/PRO1, 1-propanol 
-HDA1C    CD31C    CD31A    OD31A       0.120    3     0.00 ! SER/PRO1, 1-propanol 
-ND3P3A   CD31C    CD32A    OD31A       0.500    2     0.00 ! FROM ANALOGY ABOVE - PEML: VERIFY !!!!!!!!!!!!!!!!!!!!!!!!! 
-ND3P3A   CD31C    CD32A    OD31A       0.500    3     0.00 ! Discovered when doing protein tests using Xiao's proteins 
-ND3P3A   CD31C    CD31A    OD31A       0.500    2     0.00 ! PEML: Appeared on Crambin xtal simulations: THR-NTER 
-ND3P3A   CD31C    CD31A    OD31A       0.500    3     0.00 ! PEML: Appeared on Crambin xtal simulations: THR-NTER 
-CD31A    CD31C    CD2O1A   ND2A1       0.000    1     0.00 ! PRES CT2, guess 
-CD32A    CD31C    CD2O1A   ND2A1       0.000    1     0.00 ! PRES CT2, guess 
-CD32B    CD31C    CD2O1A   ND2A1       0.000    1     0.00 ! PRES CT2, guess 
+CD2O1A   CD32C    CD31C    ND3P3A       1.432  1     0.00 ! PEML by analogy ASN NTER 
+CD2O1A   CD32C    CD31C    ND3P3A       1.356  2   180.00 ! PEML by analogy ASN NTER 
+CD2O1A   CD32C    CD31C    ND3P3A       0.038  3   180.00 ! PEML by analogy ASN NTER 
+ND3P3A   CD31C    CD32A    SD31B        0.562  1   180.00 ! PEML by analogy CYS NTER 
+ND3P3A   CD31C    CD32A    SD31B        0.192  2   180.00 ! PEML by analogy CYS NTER 
+ND3P3A   CD31C    CD32A    SD31B        1.696  3     0.00 ! PEML by analogy CYS NTER 
+CD2O2A   CD31C    CD32A    OD31A        0.834  1     0.00 ! PEML by analogy SER 
+CD2O2A   CD31C    CD32A    OD31A        0.664  2     0.00 ! PEML by analogy SER 
+CD2O2A   CD31C    CD32A    OD31A        1.064  3   180.00 ! PEML by analogy SER 
+CD2O3A   CD31C    CD32A    OD31A        0.834  1     0.00 ! PEML by analogy SER 
+CD2O3A   CD31C    CD32A    OD31A        0.664  2     0.00 ! PEML by analogy SER 
+CD2O3A   CD31C    CD32A    OD31A        1.064  3   180.00 ! PEML by analogy SER 
+CD2O3A   CD31C    CD31A    OD31A        0.834  1     0.00 ! PEML by analogy THR 
+CD2O3A   CD31C    CD31A    OD31A        0.664  2     0.00 ! PEML by analogy THR 
+CD2O3A   CD31C    CD31A    OD31A        1.064  3   180.00 ! PEML by analogy THR 
+CD2O2A   CD31C    CD32A    SD30B        0.834  1     0.00 ! alex by analogy CYS
+CD2O2A   CD31C    CD32A    SD30B        0.664  2     0.00 ! alex by analogy CYS 
+CD2O2A   CD31C    CD32A    SD30B        1.064  3   180.00 ! alex by analogy CYS 
+! FROM ANALOGY ABOVE - PEML: VERIFY  !  
+ND3A3    CD2O1A   CD31C    CD32B        0.200  3     0.00 ! PRO 
+HDA1C    CD31C    CD32A    OD31A        0.270  1     0.00 ! SER/PRO1, 1-propanol 
+HDA1C    CD31C    CD32A    OD31A        0.050  2     0.00 ! SER/PRO1, 1-propanol 
+HDA1C    CD31C    CD32A    OD31A        0.120  3     0.00 ! SER/PRO1, 1-propanol 
+HDA1C    CD31C    CD31A    OD31A        0.270  1     0.00 ! SER/PRO1, 1-propanol 
+HDA1C    CD31C    CD31A    OD31A        0.050  2     0.00 ! SER/PRO1, 1-propanol 
+HDA1C    CD31C    CD31A    OD31A        0.120  3     0.00 ! SER/PRO1, 1-propanol 
+ND3P3A   CD31C    CD32A    OD31A        0.500  2     0.00 ! FROM ANALOGY ABOVE - PEML: VERIFY !!!!!!!!!!!!!!!!!!!!!!!!! 
+ND3P3A   CD31C    CD32A    OD31A        0.500  3     0.00 ! Discovered when doing protein tests using Xiao's proteins 
+ND3P3A   CD31C    CD31A    OD31A        0.500  2     0.00 ! PEML: Appeared on Crambin xtal simulations: THR-NTER 
+ND3P3A   CD31C    CD31A    OD31A        0.500  3     0.00 ! PEML: Appeared on Crambin xtal simulations: THR-NTER 
+CD31A    CD31C    CD2O1A   ND2A1        0.000  1     0.00 ! PRES CT2, guess 
+CD32A    CD31C    CD2O1A   ND2A1        0.000  1     0.00 ! PRES CT2, guess 
+CD32B    CD31C    CD2O1A   ND2A1        0.000  1     0.00 ! PRES CT2, guess 
 ! CT1
-CD33D    OD30C    CD2O3A   CD31C       2.500    2   180.00 ! CT1, MAS 
-CD33D    OD30C    CD2O3A   CD32C       2.500    2   180.00 ! CT1, MAS 
-CD33D    OD30C    CD2O3A   CD33C       2.500    2   180.00 ! CT1, MAS 
-CD33D    OD30C    CD2O3A   OD2C3A      0.229    1     0.00 ! lipids
-CD33D    OD30C    CD2O3A   OD2C3A      3.567    2   180.00 ! lipids
-CD33D    OD30C    CD2O3A   OD2C3A      0.049    3   180.00 ! lipids
-CD33D    OD30C    CD2O3A   OD2C3A      0.040    6   180.00 ! lipids
+CD33D    OD30C    CD2O3A   CD31C        2.500  2   180.00 ! CT1, MAS 
+CD33D    OD30C    CD2O3A   CD32C        2.500  2   180.00 ! CT1, MAS 
+CD33D    OD30C    CD2O3A   CD33C        2.500  2   180.00 ! CT1, MAS 
+CD33D    OD30C    CD2O3A   OD2C3A       0.229  1     0.00 ! lipids
+CD33D    OD30C    CD2O3A   OD2C3A       3.567  2   180.00 ! lipids
+CD33D    OD30C    CD2O3A   OD2C3A       0.049  3   180.00 ! lipids
+CD33D    OD30C    CD2O3A   OD2C3A       0.040  6   180.00 ! lipids
 !alkenes
-CD33A    CD2C1A   CD2C1A   CD33A       0.712    1   180.0  !  Hui-v9
-CD33A    CD2C1A   CD2C1A   CD33A       6.650    2   180.0  !  Hui-v9
-CD33A    CD2C1A   CD2C1A   CD33A       0.420    3     0.0  !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD33A       0.510    1     0.0  !  Hui-v9 
-CD2C1A   CD2C1A   CD32A    CD33A       0.232    2   180.0  !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD33A       0.541    3   180.0  !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD33A       0.099    4   180.0  !  Hui-v9
+CD33A    CD2C1A   CD2C1A   CD33A        0.712  1   180.0  !  Hui-v9
+CD33A    CD2C1A   CD2C1A   CD33A        6.650  2   180.0  !  Hui-v9
+CD33A    CD2C1A   CD2C1A   CD33A        0.420  3     0.0  !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD33A        0.510  1     0.0  !  Hui-v9 
+CD2C1A   CD2C1A   CD32A    CD33A        0.232  2   180.0  !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD33A        0.541  3   180.0  !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD33A        0.099  4   180.0  !  Hui-v9
 !shared by 2PTE and 2HEX
-!CD32A    CD2C1A   CD2C1A   CD33A      -0.811    1     0.0  !  Hui-v9  !convert negative FC/switch phase
-CD32A    CD2C1A   CD2C1A   CD33A       0.811    1   180.0  !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD33A       6.300    2   180.0  !  Hui-v9
-!CD32A    CD2C1A   CD2C1A   CD33A      -0.225    3     0.0  !  Hui-v9  !convert negative FC/switch phase
-CD32A    CD2C1A   CD2C1A   CD33A      0.225    3    180.0  !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD33A       0.265    5     0.0  !  Hui-v9
+!CD32A    CD2C1A   CD2C1A   CD33A       -0.811 1     0.0  !  Hui-v9  !convert negative FC/switch phase
+CD32A    CD2C1A   CD2C1A   CD33A        0.811  1   180.0  !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD33A        6.300  2   180.0  !  Hui-v9
+!CD32A    CD2C1A   CD2C1A   CD33A       -0.225 3     0.0  !  Hui-v9  !convert negative FC/switch phase
+CD32A    CD2C1A   CD2C1A   CD33A        .225   3   180.0  !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD33A        0.265  5     0.0  !  Hui-v9
 !2HEX only
-CD2C1A   CD2C1A   CD32A    CD32A       0.737    1      0.0 !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD32A       0.033    2    180.0 !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD32A       0.436    3    180.0 !  Hui-v9
-CD2C1A   CD2C1A   CD32A    CD32A       0.042    4    180.0 !  Hui-v9
-CD2C1A   CD32A    CD32A    CD33A       0.412    1    180.0 !  Hui-v9
-!CD2C1A   CD32A    CD32A    CD33A      -0.207    2      0.0 !  Hui-v9  !convert negative FC/switch phase
-!CD2C1A   CD32A    CD32A    CD33A      -0.200    3      0.0 !  Hui-v9  !convert negative FC/switch phase
-CD2C1A   CD32A    CD32A    CD33A       0.207    2    180.0 !  Hui-v9
-CD2C1A   CD32A    CD32A    CD33A       0.200    3    180.0 !  Hui-v9
-HD2C1A   CD2C1A   CD2C1A   HD2C1A      5.730    2    180.0 !  Hui-v9 
-HD2C1A   CD2C1A   CD2C1A   CD33A       4.090    2    180.0 !  Hui-v9
-HD2C1A   CD2C1A   CD2C1A   CD32A       5.500    2    180.0 !  Hui-v9
-CD2C1A   CD2C1A   CD33A    HDA3A       0.160    3    180.0 !  Hui-v9
-HD2C1A   CD2C1A   CD33A    HDA3A       1.110    2      0.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD32A        0.737  1      0.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD32A        0.033  2    180.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD32A        0.436  3    180.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    CD32A        0.042  4    180.0 !  Hui-v9
+CD2C1A   CD32A    CD32A    CD33A        0.412  1    180.0 !  Hui-v9
+!CD2C1A   CD32A    CD32A    CD33A       -0.207    2      0.0 !  Hui-v9  !convert negative FC/switch phase
+!CD2C1A   CD32A    CD32A    CD33A       -0.200    3      0.0 !  Hui-v9  !convert negative FC/switch phase
+CD2C1A   CD32A    CD32A    CD33A        0.207  2    180.0 !  Hui-v9
+CD2C1A   CD32A    CD32A    CD33A        0.200  3    180.0 !  Hui-v9
+HD2C1A   CD2C1A   CD2C1A   HD2C1A       5.730  2    180.0 !  Hui-v9 
+HD2C1A   CD2C1A   CD2C1A   CD33A        4.090  2    180.0 !  Hui-v9
+HD2C1A   CD2C1A   CD2C1A   CD32A        5.500  2    180.0 !  Hui-v9
+CD2C1A   CD2C1A   CD33A    HDA3A        0.160  3    180.0 !  Hui-v9
+HD2C1A   CD2C1A   CD33A    HDA3A        1.110  2      0.0 !  Hui-v9
 !3HEX only
-CD32A    CD2C1A   CD2C1A   CD32A      0.367     1    180.0 !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD32A      9.907     2    180.0 !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD32A      0.176     3      0.0 !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD32A      1.074     4      0.0 !  Hui-v9
-CD32A    CD2C1A   CD2C1A   CD32A      0.084     5      0.0 !  Hui-v9
-CD2C1A   CD2C1A   CD32A    HDA2A       1.150    1      0.0 !  Hui-v9
-CD2C1A   CD2C1A   CD32A    HDA2A       0.380    3    180.0 !  Hui-v9
-HD2C1A   CD2C1A   CD32A    HDA2A       0.000    2      0.0 !  Hui-v9
-HD2C1A   CD2C1A   CD32A    CD33A       0.000    2      0.0 !  Hui-v9
-HD2C1A   CD2C1A   CD32A    CD32A       0.000    2      0.0 !  Hui-v9
-HDA3A    CD33A    CD32A    CD2C1A      0.156    3      0.0 !  Hui-v9  
-CD2C1A   CD32A    CD32A    HDA2A       0.156    3      0.0 !  Hui-v9 
-CD2C1A   CD32A    CD32A    CD32A       0.061    1    180.0 !  Hui-v9
-CD2C1A   CD32A    CD32A    CD32A       0.149    2      0.0 !  Hui-v9
-CD2C1A   CD32A    CD32A    CD32A       0.075    3      0.0 !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD32A        0.367  1    180.0 !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD32A        9.907  2    180.0 !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD32A        0.176  3      0.0 !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD32A        1.074  4      0.0 !  Hui-v9
+CD32A    CD2C1A   CD2C1A   CD32A        0.084  5      0.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    HDA2A        1.150  1      0.0 !  Hui-v9
+CD2C1A   CD2C1A   CD32A    HDA2A        0.380  3    180.0 !  Hui-v9
+HD2C1A   CD2C1A   CD32A    HDA2A        0.000  2      0.0 !  Hui-v9
+HD2C1A   CD2C1A   CD32A    CD33A        0.000  2      0.0 !  Hui-v9
+HD2C1A   CD2C1A   CD32A    CD32A        0.000  2      0.0 !  Hui-v9
+HDA3A    CD33A    CD32A    CD2C1A       0.156  3      0.0 !  Hui-v9  
+CD2C1A   CD32A    CD32A    HDA2A        0.156  3      0.0 !  Hui-v9 
+CD2C1A   CD32A    CD32A    CD32A        0.061  1    180.0 !  Hui-v9
+CD2C1A   CD32A    CD32A    CD32A        0.149  2      0.0 !  Hui-v9
+CD2C1A   CD32A    CD32A    CD32A        0.075  3      0.0 !  Hui-v9
 !alkene end 
 !carbonyls
-CD33A    CD31C    CD33A    HDA3A       0.150    3     0.00 ! IBUT, isobutane, 10/07, va
-CD2O1C   CD31C    CD33A    HDA3A       0.200    3     0.00 ! CNEU
-HDP1C    CD2O1C   CD31C    HDA1A       0.200    3     0.00 !
-OD2C1C   CD2O1C   CD31C    HDA1A       0.085    3     0.00 !
-CD33C    CD2O1D   CD33C    HDA3A       0.200    3     0.00 ! acetone
-CD32C    CD2O1D   CD33C    HDA3A       0.200    3     0.00 ! 
-CD32C    CD2O1D   CD32C    HDA2A       0.200    3     0.00 ! 3-pentanone
-CD33C    CD2O1D   CD32C    HDA2A       0.200    3     0.00 ! 
-OD2C1D   CD2O1D   CD33C    HDA3A       0.085    3     0.00 ! acetone, ;
-OD2C1D   CD2O1D   CD32C    HDA2A       0.085    3     0.00 !
-CD2O1D   CD32C    CD33A    HDA3A       0.120    3   180.00 ! 3-pentanone 0.120,
-CD2O1D   CD32C    CD32A    HDA2A       0.200    3   180.00 !2-pentanone
-HDP1C    CD2O1C   CD32C    HDA2A       0.200    3     0.00 ! ethanal
-HDP1C    CD2O1C   CD33C    HDA3A       0.200    3     0.00 !
-CD2O1C   CD32C    CD33A    HDA3A       0.120    3   180.00 ! 
-CD33A    CD32A    CD32C    CD2O1C      0.5501   1     0.00 !  
-CD33A    CD32A    CD32C    CD2O1C      0.9806   2     0.00 !  
-CD33A    CD32A    CD32C    CD2O1C      0.3445   3     0.00 !  
-CD2O1C   CD32C    CD32A    HDA2A       0.200    3   180.00 ! 
-OD2C1C   CD2O1C   CD33C    HDA3A       0.015    3     0.00 !  
-OD2C1C   CD2O1C   CD32C    HDA2A       0.015    3     0.00 ! 
-CD2O1C   CD31G    CD31G    HDA1A       0.5750   1     0.00 !  
-CD2O1C   CD31G    CD31G    HDA1A       0.4780   2     0.00 !  
-CD2O1C   CD31G    CD31G    HDA1A       0.2480   3     0.00 !  
-CD2O1C   CD31G    CD31G    OD31E       0.3100   1     0.00 !  
-CD2O1C   CD31G    CD31G    OD31E       0.1370   2     0.00 !  
-CD2O1C   CD31G    CD31G    OD31E       0.1130   3     0.00 !  
-CD2O1C   CD31G    CD31G    CD31G       1.5480   1   180.00 !   
-CD2O1C   CD31G    CD31G    CD31G       0.3290   2   180.00 !  
-CD2O1C   CD31G    CD31G    CD31G       0.0960   3   180.00 ! 
-CD2O1D   CD31G    CD31G    CD31G       1.5480   1   180.00 ! 
-CD2O1D   CD31G    CD31G    CD31G       0.3290   2   180.00 ! 
-CD2O1D   CD31G    CD31G    CD31G       0.0960   3   180.00 ! 
-CD2O1D   CD31G    CD31G    HDA1A       0.200    3     0.00 ! 
-CD2O1D   CD31G    CD31G    OD31E       0.3100   1     0.00 ! 
-CD2O1D   CD31G    CD31G    OD31E       0.1370   2     0.00 ! 
-CD2O1D   CD31G    CD31G    OD31E       0.1130   3     0.00 ! 
-CD2O1D   CD32F    OD31E    HDP1A        0.5750  1     0.00 ! 
-CD2O1D   CD32F    OD31E    HDP1A        0.4780  2     0.00 ! 
-CD2O1D   CD32F    OD31E    HDP1A        0.2480  3     0.00 ! 
-CD2O1D   CD31G    OD31E    HDP1A        0.5750  1     0.00 ! 
-CD2O1D   CD31G    OD31E    HDP1A        0.4780  2     0.00 ! 
-CD2O1D   CD31G    OD31E    HDP1A        0.2480  3     0.00 ! 
+CD33A    CD31C    CD33A    HDA3A        0.150  3     0.00 ! IBUT, isobutane, 10/07, va
+CD2O1C   CD31C    CD33A    HDA3A        0.200  3     0.00 ! CNEU
+HDP1C    CD2O1C   CD31C    HDA1A        0.200  3     0.00 !
+OD2C1C   CD2O1C   CD31C    HDA1A        0.085  3     0.00 !
+CD33C    CD2O1D   CD33C    HDA3A        0.200  3     0.00 ! acetone
+CD32C    CD2O1D   CD33C    HDA3A        0.200  3     0.00 ! 
+CD32C    CD2O1D   CD32C    HDA2A        0.200  3     0.00 ! 3-pentanone
+CD33C    CD2O1D   CD32C    HDA2A        0.200  3     0.00 ! 
+OD2C1D   CD2O1D   CD33C    HDA3A        0.085  3     0.00 ! acetone, ;
+OD2C1D   CD2O1D   CD32C    HDA2A        0.085  3     0.00 !
+CD2O1D   CD32C    CD33A    HDA3A        0.120  3   180.00 ! 3-pentanone 0.120,
+CD2O1D   CD32C    CD32A    HDA2A        0.200  3   180.00 !2-pentanone
+HDP1C    CD2O1C   CD32C    HDA2A        0.200  3     0.00 ! ethanal
+HDP1C    CD2O1C   CD33C    HDA3A        0.200  3     0.00 !
+CD2O1C   CD32C    CD33A    HDA3A        0.120  3   180.00 ! 
+CD33A    CD32A    CD32C    CD2O1C       0.5501 1     0.00 !  
+CD33A    CD32A    CD32C    CD2O1C       0.9806 2     0.00 !  
+CD33A    CD32A    CD32C    CD2O1C       0.3445 3     0.00 !  
+CD2O1C   CD32C    CD32A    HDA2A        0.200  3   180.00 ! 
+OD2C1C   CD2O1C   CD33C    HDA3A        0.015  3     0.00 !  
+OD2C1C   CD2O1C   CD32C    HDA2A        0.015  3     0.00 ! 
+CD2O1C   CD31G    CD31G    HDA1A        0.5750 1     0.00 !  
+CD2O1C   CD31G    CD31G    HDA1A        0.4780 2     0.00 !  
+CD2O1C   CD31G    CD31G    HDA1A        0.2480 3     0.00 !  
+CD2O1C   CD31G    CD31G    OD31E        0.3100 1     0.00 !  
+CD2O1C   CD31G    CD31G    OD31E        0.1370 2     0.00 !  
+CD2O1C   CD31G    CD31G    OD31E        0.1130 3     0.00 !  
+CD2O1C   CD31G    CD31G    CD31G        1.5480 1   180.00 !   
+CD2O1C   CD31G    CD31G    CD31G        0.3290 2   180.00 !  
+CD2O1C   CD31G    CD31G    CD31G        0.0960 3   180.00 ! 
+CD2O1D   CD31G    CD31G    CD31G        1.5480 1   180.00 ! 
+CD2O1D   CD31G    CD31G    CD31G        0.3290 2   180.00 ! 
+CD2O1D   CD31G    CD31G    CD31G        0.0960 3   180.00 ! 
+CD2O1D   CD31G    CD31G    HDA1A        0.200  3     0.00 ! 
+CD2O1D   CD31G    CD31G    OD31E        0.3100 1     0.00 ! 
+CD2O1D   CD31G    CD31G    OD31E        0.1370 2     0.00 ! 
+CD2O1D   CD31G    CD31G    OD31E        0.1130 3     0.00 ! 
+CD2O1D   CD32F    OD31E    HDP1A        0.5750 1     0.00 ! 
+CD2O1D   CD32F    OD31E    HDP1A        0.4780 2     0.00 ! 
+CD2O1D   CD32F    OD31E    HDP1A        0.2480 3     0.00 ! 
+CD2O1D   CD31G    OD31E    HDP1A        0.5750 1     0.00 ! 
+CD2O1D   CD31G    OD31E    HDP1A        0.4780 2     0.00 ! 
+CD2O1D   CD31G    OD31E    HDP1A        0.2480 3     0.00 ! 
 !bton
-CD33C    CD2O1D   CD32C    CD33A        0.3865  1     0.00 ! 
-CD33C    CD2O1D   CD32C    CD33A        0.1195  2   180.00 ! 
-CD33C    CD2O1D   CD32C    CD33A        0.0911  3     0.00 ! 
-CD33C    CD2O1D   CD32C    CD33A        0.0307  6     0.00 ! 
-OD2C1D   CD2O1D   CD32C    CD33A        0.3890  1   180.00 ! 
-OD2C1D   CD2O1D   CD32C    CD33A        0.2715  2   180.00 ! 
-OD2C1D   CD2O1D   CD32C    CD33A        0.0825  3   180.00 ! 
-OD2C1D   CD2O1D   CD32C    CD33A        0.0164  6     0.00 ! 
+CD33C    CD2O1D   CD32C    CD33A        0.3865 1     0.00 ! 
+CD33C    CD2O1D   CD32C    CD33A        0.1195 2   180.00 ! 
+CD33C    CD2O1D   CD32C    CD33A        0.0911 3     0.00 ! 
+CD33C    CD2O1D   CD32C    CD33A        0.0307 6     0.00 ! 
+OD2C1D   CD2O1D   CD32C    CD33A        0.3890 1   180.00 ! 
+OD2C1D   CD2O1D   CD32C    CD33A        0.2715 2   180.00 ! 
+OD2C1D   CD2O1D   CD32C    CD33A        0.0825 3   180.00 ! 
+OD2C1D   CD2O1D   CD32C    CD33A        0.0164 6     0.00 ! 
 !pald
-OD2C1C   CD2O1C   CD32C    CD33A        0.2416  1   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD33A        0.2059  2   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD33A        0.1496  3   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD33A        0.0765  6   180.00 ! 
-HDP1C    CD2O1C   CD32C    CD33A        0.2240  1     0.00 ! 
-HDP1C    CD2O1C   CD32C    CD33A        0.2179  2   180.00 ! 
-HDP1C    CD2O1C   CD32C    CD33A        0.3116  3     0.00 ! 
-HDP1C    CD2O1C   CD32C    CD33A        0.0606  6     0.00 ! 
+OD2C1C   CD2O1C   CD32C    CD33A        0.2416 1   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD33A        0.2059 2   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD33A        0.1496 3   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD33A        0.0765 6   180.00 ! 
+HDP1C    CD2O1C   CD32C    CD33A        0.2240 1     0.00 ! 
+HDP1C    CD2O1C   CD32C    CD33A        0.2179 2   180.00 ! 
+HDP1C    CD2O1C   CD32C    CD33A        0.3116 3     0.00 ! 
+HDP1C    CD2O1C   CD32C    CD33A        0.0606 6     0.00 ! 
 !bald
-OD2C1C   CD2O1C   CD32C    CD32A        0.3296  1   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD32A        0.1850  2   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD32A        0.1420  3   180.00 ! 
-OD2C1C   CD2O1C   CD32C    CD32A        0.0086  6     0.00 ! 
-HDP1C    CD2O1C   CD32C    CD32A        0.2032  1     0.00 ! 
-HDP1C    CD2O1C   CD32C    CD32A        0.0704  2   180.00 ! 
-HDP1C    CD2O1C   CD32C    CD32A        0.2642  3     0.00 ! 
-HDP1C    CD2O1C   CD32C    CD32A        0.0220  6   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD32A        0.3296 1   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD32A        0.1850 2   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD32A        0.1420 3   180.00 ! 
+OD2C1C   CD2O1C   CD32C    CD32A        0.0086 6     0.00 ! 
+HDP1C    CD2O1C   CD32C    CD32A        0.2032 1     0.00 ! 
+HDP1C    CD2O1C   CD32C    CD32A        0.0704 2   180.00 ! 
+HDP1C    CD2O1C   CD32C    CD32A        0.2642 3     0.00 ! 
+HDP1C    CD2O1C   CD32C    CD32A        0.0220 6   180.00 ! 
 !ibld
-OD2C1C   CD2O1C   CD31C    CD33A        0.3499  1   180.00 ! 
-OD2C1C   CD2O1C   CD31C    CD33A        0.4616  2   180.00 ! 
-OD2C1C   CD2O1C   CD31C    CD33A        0.3495  3   180.00 ! 
-OD2C1C   CD2O1C   CD31C    CD33A        0.0181  6     0.00 ! 
-HDP1C    CD2O1C   CD31C    CD33A        0.0438  1   180.00 ! 
-HDP1C    CD2O1C   CD31C    CD33A        0.0154  2   180.00 ! 
-HDP1C    CD2O1C   CD31C    CD33A        0.1205  3     0.00 ! 
-HDP1C    CD2O1C   CD31C    CD33A        0.0017  6     0.00 ! 
+OD2C1C   CD2O1C   CD31C    CD33A        0.3499 1   180.00 ! 
+OD2C1C   CD2O1C   CD31C    CD33A        0.4616 2   180.00 ! 
+OD2C1C   CD2O1C   CD31C    CD33A        0.3495 3   180.00 ! 
+OD2C1C   CD2O1C   CD31C    CD33A        0.0181 6     0.00 ! 
+HDP1C    CD2O1C   CD31C    CD33A        0.0438 1   180.00 ! 
+HDP1C    CD2O1C   CD31C    CD33A        0.0154 2   180.00 ! 
+HDP1C    CD2O1C   CD31C    CD33A        0.1205 3     0.00 ! 
+HDP1C    CD2O1C   CD31C    CD33A        0.0017 6     0.00 ! 
 !carbonyls end
 !! MGUAN/BGUAN fylin
-CD2N1A   ND2P1A   CD32A    HDA2C       0.000    3     0.00 ! ARG, c22
-HDP1B    ND2P1A   CD32A    HDA2C       0.000    3     0.00 ! ARG, c22
+CD2N1A   ND2P1A   CD32A    HDA2C        0.000  3     0.00 ! ARG, c22
+HDP1B    ND2P1A   CD32A    HDA2C        0.000  3     0.00 ! ARG, c22
 
 !DMP, lipids & DNA backbone
-CD33C    OD30B    PD1A     OD2C2B      0.8520   1     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD2C2B      0.3200   2   180.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD2C2B      0.0732   3     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD2C2B      0.1860   4     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD2C2B      0.0002   5     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD2C2B      0.0151   6     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.6417   1   180.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.7706   2     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.1118   3     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.0905   4     0.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.0532   5   180.00 ! DMP, a&a
-CD33C    OD30B    PD1A     OD30B       0.0167   6   180.00 ! DMP, a&a
-PD1A     OD30B    CD33C    HDA3A       0.000    3     0.00 ! DMP, lipids & nucleic acids
+CD33C    OD30B    PD1A     OD2C2B       0.8520 1     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B       0.3200 2   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B       0.0732 3     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B       0.1860 4     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B       0.0002 5     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD2C2B       0.0151 6     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.6417 1   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.7706 2     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.1118 3     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.0905 4     0.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.0532 5   180.00 ! DMP, a&a
+CD33C    OD30B    PD1A     OD30B        0.0167 6   180.00 ! DMP, a&a
+PD1A     OD30B    CD33C    HDA3A        0.000  3     0.00 ! DMP, lipids & nucleic acids
 
 !phospates
 ! MP_1 below, lipid and nucleic acid phosphodiester dihedrals in respective toppar files
-CD33C    OD30D    PD1A     OD2C2B       0.1000  3     0.00 ! MP_1
-CD33C    OD30D    PD1A     OD31D        0.5000  3     0.00 ! MP_1
-CD33C    OD30D    PD1A     OD31D        0.9500  2     0.00 ! 
-PD1A     OD30D    CD33C    HDA3A        0.0000  3     0.00 ! MP_1
-OD30D    PD1A     OD31D    HDP1A        0.2000  1   180.00 ! MP_1
-OD30D    PD1A     OD31D    HDP1A        1.0000  2     0.00 ! 
-HDP1A    OD31D    PD1A     OD2C2B       0.2000  3     0.00 ! MP_1
-HDP1A    OD31D    PD1A     OD31D        0.3000   3    0.00 ! MP_0 specific, c36
+CD33C    OD30D    PD1A     OD2C2B       0.1000 3     0.00 ! MP_1
+CD33C    OD30D    PD1A     OD31D        0.5000 3     0.00 ! MP_1
+CD33C    OD30D    PD1A     OD31D        0.9500 2     0.00 ! 
+PD1A     OD30D    CD33C    HDA3A        0.0000 3     0.00 ! MP_1
+OD30D    PD1A     OD31D    HDP1A        0.2000 1   180.00 ! MP_1
+OD30D    PD1A     OD31D    HDP1A        1.0000 2     0.00 ! 
+HDP1A    OD31D    PD1A     OD2C2B       0.2000 3     0.00 ! MP_1
+HDP1A    OD31D    PD1A     OD31D        0.3000 3    0.00 ! MP_0 specific, c36
 !phosphates end
 
 !sulfate, sulfonate, sulfamate, a&a
-OD2C2B   SD1A     CD33C    HDA3A     0.280    3     0.00
-SD1A     OD30B    CD33C    HDA3A     0.200    3     0.00
-OD2C2B   SD1A     OD30B    CD33C     0.200    3     0.00
-OD30E    CD32A    CD33A    HDA3A     0.175    3     0.00
-CD32C    ND2A2    SD1A     OD2C2B    0.500    3     0.00
-SD1A     ND2A2    CD32C    HDA2A     0.200    3     0.00
-SD1A     ND2A2    CD32C    CD33C     0.500    3     0.00
-OD2C2B   SD1A     ND2A2    HDP1A     0.200    3     0.00
-ND2A2    CD32C    CD33C    HDA3A     0.200    3     0.00
-HDP1A    ND2A2    CD32C    CD33C     0.200    3     0.00
-HDA2A    CD32C    CD33C    HDA3A     0.200    3     0.00
-CD33C    ND2A2    SD1A     OD2C2B    0.200    3     0.00
-SD1A     ND2A2    CD33C    HDA3A     0.200    3     0.00
+OD2C2B   SD1A     CD33C    HDA3A        0.280  3     0.00
+SD1A     OD30B    CD33C    HDA3A        0.200  3     0.00
+OD2C2B   SD1A     OD30B    CD33C        0.200  3     0.00
+OD30E    CD32A    CD33A    HDA3A        0.175  3     0.00
+CD32C    ND2A2    SD1A     OD2C2B       0.500  3     0.00
+SD1A     ND2A2    CD32C    HDA2A        0.200  3     0.00
+SD1A     ND2A2    CD32C    CD33C        0.500  3     0.00
+OD2C2B   SD1A     ND2A2    HDP1A        0.200  3     0.00
+ND2A2    CD32C    CD33C    HDA3A        0.200  3     0.00
+HDP1A    ND2A2    CD32C    CD33C        0.200  3     0.00
+HDA2A    CD32C    CD33C    HDA3A        0.200  3     0.00
+CD33C    ND2A2    SD1A     OD2C2B       0.200  3     0.00
+SD1A     ND2A2    CD33C    HDA3A        0.200  3     0.00
 
 ! N-ethylacetamide, jal
-CD2O1A  ND2A2    CD32C    CD33A        0.250    1     0.00 ! jal 03/26/18 manual opt
-CD2O1A  ND2A2    CD32C    CD33A        0.350    2     0.00 ! jal 03/26/18 manual opt
-ND2A2   CD32C    CD33A    HDA3A        0.100    3     0.00 ! jal 03/26/18 manual opt
-HDP1A   ND2A2    CD32C    CD33A        0.550    1     0.00 ! jal 03/26/18 manual opt
-HDP1A   ND2A2    CD32C    CD33A        0.250    3     0.00 ! jal 03/26/18 manual opt
+CD2O1A  ND2A2    CD32C    CD33A         0.250  1     0.00 ! jal 03/26/18 manual opt
+CD2O1A  ND2A2    CD32C    CD33A         0.350  2     0.00 ! jal 03/26/18 manual opt
+ND2A2   CD32C    CD33A    HDA3A         0.100  3     0.00 ! jal 03/26/18 manual opt
+HDP1A   ND2A2    CD32C    CD33A         0.550  1     0.00 ! jal 03/26/18 manual opt
+HDP1A   ND2A2    CD32C    CD33A         0.250  3     0.00 ! jal 03/26/18 manual opt
 ! N-propylacetamide, jal
-CD2O1A  ND2A2    CD32C    CD32A        0.250    1     0.00 ! jal 04/05/18 from NEA
-CD2O1A  ND2A2    CD32C    CD32A        0.350    2     0.00 ! jal 04/05/18 from NEA
-ND2A2   CD32C    CD32A    HDA2A        0.200    3     0.00 ! from GLN, alkanes
-CD33A   CD32A    CD32C    ND2A2        0.500    1   180.00 ! jal 04/05/18 manual opt
-CD33A   CD32A    CD32C    ND2A2        0.375    2     0.00
-CD33A   CD32A    CD32C    ND2A2        0.250    3     0.00
-HDP1A   ND2A2    CD32C    CD32A        0.250    3     0.00 ! jal 04/05/18 from NEA
+CD2O1A  ND2A2    CD32C    CD32A         0.250  1     0.00 ! jal 04/05/18 from NEA
+CD2O1A  ND2A2    CD32C    CD32A         0.350  2     0.00 ! jal 04/05/18 from NEA
+ND2A2   CD32C    CD32A    HDA2A         0.200  3     0.00 ! from GLN, alkanes
+CD33A   CD32A    CD32C    ND2A2         0.500  1   180.00 ! jal 04/05/18 manual opt
+CD33A   CD32A    CD32C    ND2A2         0.375  2     0.00
+CD33A   CD32A    CD32C    ND2A2         0.250  3     0.00
+HDP1A   ND2A2    CD32C    CD32A         0.250  3     0.00 ! jal 04/05/18 from NEA
 
 IMPROPER 
 ! 
@@ -7918,7 +7918,7 @@ OD2C1B   0.0   -0.2030     1.7740 ! NA bases carbonyl O, jal
 OD2C1C   0.0   -0.1750     1.8750 ! aldehydes
 OD2C1D   0.0   -0.2000     1.8500 ! ketones/aldehydes
 OD2C2A   0.0   -0.3000     1.8200 ! ACET, fylin, mar27, 2018
-OD2C2B   0.0   -0.1900     1.8650 ! DMP, cmb, 06/09, lipids
+OD2C2B   0.0   -0.1900     1.8650 ! DMP, cmb, lipids & nucleic acids
 OD2C3A   0.0   -0.1600     1.8800 ! !  0.0 -0.18 1.35   ! MAS,ACEH EML 
 OD2C3B   0.0   -0.1800     1.7500 ! from OD2C3B for lipids ! MAS,ACEH EML  JC-v2-24
 ! 
