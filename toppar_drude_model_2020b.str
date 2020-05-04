@@ -4715,56 +4715,6 @@ IC  H1  C2 *C1 H3   1.1108  111.57 -120.15  110.12   1.1112
 IC  H1  C1 C2  O2   1.1108  111.57    0.00  119.08   1.2536 
 PATCH FIRST NONE LAST NONE
  
-!dimethylphosphate. note the lipid vs. nucleic acid (DMPN) models. These have to be
-!reconciled in 2017. 
-!Lipid DMPL and associated parameters moved to toppar_drude_lipid_2017*.str
-
-RESI DMPN         -1.000 ! Dimethylphosphate, nucleic acids, a&a
-GROUP
-ATOM P    PD1A     1.192   ALPHA -0.974  THOLE 2.098 !         H11
-ATOM O13  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083 !         |
-ATOM O14  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083 !    H12--C1--H13  
-ATOM O11  OD30B   -0.520   ALPHA -0.901  THOLE 0.181 !         |
-ATOM O12  OD30B   -0.520   ALPHA -0.901  THOLE 0.181 !         O11
-ATOM C1   CD33C    0.202   ALPHA -1.642  THOLE 0.862 !         |
-ATOM H11  HDA3A    0.026                             !    O14==P--O13(-)
-ATOM H12  HDA3A    0.026                             !         |
-ATOM H13  HDA3A    0.026                             !         O13
-ATOM C2   CD33C    0.202   ALPHA -1.642  THOLE 0.862 !         |
-ATOM H21  HDA3A    0.026                             !    H22--C2--C23
-ATOM H22  HDA3A    0.026                             !         |
-ATOM H23  HDA3A    0.026                             !         H21
-
-BOND P      O11    P      O12    P      O13    P      O14
-BOND O11    C1     O12    C2
-BOND C1     H11    C1     H12    C1     H13
-BOND C2     H21    C2     H22    C2     H23
- 
-ANISOTROPY O11 O13 O12 O14 A11 1.0000  A22 0.6000
-ANISOTROPY O12 O14 O11 O13 A11 1.0000  A22 0.6000
-ANISOTROPY O13 P   O11 O12 A11 0.6000  A22 1.0000
-ANISOTROPY O14 P   O12 O11 A11 0.6000  A22 1.0000
- 
-IC   O11 P   O12 C2      1.5837  102.73   72.47  116.87   1.4386
-IC   O12 P   O11 C1      1.5843  102.73   72.47  116.85   1.4394
-IC   O13 P   O11 C1      1.4910  107.70  -41.57  116.85   1.4394
-IC   O14 P   O12 C2      1.4906  107.67  -41.56  116.87   1.4386
-IC   H11 C1  O11 P       1.1128  110.79  -42.95  116.85   1.5837
-IC   H12 C1  O11 P       1.1118  109.92   77.01  116.85   1.5837
-IC   H13 C1  O11 P       1.1095  109.84 -163.26  116.85   1.5837
-IC   H21 C2  O12 P       1.1125  110.79  -42.95  116.87   1.5843
-IC   H22 C2  O12 P       1.1123  109.91   77.00  116.87   1.5843
-IC   H23 C2  O12 P       1.1094  109.84 -163.30  116.87   1.5843
-IC   O12 O11 *P  O13     1.5843  102.73 -114.04  107.70   1.4910
-IC   O12 O11 *P  O14     1.5843  102.73  113.68  108.15   1.4906
-IC   P   O11 C1  H11     1.5837  116.85  -42.95  110.79   1.1128
-IC   H11 O11 *C1 H12     1.1128  110.79  119.96  109.92   1.1118
-IC   H11 O11 *C1 H13     1.1128  110.79 -120.31  109.84   1.1095
-IC   P   O12 C2  H21     1.5843  116.87  -42.95  110.79   1.1125
-IC   H21 O12 *C2 H22     1.1125  110.79  119.95  109.91   1.1123
-IC   H21 O12 *C2 H23     1.1125  110.79 -120.35  109.84   1.1094
-PATCH FIRST NONE LAST NONE
-
 RESI MP_0          0.000 ! Methylphosphate, neutral, a&a
 GROUP
 ATOM O1      OD30D    -0.520  ALPHA -0.901  THOLE 0.811   !           H11

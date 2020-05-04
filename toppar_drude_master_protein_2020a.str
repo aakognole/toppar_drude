@@ -7917,17 +7917,17 @@ OD2C1C   0.0   -0.1750     1.8750 ! aldehydes
 OD2C1D   0.0   -0.2000     1.8500 ! ketones/aldehydes
 OD2C2A   0.0   -0.3000     1.8200 ! ACET, fylin, mar27, 2018
 OD2C2B   0.0   -0.1900     1.9700 ! DMP, cmb, 06/09, lipids
-OD2C2C   0.0   -0.0700     1.8650 ! DMP, nucleic acids
+OD2C2C   0.0   -0.1900     1.8650 ! DMP, nucleic acids
 OD2C3A   0.0   -0.1600     1.8800 ! !  0.0 -0.18 1.35   ! MAS,ACEH EML 
 OD2C3B   0.0   -0.1800     1.7500 ! from OD2C3B for lipids ! MAS,ACEH EML  JC-v2-24
 ! 
 OD30A    0.0   -0.0600     1.7400 ! ether, 
 OD30B    0.0   -0.1700     1.7700 ! DMP, cmb, 06/09, lipids, merge with NA phosphate post 2017
 !! remove comments and following terms upon completion of RNA/DNA testing
-!!OD30BN   0.0   -0.1700     1.7700 ! DMP, nucleic acids, reset to OD30B, alex
-!!OD30BR   0.0   -0.1700     1.7700 ! DMP, nucleic acids, copied for RNA, jal, reset to OD30B, alex
-OD30BN   0.0   -0.0200     1.7500 ! DMP, nucleic acids
-OD30BR   0.0   -0.0200     1.7500 ! DMP, nucleic acids, copied for RNA, jal
+OD30BN   0.0   -0.1700     1.7700 ! DMP, nucleic acids, reset to OD30B, alex
+OD30BR   0.0   -0.1700     1.7700 ! DMP, nucleic acids, copied for RNA, jal, reset to OD30B, alex
+!!OD30BN   0.0   -0.0200     1.7500 ! DMP, nucleic acids
+!!OD30BR   0.0   -0.0200     1.7500 ! DMP, nucleic acids, copied for RNA, jal
 OD30C    0.0   -0.1720     1.7000 ! Of the MAS/ACEH series OD30C and OD30D is the only different parameter
 OD30CL   0.0   -0.1220     1.7500 ! from OD30CL for lipids: MAS/ACEH series OD30C and OD30D is the only different parameter
 OD30D    0.0   -0.1720     1.7100 ! protonated hydroxyl in an acid (ACEH), PEML
@@ -7953,7 +7953,7 @@ SD2C2A   0.0   -0.2000     2.1700 ! MES, thiolates
 SD2C2B   0.0   -0.1000     2.2600 ! ETS
 ! Phosphorous 
 PD1A     0.0   -0.2700     1.9000 ! DMP, lipids
-PD1AN    0.0   -0.3200     1.9000 ! DMP, nucleic acids
+PD1AN    0.0   -0.2700     1.9000 ! -0.3200     1.9000 ! DMP, nucleic acids
 ! Halogens
 ! halogenated ethanes
 FDA1     0.0   -0.1750     1.6200 ! FETH, DFET 
