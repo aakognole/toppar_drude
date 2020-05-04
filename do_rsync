@@ -1,1 +1,3 @@
 rsync -auzP ./*str akognole@pamlico.umaryland.edu:/raid/akognole/param_qc/toppar/toppar_drude_2020a/
+rsync -auzP ./*a.str akognole@pamlico.umaryland.edu:/raid/akognole/shared/drude_2020/2020a/
+rsync -auzP ./*b.str akognole@pamlico.umaryland.edu:/raid/akognole/shared/drude_2020/2020b/
