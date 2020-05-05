@@ -1327,7 +1327,6 @@ IC CE1  CG   *ND1 HD1   1.3262 108.9000  171.4900 126.0900  1.0018
 IC NE2  CG   *CD2 HD2   1.3727 106.9300 -174.4900 128.4100  1.0867 
  
 RESI ILE           0.000 !nomenclature of CD changed to CD1 to conform to PDB standard 
-                         ! nomenclature of CD changed to CD1 to conform to PDB standard 
 ! 
 !     |    HG21 HG22 
 !  HN-N      | / 
@@ -2419,24 +2418,28 @@ IC HY1    CY     *CAY   HY2      0.0000    0.00  120.00    0.00   0.0000
 IC HY1    CY     *CAY   HY3      0.0000    0.00 -120.00    0.00   0.0000 
  
 !correct once neutral amine electrostatic terms are available 
-!PRES NNEU          0.000 ! neutral N-terminus; charges from LSN 
+!PRES NNEU          0.000 ! neutral N-terminus; charges from MAM1 
 !                         ! use in generate statement 
-!!         HT1 
-!!        / 
-!! --CA--N--HT2 
-!!   | 
-!!   HA 
+!!     LPD1 HT1 
+!!       : / 
+!! --CA--N--LPX 
+!!   |     \
+!!   HA     HT2
 !! 
 !DELETE ATOM HN 
 !GROUP 
-!ATOM N    NH2     -0.960 
-!ATOM HT1  H        0.340 
-!ATOM HT2  H        0.340 
-!ATOM CA   CT1      0.190 
-!ATOM HA   HB       0.090 
-!BOND N      HT1    N      HT2 
-!DONOR HT1 N 
-!DONOR HT2 N 
+!ATOM N    ND3A2    0.050   ALPHA -1.450  THOLE  1.055 ! based on MAM1
+!ATOM HT1  HDP1A    0.192                              ! based on MAM1 
+!ATOM HT2  HDP1A    0.192                              ! based on MAM1 
+!ATOM CA   CD31C   -0.110   ALPHA -1.066  THOLE  1.141 ! based on NTER, charge adjusted 
+!ATOM HA   HDA1C    0.104                              ! based on NTER, charge adjusted 
+!ATOM LPD1 LPD     -0.428			       ! based on MAM1
+!ATOM LPX  LPD      0.000			       ! based on MAM1
+!BOND N      HT1    N      HT2
+!BOND N      LPD1   N      LPX
+!LONEPAIR bisector LPX N1 HN1 HN2 distance 0.605 angle 0.0 dihe 0.0
+!LONEPAIR relative LPD1 N1 LPX C1 distance 0.280 angle 105.42 dihe 180.0
+!ANISOTROPY       N1      C1     HN1    HN2  A11  0.85 A22  1.05
 !IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000 
 !IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000 
  
@@ -3195,13 +3198,13 @@ IC 2C   3N   3CA  3C    0.0000  0.0000 180.0000  0.0000  0.0000
 IC 2C   3CA  *3N  3HN   0.0000  0.0000 180.0000  0.0000  0.0000 
  
 PRES HS2           0.000 ! Patch for neutral His, move proton from ND1 to NE2 (convert HSD to HSE) 
-                       ! use in a patch statement 
+                       ! use in a patch statement ! updated based on HSE update by fylin
                        ! follow with AUTOgenerate ANGLes DIHEdrals command 
 !                 HE1 
 !                 / 
 !   HB1    ND1--CE1 
 !   |     /      | 
-!  -CB--CG       | 
+!  -CB--CG   LP  | 
 !   |     \      | 
 !   HB2    CD2--NE2 
 !           |     \ 
@@ -3210,26 +3213,27 @@ PRES HS2           0.000 ! Patch for neutral His, move proton from ND1 to NE2 (c
 DELETE ATOM HD1 
 DELETE ATOM LPE2 
 DELETE ACCE NE2 
- 
 GROUP 
-ATOM CB   CD32A    0.017  ALPHA -1.739  THOLE 0.399 !charge adjusted 
-ATOM HB1  HDA2A    0.078 
-ATOM HB2  HDA2A    0.078 
-ATOM ND1  ND2R5B   0.000  ALPHA -1.146  THOLE 0.816 
-ATOM LPD1 LPD     -0.365 
-ATOM NE2  ND2R5A  -0.040  ALPHA -1.522  THOLE 1.114 
-ATOM HE2  HDP1A    0.256 
-ATOM CG   CD2R5A  -0.252  ALPHA -1.272  THOLE 1.190 
-ATOM CE1  CD2R5B   0.064  ALPHA -1.493  THOLE 1.297 
-ATOM HE1  HDR5B   -0.018 
-ATOM CD2  CD2R5A   0.141  ALPHA -1.515  THOLE 1.190 
-ATOM HD2  HDR5A    0.041 
+ATOM CB   CD32A    0.015  ALPHA -1.314  THOLE 0.357
+ATOM HB1  HDA2A    0.039
+ATOM HB2  HDA2A    0.039
+ATOM ND1  ND2R5B   0.000  ALPHA -1.522  THOLE 1.114
+ATOM LPD1 LPD     -0.252
+ATOM NE2  ND2R5A  -0.159  ALPHA -1.146  THOLE 0.816
+ATOM HE2  HDP1A    0.236
+ATOM CG   CD2R5A  -0.174  ALPHA -1.272  THOLE 1.190
+ATOM CE1  CD2R5B  -0.006  ALPHA -1.493  THOLE 1.297
+ATOM HE1  HDR5B    0.145
+ATOM CD2  CD2R5A   0.027  ALPHA -1.515  THOLE 1.190
+ATOM HD2  HDR5A    0.090
+ATOM LPA  LP5N     0.000
  
 BOND NE2  HE2 
 BOND ND1  LPD1 
  
 IMPR NE2  CD2  CE1  HE2 
- 
+
+LONEPAIR bisector LPA ND1 CG CE1 distance  1.173 angle   0.0 dihe 0.0 ! fylin
 LONEPAIR bisector LPD1 ND1 CE1 CG   distance 0.35 angle 179.99 dihe 179.99 
 ANISOTROPY        ND1 LPD1 CE1 CG   A11 0.808   A22 1.384 
  
@@ -3536,8 +3540,6 @@ CD2C1A   HD2C1A   354.60      1.09075 !   Hui-v9
 CD2C1A   CD2C1A   489.90      1.33639 !   Hui-v9
 CD2C1A   CD32A    328.30      1.49363 !   Hui-v9
 CD2C1A   CD33A    333.90      1.49730 !   Hui-v9
-!!CD2A1A HD2A1A   344.30      1.087 !   Hui-v9 !terminal =CH2 ??
-!!CD2C1A CD2A1A   589.70      1.324 !   Hui-v9 !terminal =CH2 ??
 !alkenes end
 !carbonyls
 CD2O1C   CD31C    245.00      1.491 !
@@ -4212,10 +4214,6 @@ HD2C1A   CD2C1A   CD32A     45.66    117.891 !  Hui-v9
 HD2C1A   CD2C1A   CD33A     47.71    115.409 !  Hui-v9
 CD2C1A   CD32A    CD33A     63.53    107.544 !  Hui-v9
 CD2C1A   CD32A    CD32A     64.33    112.237 !  Hui-v9
-!CD2A1A   CD2C1A   HD2C1A    50.04    120.94 !  Hui-v9 terminal =CH2??
-!CD2C1A   CD2A1A   HD2A1A    50.04    120.94 !  Hui-v9
-!HD2A1A   CD2A1A   HD2A1A    50.04    120.94 !  Hui-v9
-!CD2A1A   CD2C1A   CD32A     64.33    123.42 !  Hui-v9
 !alkenes end
 !carbonyls
 CD2O1D   CD33C    HDA3A     38.70    109.30 ! 
@@ -5766,10 +5764,8 @@ CD2C1A   CD2C1A   CD32A    CD33A        0.232  2   180.0  !  Hui-v9
 CD2C1A   CD2C1A   CD32A    CD33A        0.541  3   180.0  !  Hui-v9
 CD2C1A   CD2C1A   CD32A    CD33A        0.099  4   180.0  !  Hui-v9
 !shared by 2PTE and 2HEX
-!CD32A    CD2C1A   CD2C1A   CD33A       -0.811 1     0.0  !  Hui-v9  !convert negative FC/switch phase
 CD32A    CD2C1A   CD2C1A   CD33A        0.811  1   180.0  !  Hui-v9
 CD32A    CD2C1A   CD2C1A   CD33A        6.300  2   180.0  !  Hui-v9
-!CD32A    CD2C1A   CD2C1A   CD33A       -0.225 3     0.0  !  Hui-v9  !convert negative FC/switch phase
 CD32A    CD2C1A   CD2C1A   CD33A        .225   3   180.0  !  Hui-v9
 CD32A    CD2C1A   CD2C1A   CD33A        0.265  5     0.0  !  Hui-v9
 !2HEX only
@@ -5778,8 +5774,6 @@ CD2C1A   CD2C1A   CD32A    CD32A        0.033  2    180.0 !  Hui-v9
 CD2C1A   CD2C1A   CD32A    CD32A        0.436  3    180.0 !  Hui-v9
 CD2C1A   CD2C1A   CD32A    CD32A        0.042  4    180.0 !  Hui-v9
 CD2C1A   CD32A    CD32A    CD33A        0.412  1    180.0 !  Hui-v9
-!CD2C1A   CD32A    CD32A    CD33A       -0.207    2      0.0 !  Hui-v9  !convert negative FC/switch phase
-!CD2C1A   CD32A    CD32A    CD33A       -0.200    3      0.0 !  Hui-v9  !convert negative FC/switch phase
 CD2C1A   CD32A    CD32A    CD33A        0.207  2    180.0 !  Hui-v9
 CD2C1A   CD32A    CD32A    CD33A        0.200  3    180.0 !  Hui-v9
 HD2C1A   CD2C1A   CD2C1A   HD2C1A       5.730  2    180.0 !  Hui-v9 
@@ -5904,7 +5898,7 @@ CD33C    OD30B    PD1A     OD30B        0.0532 5   180.00 ! DMP, a&a
 CD33C    OD30B    PD1A     OD30B        0.0167 6   180.00 ! DMP, a&a
 PD1A     OD30B    CD33C    HDA3A        0.000  3     0.00 ! DMP, lipids & nucleic acids
 
-!phospates
+!phosphates
 ! MP_1 below, lipid and nucleic acid phosphodiester dihedrals in respective toppar files
 CD33C    OD30D    PD1A     OD2C2B       0.1000 3     0.00 ! MP_1
 CD33C    OD30D    PD1A     OD31D        0.5000 3     0.00 ! MP_1
@@ -6041,8 +6035,6 @@ CD2O3A   OD31F    CD33C    OD2C3A     85.000   0     0.00 ! ACEH, PEML
 CD2O3A   OD31F    CD33D    OD2C3A     85.000   0     0.00 ! ACEH, PEML 
 !alkenes
 CD2C1A   CD32A    CD2C1A    HD2C1A     1.100     2    180.0 ! Hui-v9
-!!CD2C1A   HD2C1A   CD2A1A    HD2A1A     1.100     2    180.0 ! Hui-v9
-!!CD2A1A   CD32A    CD2C1A    HD2C1A     1.100     2    180.0 ! Hui-v9
 CD2C1A   CD33A    CD2C1A    HD2C1A     1.100     2    180.0 ! Hui-v9
 CD2C1A   CD2C1A   CD32A     HD2C1A     1.100     2    180.0 ! Hui-v9 
 !alkenes end
