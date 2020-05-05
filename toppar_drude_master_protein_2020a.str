@@ -7916,7 +7916,7 @@ OD2C1B   0.0   -0.2030     1.7740 ! NA bases carbonyl O, jal
 OD2C1C   0.0   -0.1750     1.8750 ! aldehydes
 OD2C1D   0.0   -0.2000     1.8500 ! ketones/aldehydes
 OD2C2A   0.0   -0.3000     1.8200 ! ACET, fylin, mar27, 2018
-OD2C2B   0.0   -0.1900     1.9700 ! DMP, cmb, 06/09, lipids
+OD2C2B   0.0   -0.1900     1.8650 ! DMP, cmb, 06/09, lipids
 OD2C2C   0.0   -0.1900     1.8650 ! DMP, nucleic acids
 OD2C3A   0.0   -0.1600     1.8800 ! !  0.0 -0.18 1.35   ! MAS,ACEH EML 
 OD2C3B   0.0   -0.1800     1.7500 ! from OD2C3B for lipids ! MAS,ACEH EML  JC-v2-24
