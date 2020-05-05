@@ -8095,8 +8095,7 @@ MAGD    ND2R6D -0.06991  3.37008 ! Thy-N1
 MAGD    ND2B1  -0.10818  3.10817 ! Cyt-N4, Ade-N6, Gua-N2
 MAGD    OD2C1A -0.10050  2.72900 ! protein backbone/amide LPDO1 on OD2C1A
 MAGD    OD2C1B -0.28833  2.43438 ! Cyt-O2, Thy-O2/O4, Ura-O2/O4, Gua-O6
-MAGD    OD2C2B -0.31211  2.59990 ! phosphate anionic O, lipids
-MAGD    OD2C2B -0.31211  2.59990 ! phosphate anionic O, nucleic acid
+MAGD    OD2C2B -0.31211  2.59990 ! phosphate anionic O, lipids & nucleic acids
 MAGD    OD30B  -0.40592  4.40157 ! phosphate ester O, lipids & nucleic acids
 MAGD    OD30BR -0.40592  4.40157 ! phosphate ester O, nucleic acids, RNA specific
 MAGD    OD30D  -0.40592  2.25157 ! phosphate ester O, MP_1
@@ -8194,10 +8193,8 @@ CLDR1   OD2C1D -0.30000  3.32000 ! from CLDR1 OD2C1A, NMA (with carb.)
 DCL2    OD2C1D -0.10000  3.32000 ! from DCL2  OD2C1A, NMA (with carb.)
 CLDR1   OD2C2A -0.13500  3.49000 ! CHLB..ACET
 DCL2    OD2C2A -0.13000  3.49000 ! CHLB..ACET
-CLDR1   OD2C2B -0.13500  3.49000 ! from CLDR1 OD2C2A, ACET, alex, for phosphate (with lipids)
-DCL2    OD2C2B -0.13000  3.49000 ! from DCL2  OD2C2A, ACET, alex                (with lipids)
-CLDR1   OD2C2B -0.13500  3.49000 ! from CLDR1 OD2C2A, ACET, alex, for phosphate (with na)
-DCL2    OD2C2B -0.13000  3.49000 ! from DCL2  OD2C2A, ACET, alex                (with na)
+CLDR1   OD2C2B -0.13500  3.49000 ! from CLDR1 OD2C2A, ACET, alex, for phosphate (with lipids & na)
+DCL2    OD2C2B -0.13000  3.49000 ! from DCL2  OD2C2A, ACET, alex                (with lipids & na)
 CLDR1   OD2C3A -0.30000  3.32000 ! from CLDR1 OD2C1A, NMA, alex, ester (with lipids)
 DCL2    OD2C3A -0.10000  3.32000 ! from DCL2  OD2C1A, NMA, alex  (with lipids)
 CLDR1   OD2C3B -0.30000  3.32000 ! from CLDR1 OD2C1A, NMA ester (with lipids)
@@ -8264,10 +8261,8 @@ DCL3    OD2C1C -0.25000  3.48000 ! from DCL3  OD2C1A, NMA (with carb.)
 CLDA1   OD2C1D -0.30000  3.10000 ! from CLDA1 OD2C1A, NMA (with carb.)
 CLDA3   OD2C1D -0.10000  3.26000 ! from CLDA3 OD2C1A, NMA (with carb.)
 DCL3    OD2C1D -0.25000  3.48000 ! from DCL3  OD2C1A, NMA (with carb.)
-CLDA1   OD2C2B -0.13500  3.49000 ! from CLDA1 OD2C2A, ACET 4check (with lipids)
-DCL3    OD2C2B -0.13000  3.49000 ! from DCL3  OD2C2A, ACET, alex (with lipids)
-CLDA1   OD2C2B -0.13500  3.49000 ! from CLDA1 OD2C2A, ACET, alex , for phosphate (with na)
-DCL3    OD2C2B -0.13000  3.49000 ! from DCL3  OD2C2A, ACET, alex                 (with na)
+CLDA1   OD2C2B -0.13500  3.49000 ! from CLDA1 OD2C2A, ACET 4check (with lipids & na)
+DCL3    OD2C2B -0.13000  3.49000 ! from DCL3  OD2C2A, ACET, alex (with lipids & na)
 CLDA1   OD2C3A -0.30000  3.10000 ! from CLDA1 OD2C1A, NMA 4check (with lipids)
 CLDA3   OD2C3A -0.10000  3.26000 ! from CLDA3 OD2C1A, NMA 4check (with lipids)
 DCL3    OD2C3A -0.25000  3.48000 ! from DCL3  OD2C1A, NMA 4check (with lipids)
@@ -8327,10 +8322,8 @@ BRDR1   OD2C1D -0.30000  3.32000 ! from BRDR1 OD2C1A, NMA (with carb.)
 DBR2    OD2C1D -0.10000  3.32000 ! from DBR2  OD2C1A, NMA (with carb.)
 BRDR1   OD2C2A -0.09500  4.10000 ! BROB..ACET 
 DBR2    OD2C2A -0.01500  3.85000 ! BROB..ACET 
-BRDR1   OD2C2B -0.09500  4.10000 ! from BRDR1 OD2C2A, ACET, alex (with lipids)
-DBR2    OD2C2B -0.01500  3.85000 ! from DBR2  OD2C2A, ACET, alex (with lipids)
-BRDR1   OD2C2B -0.09500  4.10000 ! from BRDR1 OD2C2A, ACET, alex, for phosphate (with na)
-DBR2    OD2C2B -0.01500  3.85000 ! from DBR2  OD2C2A, ACET, alex                (with na)
+BRDR1   OD2C2B -0.09500  4.10000 ! from BRDR1 OD2C2A, ACET, alex (with lipids & na)
+DBR2    OD2C2B -0.01500  3.85000 ! from DBR2  OD2C2A, ACET, alex (with lipids & na)
 BRDR1   OD2C3A -0.13000  3.70000 ! from BRDR1 OD2C1A, NMA, alex (with lipids)
 DBR2    OD2C3A -0.10000  3.70000 ! from DBR2  OD2C1A, NMA, alex (with lipids)
 BRDR1   OD2C3B -0.13000  3.70000 ! from BRDR1 OD2C1A, NMA  (with lipids)
@@ -8478,8 +8471,7 @@ MAGD ND2R6C   1.49100 ! Cyt-N1, Thy-N3, Ura-N1/N3, Gua-N1
 MAGD ND2R6D   1.49100 ! Thy-N1
 MAGD OD2C1A   1.07600 ! protein backbone/amide LPDO1 on OD2C1A
 MAGD OD2C1B   1.10900 ! Cyt-O2, Thy-O2/O4, Ura-O2/O4, Gua-O6
-MAGD OD2C2B   1.44900 ! lipids, phosphate anionic
-MAGD OD2C2B   1.44900 ! nucleic acids, phosphate anionic
+MAGD OD2C2B   1.44900 ! lipids and nucleic acids, phosphate anionic
 MAGD OD30B    1.15100 ! lipids and nucleic acids, phosphate ester O
 MAGD OD30BR   1.15100 ! nucleic acids, phosphate ester O, RNA specific
 MAGD OD30D    1.15100 ! nucleic acids, phosphate ester O, methylphosphates

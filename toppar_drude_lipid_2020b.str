@@ -50,7 +50,7 @@ AUTOGENERATE ANGLES DIHEDRALS DRUDE PATCH !note use of DRUDE and PATCH
 
 !DMP model re-optimized for both lipid and nucleic acid. All associated parameters in master.
 RESI DMP          -1.000 ! Dimethylphosphate, re-optimized by a&a
-GROUP		  	 ! DMPN and DMPL merged into DMP in 2020 release
+GROUP		  	 ! DMPN and DMPL merged into DMP in 2020b release
 ATOM P    PD1A     1.192   ALPHA -0.974  THOLE 2.098
 ATOM O13  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083
 ATOM O14  OD2C2B  -0.856   ALPHA -0.931  THOLE 1.083
