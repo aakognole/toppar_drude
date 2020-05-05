@@ -2,8 +2,6 @@
 * Nucleic acids
 *
 
-!aak: contains refinement of NA parameter set, not fully tested yet, Nov 2019
-
 !requires toppar_drude_master*.str
 
 !nucleic acids 

@@ -83,7 +83,13 @@
 !Lin, F-Y., Lopes, P.E.M., Harder, E., Roux, B., and 
 !MacKerell, A.D., Jr.,“Polarizable Force Field for Molecular Ions based 
 !on the Classical Drude Oscillator," Journal of Chemical Information 
-!and Modeling, 2018, 58 (5), 993–1004. 
+!and Modeling, 2018, 58 (5), 993–1004.
+!
+!Reoptimization of DMP and new molecular anions
+!Kognole, A.A., Aytenfisu, A.H., and MacKerell, A.D., Jr., “Balanced
+!Drude Polarizable Force Field for Molecular Anions: Phosphates,
+!Sulfates, Sulfamates and Oxides," Journal of Molecular Modeling,
+!(Accepted April 2020)
 
 read rtf card append 
 * Topology for drude model compounds 
