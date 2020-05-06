@@ -2418,30 +2418,30 @@ IC HY1    CY     *CAY   HY2      0.0000    0.00  120.00    0.00   0.0000
 IC HY1    CY     *CAY   HY3      0.0000    0.00 -120.00    0.00   0.0000 
  
 !correct once neutral amine electrostatic terms are available 
-!PRES NNEU          0.000 ! neutral N-terminus; charges from MAM1 
-!                         ! use in generate statement 
-!!     LPD1 HT1 
-!!       : / 
-!! --CA--N--LPX 
-!!   |     \
-!!   HA     HT2
-!! 
-!DELETE ATOM HN 
-!GROUP 
-!ATOM N    ND3A2    0.050   ALPHA -1.450  THOLE  1.055 ! based on MAM1
-!ATOM HT1  HDP1A    0.192                              ! based on MAM1 
-!ATOM HT2  HDP1A    0.192                              ! based on MAM1 
-!ATOM CA   CD31C   -0.110   ALPHA -1.066  THOLE  1.141 ! based on NTER, charge adjusted 
-!ATOM HA   HDA1C    0.104                              ! based on NTER, charge adjusted 
-!ATOM LPD1 LPD     -0.428			       ! based on MAM1
-!ATOM LPX  LPD      0.000			       ! based on MAM1
-!BOND N      HT1    N      HT2
-!BOND N      LPD1   N      LPX
-!LONEPAIR bisector LPX N1 HN1 HN2 distance 0.605 angle 0.0 dihe 0.0
-!LONEPAIR relative LPD1 N1 LPX C1 distance 0.280 angle 105.42 dihe 180.0
-!ANISOTROPY       N1      C1     HN1    HN2  A11  0.85 A22  1.05
-!IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000 
-!IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000 
+PRES NNEU          0.000 ! neutral N-terminus; charges from MAM1 
+                         ! use in generate statement 
+!     LPD1 HT1 
+!       : / 
+! --CA--N--LPX 
+!   |     \
+!   HA     HT2
+! 
+DELETE ATOM HN 
+GROUP 
+ATOM N    ND3A2    0.050   ALPHA -1.450  THOLE  1.055 ! based on MAM1
+ATOM HT1  HDP1A    0.192                              ! based on MAM1 
+ATOM HT2  HDP1A    0.192                              ! based on MAM1 
+ATOM CA   CD31C   -0.110   ALPHA -1.066  THOLE  1.141 ! based on NTER, charge adjusted 
+ATOM HA   HDA1C    0.104                              ! based on NTER, charge adjusted 
+ATOM LPD1 LPD     -0.428                              ! based on MAM1
+ATOM LPX  LPD      0.000                              ! based on MAM1
+BOND N      HT1    N      HT2
+BOND N      LPD1   N      LPX
+LONEPAIR bisector LPX N1 HN1 HN2 distance 0.605 angle 0.0 dihe 0.0
+LONEPAIR relative LPD1 N1 LPX C1 distance 0.280 angle 105.42 dihe 180.0
+ANISOTROPY       N1      C1     HN1    HN2  A11  0.85 A22  1.05
+IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000 
+IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000 
  
 PRES CTER         -1.000 ! C-terminus for polypeptide 
 ! 
