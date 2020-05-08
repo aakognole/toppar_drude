@@ -1054,7 +1054,7 @@ RESI GLY           0.000 ! glycine
 GROUP
 ATOM N    ND2A2   -0.406  ALPHA -1.858  THOLE 0.126
 ATOM HN   HDP1A    0.296
-ATOM CA   CD32C    0.186 ALPHA -1.066  THOLE 1.141
+ATOM CA   CD32C    0.186  ALPHA -1.066  THOLE 1.141
 ATOM HA1  HDA2A   -0.017
 ATOM HA2  HDA2A   -0.017 
 ATOM C    CD2O1A   0.496  ALPHA -0.619  THOLE 0.317
@@ -2249,13 +2249,9 @@ ATOM C    CD2O1A   0.496  ALPHA -0.619  THOLE 0.317
 ATOM O    OD2C1A   0.000  ALPHA -0.579  THOLE 0.370
 ATOM LPOA LPDO1   -0.311
 ATOM LPOB LPDO1   -0.227 
-!ATOM C    CD2O1A   0.497  ALPHA -0.675  THOLE 0.295 
-!ATOM O    OD2C1A   0.000  ALPHA -0.651  THOLE 0.310 
-!ATOM LPOA LPDO1   -0.312 
-!ATOM LPOB LPDO1   -0.227
 
 BOND N   HT1  N   HT2 N   HT3 
- 
+
 DONOR HT1 N 
 DONOR HT2 N 
 DONOR HT3 N 
@@ -2431,18 +2427,52 @@ GROUP
 ATOM N    ND3A2    0.050   ALPHA -1.450  THOLE  1.055 ! based on MAM1
 ATOM HT1  HDP1A    0.192                              ! based on MAM1 
 ATOM HT2  HDP1A    0.192                              ! based on MAM1 
-ATOM CA   CD31C   -0.110   ALPHA -1.066  THOLE  1.141 ! based on NTER, charge adjusted 
-ATOM HA   HDA1C    0.104                              ! based on NTER, charge adjusted 
+ATOM CA   CD31C   -0.057   ALPHA -1.066  THOLE  1.141 ! based on NTER, charge adjusted 
+ATOM HA   HDA1A    0.094                              ! based on NTER, charge adjusted 
+ATOM LP1D LPD     -0.428                              ! based on MAM1
+ATOM LPX  LPD      0.000                              ! based on MAM1
+ATOM C    CD2O1A   0.495  ALPHA -0.619  THOLE 0.317
+ATOM O    OD2C1A   0.000  ALPHA -0.579  THOLE 0.370
+ATOM LPOA LPDO1   -0.311
+ATOM LPOB LPDO1   -0.227
+BOND N      HT1    N      HT2
+BOND N      LPD1   N      LPX
+LONEPAIR bisector LPX N HT1 HT2 distance 0.605 angle 0.0 dihe 0.0
+LONEPAIR relative LP1D N LPX CA distance 0.280 angle 105.42 dihe 180.0
+ANISOTROPY       N      CA     HT1    HT2  A11  0.85 A22  1.05
+IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000 
+IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000 
+
+PRES GNNU          0.000 ! neutral N-terminus for Glycine; charges from MAM1
+                         ! use in generate statement
+! HA2 LPD1 HT1
+!   \   : /
+! --CA--N--LPX
+!   /     \
+! HA1      HT2
+!
+DELETE ATOM HN
+GROUP
+ATOM N    ND3A2    0.050   ALPHA -1.450  THOLE  1.055 ! based on MAM1
+ATOM HT1  HDP1A    0.192                              ! based on MAM1
+ATOM HT2  HDP1A    0.192                              ! based on MAM1
+ATOM CA   CD32C   -0.100   ALPHA -1.066  THOLE  1.141 ! based on GNTE, charge adjusted
+ATOM HA1  HDA2A    0.068                              ! based on GNTE, charge adjusted
+ATOM HA2  HDA2A    0.068                              ! based on GNTE, charge adjusted
+ATOM C    CD2O1A   0.496   ALPHA -0.619  THOLE  0.317
+ATOM O    OD2C1A   0.000   ALPHA -0.579  THOLE  0.370
+ATOM LPOA LPDO1   -0.311
+ATOM LPOB LPDO1   -0.227
 ATOM LPD1 LPD     -0.428                              ! based on MAM1
 ATOM LPX  LPD      0.000                              ! based on MAM1
 BOND N      HT1    N      HT2
 BOND N      LPD1   N      LPX
-LONEPAIR bisector LPX N1 HN1 HN2 distance 0.605 angle 0.0 dihe 0.0
-LONEPAIR relative LPD1 N1 LPX C1 distance 0.280 angle 105.42 dihe 180.0
-ANISOTROPY       N1      C1     HN1    HN2  A11  0.85 A22  1.05
-IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000 
-IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000 
- 
+LONEPAIR bisector LPX N HT1 HT2 distance 0.605 angle 0.0 dihe 0.0
+LONEPAIR relative LPD1 N LPX CA distance 0.280 angle 105.42 dihe 180.0
+ANISOTROPY       N      CA     HT1    HT2  A11  0.85 A22  1.05
+IC HT1  N    CA   C     0.0000  0.0000  180.0000  0.0000  0.0000
+IC HT2  CA   *N   HT1   0.0000  0.0000  120.0000  0.0000  0.0000
+
 PRES CTER         -1.000 ! C-terminus for polypeptide 
 ! 
 !     OT2(-) 
@@ -3144,10 +3174,9 @@ IC OE1  CD   OE2  HE2   0.0000  0.0000  0.0000  0.0000  0.0000
 !based on the optimized neutral propylamine, fylin 
 !!!!!!see NNEU above (?) 
 PRES LSN           0.000 ! patch for neutral lysine based on propylamine
-                        ! use in a patch statement 
-                        ! follow with AUTOgenerate ANGLes DIHEdrals command 
+                         ! use in a patch statement 
+                         ! follow with AUTOgenerate ANGLes DIHEdrals command 
 DELETE ATOM HZ3
-  
 GROUP 
 ATOM CE   CD32A   -0.144   ALPHA -1.307  THOLE  0.855  
 ATOM HE1  HDA2A    0.094                               
@@ -3306,6 +3335,12 @@ ND2A2    HDP1A    459.30      1.030 ! NMA, N-methylacetamide               %PEML
 ND2A2    HDP1B    459.30      1.030 ! NMA, N-methylacetamide               %PEML jan13 
 ND2A3    CD2O1A   370.00      1.310 ! DMA, N,N-dimethylacetamide 
 ND2A3    CD33C    330.00      1.450 ! DMA, N,N-dimethylacetamide 
+ND3A2    LPD        0.00      0.000 ! mam1, eam1, pam1, fylin
+ND3A2    HDP1A    520.00      1.014 ! mam1 , fylin 
+ND3A2    CD33A    380.00      1.450 ! mam1 , fylin
+ND3A2    CD32A    390.00      1.465 ! eam1 , fylin
+ND3A2	 CD31C	  390.00      1.465 ! NNEU, based on ND3A2 CD32A from eam1
+ND3A2    CD32C    390.00      1.465 ! NNEU-Gly, based on ND3A2 CD32A from eam1
 ND3A3    HDP1A    440.00      1.025 ! PRLD, pyrrolidine, PEML     % CHECK THESE ?? 
 ND2B1    CD2R6B   360.00      1.362 ! NA bases, cmb 04/10 
 ND2B1    CD2R6C   360.00      1.369 ! NA bases, cmb 04/10 
@@ -3635,7 +3670,9 @@ CD31C    ND2A2    HDP1A     72.20    123.64 ! ALAD        %
 CD32C    ND2A2    HDP1A     64.50    119.00 ! GLYD 
 CD33C    ND2A2    HDP1A     48.00    118.97 ! NMA+ALAD    % 
 CD2O1A   ND2A3    CD33C     10.00    119.20 ! DMA 
-CD33C    ND2A3    CD33C     40.00    121.60 ! DMA 
+CD33C    ND2A3    CD33C     40.00    121.60 ! DMA
+CD31C    ND3A2    HDP1A     40.00    109.30 ! NNEU, based on HDP1A ND3A2 CD32A, eam1, fylin
+CD32C    ND3A2    HDP1A     40.00    109.30 ! NNEU-Gly, based on HDP1A ND3A2 CD32A, eam1, fylin
 CD32C    ND3A3    HDP1A     64.50    119.00 ! PRLD, pyrrolidine, PEML     % CHECK THESE ?? 
 CD2N1A   ND2P1A   CD32A     62.30    120.00 ! ARG, c22 
 CD2N1A   ND2P1A   CD33A     62.39    120.00 ! GUAN, c22 
@@ -3747,6 +3784,15 @@ ND2A2    CD2O1A   CD33C     51.50    109.82   84.40   2.9072 ! NMA+ALAD  % impor
 ND2A3    CD2O1A   OD2C1A    70.00    123.00 ! DMA 
 ND2A3    CD2O1A   CD33C     70.00    115.00 ! DMA 
 ND2R6B   CD2O4A   ND2R6B    50.00    113.00 ! CYT, va, jal 
+ND3A2    CD31C    HDA1A     65.00    110.50 ! NNEU, based on ND3A2 CD32A HDA2A, eam1, fylin
+ND3A2    CD32C    HDA2A     65.00    110.50 ! NNEU-Gly, based on ND3A2 CD32A HDA2A, eam1, fylin
+ND3A2    CD31C    CD31A     65.00    111.95 ! NNEU, based on ND3A2 CD32A CD33A, eam1, fylin
+ND3A2    CD31C    CD32A     65.00    111.95 ! NNEU, based on ND3A2 CD32A CD33A, eam1, fylin
+ND3A2    CD31C    CD32B     65.00    111.95 ! NNEU, based on ND3A2 CD32A CD33A, eam1, fylin
+ND3A2    CD31C    CD32C     65.00    111.95 ! NNEU, based on ND3A2 CD32A CD33A, eam1, fylin
+ND3A2    CD31C    CD33A     65.00    111.95 ! NNEU, based on ND3A2 CD32A CD33A, eam1, fylin
+ND3A2    CD31C    CD2O1A    78.50     97.50 ! NNEU, based on NTER, PEML
+ND3A2    CD32C    CD2O1A    78.50     97.50 ! NNEU-Gly, based on NTER, PEML
 ND3A3    CD2O1A   CD31C     63.37    108.69 !     62.00    110.00 ! PRO, uncommented, zhu 
 ND3A3    CD2O1A   CD32A     63.37    108.69 !     62.00    110.00 ! PRO, uncommented, zhu 
 ND3A3    CD2O1A   CD32C     63.37    108.69 !     62.00    110.00 ! PRO, uncommented, zhu 
@@ -4375,6 +4421,52 @@ HDP1A    ND2A2    CD32C    HDA2A       0.160    3     0.00 ! GLYD, phi, cmap
 CD2O1A   ND2A2    CD33C    HDA3A       0.200    3     0.00 ! NMA 
 HDP1A    ND2A2    CD33C    HDA3A       0.160    3     0.00 ! NMA 
 HDP1A    ND3A3    CD32C    HDA2A       0.160    3     0.00 ! PRLD, pyrrolidine, PEML     % CHECK THESE ?? 
+HDP1A    ND3A2    CD31C    HDA1A       0.185    3     0.00 ! NNEU, based on HDA2A CD32A ND3A2 HDP1A, eam1
+HDP1A    ND3A2    CD32C    HDA2A       0.185    3     0.00 ! NNEU-Gly, based on HDA2A CD32A ND3A2 HDP1A, eam1
+HDP1A    ND3A2    CD31C    CD31A       0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD31C    CD32A       0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD31C    CD32B       0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD31C    CD32C       0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD31C    CD33A       0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD31C    CD2O1A      0.290    3     0.00 ! NNEU, based on CD32A CD32A ND3A2 HDP1A, pam1
+HDP1A    ND3A2    CD32C    CD2O1A      0.290    3     0.00 ! NNEU-Gly, based on CD32A CD32A ND3A2 HDP1A, pam1
+ND2A2    CD2O1A   CD31C    ND3A2       0.300    1   180.00 ! NNEU, based on ND2A2 CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+ND2A2    CD2O1A   CD31C    ND3A2       2.400    2   180.00 ! NNEU, based on ND2A2 CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+OD2C1A   CD2O1A   CD31C    ND3A2       0.300    1     0.00 ! NNEU, based on OD2C1A CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+OD2C1A   CD2O1A   CD31C    ND3A2       2.400    2   180.00 ! NNEU, based on OD2C1A CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+ND2A2    CD2O1A   CD32C    ND3A2       0.300    1   180.00 ! NNEU-Gly, based on ND2A2 CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+ND2A2    CD2O1A   CD32C    ND3A2       2.400    2   180.00 ! NNEU-Gly, based on ND2A2 CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+OD2C1A   CD2O1A   CD32C    ND3A2       0.300    1     0.00 ! NNEU-Gly, based on OD2C1A CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+OD2C1A   CD2O1A   CD32C    ND3A2       2.400    2   180.00 ! NNEU-Gly, based on OD2C1A CD2O1A CD31C ND3P3A, NTER-CT3  pseud-psi  %%
+ND3A2    CD31C    CD31A    HDA1A       0.000    1     0.00 ! NNEU, based on ND3P3A CD31C CD31A HDA1A, NTER
+ND3A2    CD31C    CD32A    HDA2A       0.000    1     0.00 ! NNEU, based on ND3P3A CD31C CD31A HDA1A, NTER
+ND3A2    CD31C    CD32B    HDA2A       0.000    1     0.00 ! NNEU, based on ND3P3A CD31C CD31A HDA1A, NTER
+ND3A2    CD31C    CD32C    HDA2A       0.000    1     0.00 ! NNEU, based on ND3P3A CD31C CD31A HDA1A, NTER
+ND3A2    CD31C    CD33A    HDA3A       0.000    1     0.00 ! NNEU, based on ND3P3A CD31C CD31A HDA1A, NTER
+ND3A2    CD31C    CD31A    CD33A       0.550    1   180.00 ! NNEU, based on ND3P3A CD31C CD31A CD33A, ILE/VAL, chi1, Xiao, NTER
+ND3A2    CD31C    CD31A    CD33A       0.230    2     0.00 ! NNEU, based on ND3P3A CD31C CD31A CD33A, ILE/VAL, chi1, Xiao, NTER
+ND3A2    CD31C    CD31A    CD33A       0.540    3     0.00 ! NNEU, based on ND3P3A CD31C CD31A CD33A, ILE/VAL, chi1, Xiao, NTER
+ND3A2    CD31C    CD32A    CD32C       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD32C, NTER
+ND3A2    CD31C    CD32A    CD2R5A      0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD2R5A, NTER, PEML by analogy for HSD
+ND3A2    CD31C    CD32A    CD2R5C      0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD2R5C, NTER, PEML by analogy for TRP
+ND3A2    CD31C    CD32A    CD2R5D      0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD2R5D, NTER, PEML by analogy for HSP
+ND3A2    CD31C    CD32A    CD2R6A      0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD2R6A, NTER, PEML by analogy for PHE
+ND3A2    CD31C    CD31A    CD32A       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD31A CD32A, NTER, PEML by analogy for ILE
+ND3A2    CD31C    CD32A    CD31A       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD31A, NTER, PEML by analogy for LEU
+ND3A2    CD31C    CD32A    CD32A       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD31A, NTER, PEML by analogy for ARG
+ND3A2    CD31C    CD32B    CD32A       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32B CD32A, NTER, PEML by analogy for GLU
+ND3A2    CD31C    CD32B    CD32C       0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32B CD32C, NTER, alex by analogy for GLUP
+ND3A2    CD31C    CD32A    CD2O2A      0.200    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A CD2O2A, NTER - ASP, jing
+ND3A2    CD31C    CD32C    CD2O1A      1.432    1     0.00 ! NNEU, based on ND3P3A CD31C CD32C CD2O1A, PEML by analogy ASN NTER
+ND3A2    CD31C    CD32C    CD2O1A      1.356    2   180.00 ! NNEU, based on ND3P3A CD31C CD32C CD2O1A, PEML by analogy ASN NTER
+ND3A2    CD31C    CD32C    CD2O1A      0.038    3   180.00 ! NNEU, based on ND3P3A CD31C CD32C CD2O1A, PEML by analogy ASN NTER
+ND3A2    CD31C    CD32A    SD31B       0.562    1   180.00 ! NNEU, based on ND3P3A CD31C CD32A SD31B, PEML by analogy CYS NTER
+ND3A2    CD31C    CD32A    SD31B       0.192    2   180.00 ! NNEU, based on ND3P3A CD31C CD32A SD31B, PEML by analogy CYS NTER
+ND3A2    CD31C    CD32A    SD31B       1.696    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A SD31B, PEML by analogy CYS NTER
+ND3A2    CD31C    CD32A    OD31A       0.500    2     0.00 ! NNEU, based on ND3P3A CD31C CD32A OD31A, NTER, PEML by analogy for SER
+ND3A2    CD31C    CD32A    OD31A       0.500    3     0.00 ! NNEU, based on ND3P3A CD31C CD32A OD31A, NTER, PEML by analogy for SER
+ND3A2    CD31C    CD31A    OD31A       0.500    2     0.00 ! NNEU, based on ND3P3A CD31C CD31A OD31A, NTER, PEML by analogy for THR
+ND3A2    CD31C    CD31A    OD31A       0.500    3     0.00 ! NNEU, based on ND3P3A CD31C CD31A OD31A, NTER, PEML by analogy for THR
 CD33C    ND2A3    CD2O1A   OD2C1A      2.000    2   180.00 ! DMA, N,N-dimethylacetamide 
 CD33C    ND2A3    CD2O1A   CD33C       1.700    1     0.00 ! DMA, N,N-dimethylacetamide 
 CD33C    ND2A3    CD2O1A   CD33C       2.000    2   180.00 ! DMA, N,N-dimethylacetamide 

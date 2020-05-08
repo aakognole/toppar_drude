@@ -7579,11 +7579,11 @@ CD30A    CLDA3    180.00      1.795 ! TCLE
 CD30A    BRDA1    140.00      1.950 ! TBRE
 CD30A    IDA1     110.00      2.170 ! TIET
 
-! mam1, eam1, pam1
-ND3A2    LPD        0.00      0.000 ! mam1, eam1, pam1, fylin  
-ND3A2    HDP1A    520.00      1.014 ! mam1 , fylin
-ND3A2    CD33A    380.00      1.450 ! mam1 , fylin
-ND3A2    CD32A    390.00      1.465 ! eam1 , fylin
+!! mam1, eam1, pam1 
+!ND3A2    LPD        0.00      0.000 ! mam1, eam1, pam1, fylin  ! moved to master for NNEU
+!ND3A2    HDP1A    520.00      1.014 ! mam1 , fylin	 	! moved to master for NNEU
+!ND3A2    CD33A    380.00      1.450 ! mam1 , fylin		! moved to master for NNEU
+!ND3A2    CD32A    390.00      1.465 ! eam1 , fylin		! moved to master for NNEU
 
 ANGLES 
 !atom types     Ktheta  Theta0   Kub     S0 
