@@ -3380,15 +3380,15 @@ read para card append
 BONDS 
 !atom type      Kb       b0 
 !============================================ 
-CD32C    CD2O3B   200.00      1.510 ! MAS, csd, EH 2007, ACEH
-CD33C    CD2O3B   133.00      1.510 ! ACEH, PEML 
-OD30CL   CD2O3B   150.00      1.330 ! MAS, csd, EH 2007, PEML 2009 *** changed FC to match vibr. spectra *** 
-OD30CL   CD32C    340.00      1.440 ! MAS, csd, EH 2007
-OD30CL   CD33D    340.00      1.440 ! MAS, csd, EH 2007
-OD30CL   CD31C    340.00      1.440 ! MAS, csd, EH 2007
-OD30CL   LPD        0.00      0.000 ! MAS
-OD2C3B   CD2O3B   730.00      1.200 ! MAS, csd, EH 2007, PEML 2009  *** b0 should be 1.220 based on MP2/6-31g*, confirm 
-OD2C3B   LPD        0.00      0.000 ! MAS
+!CD32C    CD2O3B   200.00      1.510 ! MAS, csd, EH 2007, ACEH
+!CD33C    CD2O3B   133.00      1.510 ! ACEH, PEML 
+!OD30CL   CD2O3B   150.00      1.330 ! MAS, csd, EH 2007, PEML 2009 *** changed FC to match vibr. spectra *** 
+!OD30CL   CD32C    340.00      1.440 ! MAS, csd, EH 2007
+!OD30CL   CD33D    340.00      1.440 ! MAS, csd, EH 2007
+!OD30CL   CD31C    340.00      1.440 ! MAS, csd, EH 2007
+!OD30CL   LPD        0.00      0.000 ! MAS
+!OD2C3B   CD2O3B   730.00      1.200 ! MAS, csd, EH 2007, PEML 2009  *** b0 should be 1.220 based on MP2/6-31g*, confirm 
+!OD2C3B   LPD        0.00      0.000 ! MAS
 !DMPL
 !!OD2C2B   PD1A     525.00      1.500 ! DMP, cmb, 06/09, lipids, to master
 !!OD30B    PD1A     240.00      1.600 ! DMP, cmb, 06/09, lipids, to master
@@ -3396,27 +3396,27 @@ OD2C3B   LPD        0.00      0.000 ! MAS
 ANGLES 
 !atom types     Ktheta  Theta0   Kub     S0 
 !================================================== 
-OD2C3B   CD2O3B   OD30CL    90.00    123.00  160.00   2.2576 ! MAS, csd, EH 2007 
-OD2C3B   CD2O3B   CD32C     70.00    126.00   20.00   2.4420 ! MAS, csd, EH 2007
-OD2C3B   CD2O3B   CD33C     70.00    126.00   20.00   2.4420 ! MAS, csd, EH 2007
-OD30CL   CD2O3B   CD32C     55.00    111.00   20.00   2.3260 ! MAS, csd, EH 2007
-OD30CL   CD2O3B   CD33C     55.00    111.00   20.00   2.3260 ! MAS, csd, EH 2007 
-OD30CL   CD31C    HDA1A     60.00    109.50 ! EAS, Lipid, charmm27 
-OD30CL   CD31C    CD32A     40.00    110.00 ! EAS, Lipid, EH 2007 
-OD30CL   CD31C    CD33A     40.00    110.00 ! EAS, Lipid, EH 2007 
-OD30CL   CD31C    CD32C     40.00    110.00 ! EAS, Lipid, EH 2007
-OD30CL   CD32C    CD31C     40.00    110.00 
-OD30CL   CD32C    HDA2A     60.00    109.50                  ! MAS, charmm27
-OD30CL   CD32C    CD33A     40.00    110.00                  ! EAS, EH 2007
-CD2O3B   CD32C    HDA2A     33.00    109.50   30.00   2.1630 ! MPO, charmm27
-CD2O3B   CD33C    HDA3A     33.00    109.50   30.00   2.1630 ! MAS, charmm27
-CD2O3B   CD32C    CD33A     52.00    108.00                  ! MPO, alkane 
-CD2O3B   CD32C    CD32A     52.00    108.00                  ! MBU, alkane
-OD30CL   CD33D    HDA3A     60.00    109.50                  ! MAS, charmm27
-CD2O3B   OD30CL   CD31C     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra 
-CD2O3B   OD30CL   CD32C     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra
-CD2O3B   OD30CL   CD33D     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra
-!DMPL
+!OD2C3B   CD2O3B   OD30CL    90.00    123.00  160.00   2.2576 ! MAS, csd, EH 2007 
+!OD2C3B   CD2O3B   CD32C     70.00    126.00   20.00   2.4420 ! MAS, csd, EH 2007
+!OD2C3B   CD2O3B   CD33C     70.00    126.00   20.00   2.4420 ! MAS, csd, EH 2007
+!OD30CL   CD2O3B   CD32C     55.00    111.00   20.00   2.3260 ! MAS, csd, EH 2007
+!OD30CL   CD2O3B   CD33C     55.00    111.00   20.00   2.3260 ! MAS, csd, EH 2007 
+!OD30CL   CD31C    HDA1A     60.00    109.50                  ! EAS, Lipid, charmm27 
+!OD30CL   CD31C    CD32A     40.00    110.00                  ! EAS, Lipid, EH 2007 
+!OD30CL   CD31C    CD33A     40.00    110.00                  ! EAS, Lipid, EH 2007 
+!OD30CL   CD31C    CD32C     40.00    110.00                  ! EAS, Lipid, EH 2007
+!OD30CL   CD32C    CD31C     40.00    110.00 
+!OD30CL   CD32C    HDA2A     60.00    109.50                  ! MAS, charmm27
+!OD30CL   CD32C    CD33A     40.00    110.00                  ! EAS, EH 2007
+!CD2O3B   CD32C    HDA2A     33.00    109.50   30.00   2.1630 ! MPO, charmm27
+!CD2O3B   CD33C    HDA3A     33.00    109.50   30.00   2.1630 ! MAS, charmm27
+!CD2O3B   CD32C    CD33A     52.00    108.00                  ! MPO, alkane 
+!CD2O3B   CD32C    CD32A     52.00    108.00                  ! MBU, alkane
+!OD30CL   CD33D    HDA3A     60.00    109.50                  ! MAS, charmm27
+!CD2O3B   OD30CL   CD31C     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra 
+!CD2O3B   OD30CL   CD32C     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra
+!CD2O3B   OD30CL   CD33D     15.00    100.00   10.00   2.0151 ! MAS, csd, EH 2007 PEML 2009 **gives CSD/vibr spectra
+!!DMPL
 !PD1A     OD30B    CD32A     40.00    112.50                  ! DMP, lipids, to master
 !PD1A     OD30B    CD33A     40.00    112.50                  ! DMP, lipids, to master
 !PD1A     OD30B    CD33C     40.00    120.50                  ! DMP, lipids, to master
