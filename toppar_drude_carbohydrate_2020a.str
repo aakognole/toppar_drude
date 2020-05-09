@@ -10,14 +10,15 @@
 !
 !Aytenfisu, A.H., Yang, M., and MacKerell, A.D., Jr.,
 !"CHARMM Drude Polarizable Force Field for Glycosidic Linkages
-!Involving Pyranoses and Furanoses," Submitted for publication
+!Involving Pyranoses and Furanoses," Journal of Chemical Theory and
+!Computation, 2018 14 (6), 3132-3143
 !
 !hexopyranoses
 !
 !Yang, M., Aytenfisu, A.H., and MacKerell, A.D., Jr.,
 !"Proper Balance of Solvent-Solute and Solute-Solute Interactions in
 !the Treatment of the Diffusion of Glucose using the Drude Polarizable
-!Force Field," Submitted for publication
+!Force Field," Carbohydrate Research, 2018 457, 41-50
 !
 !Patel, D.S., He, X., and MacKerell, A.D., Jr.,
 !“Polarizable Empirical Force Field for Hexopyranose Monosaccharides
@@ -37,6 +38,14 @@
 !Field for Aldopentofuranoses and Methyl-aldopentofuranosides,” Journal
 !of Physical Chemistry B, 119: 7846-7859, 2015, doi:
 !10.1021/acs.jpcb.5b01767, PMC4483154
+!
+!Carboxylate and N-Acetyl Amine Carbohydrate Derivatives
+!
+!Pandey, P.; Aytenfisu, A. H.; MacKerell, A. D. Jr.;
+!Mallajosyula, S. S., "Drude Polarizable Force Field
+!Parametrization of Carboxylate and N-Acetyl Amine Carbohydrate
+!Derivatives", Journal of Chemical Theory and Computation 2019,
+!15 (9), 4982-5000
 !
 
 read rtf card append
@@ -10296,45 +10305,6 @@ CD31FC   CD32A    OD30A    CD31HA      0.1720   2    0.00 !
 CD31FC   CD32A    OD30A    CD31HA      0.0340   3  180.00 ! 
 CD31FC   CD32A    OD30A    CD31HA      0.0196   6  180.00 ! 
 
-!C1-O-S
-CD31HA   OD30B    SD1A     OD2C2C       3.5608  1   180.00 ! RMSE = 1.26045
-CD31HA   OD30B    SD1A     OD2C2C       0.0072  2   180.00 ! RMSE = 1.26045
-CD31HA   OD30B    SD1A     OD2C2C       0.1586  3     0.00 ! RMSE = 1.26045
-CD31HA   OD30B    SD1A     OD2C2C       0.0189  6   180.00 ! RMSE = 1.26045
-OD306A   CD31HA   OD30B    SD1A         0.2830  1   180.00 ! RMSE = 1.26045
-OD306A   CD31HA   OD30B    SD1A         1.2003  2     0.00 ! RMSE = 1.26045
-OD306A   CD31HA   OD30B    SD1A         0.5556  3   180.00 ! RMSE = 1.26045
-OD306A   CD31HA   OD30B    SD1A         0.0343  6     0.00 ! RMSE = 1.26045
-CD31HB   CD31HA   OD30B    SD1A         0.6625  1   180.00 ! RMSE = 1.26045
-CD31HB   CD31HA   OD30B    SD1A         0.1088  2     0.00 ! RMSE = 1.26045
-CD31HB   CD31HA   OD30B    SD1A         0.4839  3     0.00 ! RMSE = 1.26045
-CD31HB   CD31HA   OD30B    SD1A         0.0098  6   180.00 ! RMSE = 1.26045
-!C6-O-S
-CD32A    OD30B    SD1A     OD2C2C       0.0131  1   180.00 ! RMSE = 1.13041
-CD32A    OD30B    SD1A     OD2C2C       0.3211  2     0.00 ! RMSE = 1.13041
-CD32A    OD30B    SD1A     OD2C2C       0.2887  3     0.00 ! RMSE = 1.13041
-CD32A    OD30B    SD1A     OD2C2C       0.0127  6     0.00 ! RMSE = 1.13041
-CD31HC   CD32A    OD30B    SD1A         1.0459  1   180.00 ! RMSE = 1.13041
-CD31HC   CD32A    OD30B    SD1A         0.4747  2     0.00 ! RMSE = 1.13041
-CD31HC   CD32A    OD30B    SD1A         0.1297  3     0.00 ! RMSE = 1.13041
-CD31HC   CD32A    OD30B    SD1A         0.0458  6     0.00 ! RMSE = 1.13041
-!C2/3/4-O-S
-CD31HB   OD30B    SD1A     OD2C2C      0.5675  1   180.00
-CD31HB   OD30B    SD1A     OD2C2C      0.3798  2     0.00
-CD31HB   OD30B    SD1A     OD2C2C      0.1999  3     0.00
-CD31HB   OD30B    SD1A     OD2C2C      0.0498  6     0.00
-CD31HA   CD31HB   OD30B    SD1A        0.0439  1     0.00
-CD31HA   CD31HB   OD30B    SD1A        0.8389  2   180.00
-CD31HA   CD31HB   OD30B    SD1A        0.0963  3   180.00
-CD31HA   CD31HB   OD30B    SD1A        0.0341  6   180.00
-CD31HB   CD31HB   OD30B    SD1A        1.3752  1     0.00
-CD31HB   CD31HB   OD30B    SD1A        0.2264  2   180.00
-CD31HB   CD31HB   OD30B    SD1A        0.6327  3     0.00
-CD31HB   CD31HB   OD30B    SD1A        0.0470  6     0.00
-CD31HC   CD31HB   OD30B    SD1A        0.7853  1     0.00
-CD31HC   CD31HB   OD30B    SD1A        1.1439  2     0.00
-CD31HC   CD31HB   OD30B    SD1A        0.5151  3   180.00
-CD31HC   CD31HB   OD30B    SD1A        0.0029  6     0.00
 CD31HA   CD31HB   CD31HB   OD30B       1.7500  1     0.00
 CD31HA   CD31HB   CD31HB   OD30B       0.0022  2     0.00
 CD31HA   CD31HB   CD31HB   OD30B       0.1544  3   180.00
@@ -10359,50 +10329,6 @@ CD31HB   CD31HB   CD31HB   OD30B       1.0654  1     0.00
 CD31HB   CD31HB   CD31HB   OD30B       0.3664  2     0.00
 CD31HB   CD31HB   CD31HB   OD30B       0.9087  3     0.00
 CD31HB   CD31HB   CD31HB   OD30B       0.0033  6     0.00
-!C2-N-S
-CD31HB   ND2A2    SD1A     OD2C2C       0.0876  1     0.00 ! RMSE = 1.513
-CD31HB   ND2A2    SD1A     OD2C2C       0.0837  2     0.00 ! RMSE = 1.513
-CD31HB   ND2A2    SD1A     OD2C2C       0.0607  3     0.00 ! RMSE = 1.513
-CD31HB   ND2A2    SD1A     OD2C2C       0.0171  6   180.00 ! RMSE = 1.513
-CD31HA   CD31HB   ND2A2    SD1A         0.0292  1   180.00 ! RMSE = 1.513
-CD31HA   CD31HB   ND2A2    SD1A         0.4176  2   180.00 ! RMSE = 1.513
-CD31HA   CD31HB   ND2A2    SD1A         0.0224  3     0.00 ! RMSE = 1.513
-CD31HA   CD31HB   ND2A2    SD1A         0.2393  6     0.00 ! RMSE = 1.513
-CD31HB   CD31HB   ND2A2    SD1A         0.9042  1     0.00 ! RMSE = 1.513
-CD31HB   CD31HB   ND2A2    SD1A         1.4306  2     0.00 ! RMSE = 1.513
-CD31HB   CD31HB   ND2A2    SD1A         0.1790  3     0.00 ! RMSE = 1.513
-CD31HB   CD31HB   ND2A2    SD1A         0.1915  6     0.00 ! RMSE = 1.513
-
-!C1-O-P
-CD31HA   OD30D    PD1AN    OD31D        0.1640  1     0.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD31D        0.5822  2     0.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD31D        0.1065  3     0.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD31D        0.1286  6   180.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD2C2C       0.2098  1     0.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD2C2C       0.4218  2   180.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD2C2C       0.0640  3   180.00 ! RMSE = 1.32194
-CD31HA   OD30D    PD1AN    OD2C2C       0.2348  6     0.00 ! RMSE = 1.32194
-OD306A   CD31HA   OD30D    PD1AN        2.5529  1   180.00 ! RMSE = 1.32194
-OD306A   CD31HA   OD30D    PD1AN        0.6806  2     0.00 ! RMSE = 1.32194
-OD306A   CD31HA   OD30D    PD1AN        0.8123  3   180.00 ! RMSE = 1.32194
-OD306A   CD31HA   OD30D    PD1AN        0.1207  6     0.00 ! RMSE = 1.32194
-CD31HB   CD31HA   OD30D    PD1AN        1.7176  1   180.00 ! RMSE = 1.32194
-CD31HB   CD31HA   OD30D    PD1AN        0.5322  2     0.00 ! RMSE = 1.32194
-CD31HB   CD31HA   OD30D    PD1AN        0.3802  3     0.00 ! RMSE = 1.32194
-CD31HB   CD31HA   OD30D    PD1AN        0.2555  6   180.00 ! RMSE = 1.32194
-!C6-O-P
-CD32A    OD30D    PD1AN    OD31D        0.1646  1     0.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD31D        0.4978  2     0.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD31D        0.2384  3     0.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD31D        0.0106  6     0.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD2C2C       0.4273  1     0.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD2C2C       0.5430  2   180.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD2C2C       0.0324  3   180.00 ! RMSE = 1.10433
-CD32A    OD30D    PD1AN    OD2C2C       0.0891  6     0.00 ! RMSE = 1.10433
-CD31HC   CD32A    OD30D    PD1AN        2.0568  1   180.00 ! RMSE = 1.10433
-CD31HC   CD32A    OD30D    PD1AN        0.1757  2   180.00 ! RMSE = 1.10433
-CD31HC   CD32A    OD30D    PD1AN        0.4555  3   180.00 ! RMSE = 1.10433
-CD31HC   CD32A    OD30D    PD1AN        0.0224  6     0.00 ! RMSE = 1.10433
 
 !=============Poonam modified carbohydrate ========================
 CD31HA   CD31HB   ND2A2    HDP1A   0.000    1     0.00 ! ALAD
