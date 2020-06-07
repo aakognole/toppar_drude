@@ -1,0 +1,3937 @@
+ Parameter: MINDR <- "0"
+ Parameter: MINI <- "0"
+ Parameter: TEST <- "6"
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 44b2   February 15, 2020            
+                                 Git commit ID                                  
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+  Current operating system: Linux-4.15.0-99-generic(x86_64)@pamlico.umaryland   
+                 Created on  5/21/20 at 15:21:58 by user: akognole    
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ RDTITL> * MASTER TEST CASE FOR DRUDE
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    DIMENS CHSIZE 2000000 MAXRES 2000000
+Size      Original         New
+MAXA        360720     2000000
+MAXB        360720     2000000
+MAXT        721440     4000000
+MAXP       1082160     6000000
+MAXIMP      180360     1000000
+MAXNB        90180      500000
+MAXPAD      360720     2000000
+MAXRES      120240     2000000
+MAXSEG       45090      250000
+MAXATC        1400
+MAXCB         3000
+MAXCT        50000
+MAXCP        20000
+MAXCI         1200
+MAXCH         6400
+MAXCN       502503
+MAXCRT      120240      666666
+  
+ CHARMM>    !DIMENS CHSIZE 3000000 MAXRES 3000000
+ CHARMM>    !DIMENS CHSIZE 10000000 MAXRES 10000000
+ CHARMM>     
+  
+ CHARMM>    !bomlev -5
+ CHARMM>     
+  
+ CHARMM>    ! OPTIONAL variables to be set from the command-line:
+ CHARMM>    !  pdbdir : directory to write structures to. No structures written if not set.
+ CHARMM>    !  mindr  : set to 1 to minimize drude particles.
+ CHARMM>    !  mini   : set to 1 to minimize structures.
+ CHARMM>    !  test   : set to 0 to run all test, and set to the test number for only run the specified test
+ CHARMM>     
+  
+ CHARMM>    set testcases 7
+ Parameter: TESTCASES <- "7"
+  
+ CHARMM>    set test1 test_drude_master_protein_auto.str
+ Parameter: TEST1 <- "TEST_DRUDE_MASTER_PROTEIN_AUTO.STR"
+  
+ CHARMM>    set test2 test_drude_d_aminoacids_auto.str
+ Parameter: TEST2 <- "TEST_DRUDE_D_AMINOACIDS_AUTO.STR"
+  
+ CHARMM>    set test3 test_drude_carbohydrate_auto.str
+ Parameter: TEST3 <- "TEST_DRUDE_CARBOHYDRATE_AUTO.STR"
+  
+ CHARMM>    set test4 test_drude_model_auto.str
+ Parameter: TEST4 <- "TEST_DRUDE_MODEL_AUTO.STR"
+  
+ CHARMM>    set test5 test_drude_ions_auto.str
+ Parameter: TEST5 <- "TEST_DRUDE_IONS_AUTO.STR"
+  
+ CHARMM>    set test6 test_drude_lipid_auto.str
+ Parameter: TEST6 <- "TEST_DRUDE_LIPID_AUTO.STR"
+  
+ CHARMM>    set test7 test_drude_nucleic_acids_auto.str
+ Parameter: TEST7 <- "TEST_DRUDE_NUCLEIC_ACIDS_AUTO.STR"
+  
+ CHARMM>     
+  
+ CHARMM>    ioformat noextend
+ MISCOM> Expanded I/O format is NOT used.
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar ..
+ Parameter: TOPPAR <- ".."
+  
+ CHARMM>    stream @toppar/toppar_defs_2020.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_defs_2020.str::
+ OPNLGU> Unit 99 opened for READONLY access to ../toppar_defs_2020.str
+
+                    INPUT STREAM SWITCHING TO UNIT    99
+ RDTITL> * STREAM DRUDE TOPPAR FILES
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    stream @toppar/toppar_drude_master_protein_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_master_protein_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_master_protein_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * DRUDE MASTER TOPOLOGY AND PARAMETER STREAM FILE
+ RDTITL> * INCLUDES WATER, 2013
+ RDTITL> * IONS UPDATED, JUNE 2018
+ RDTITL> * NUCLEIC ACID/CARBOHYDRATE/LIPID UPDATE JANUARY 2017
+ RDTITL> * OPT MOLECULAR IONS, FYLIN 2018
+ RDTITL> * HALOGEN AND NBFIX TERMS, FYLIN 2018
+ RDTITL> * UPDATED PROTEIN FF WITH OPT ALPHA/THOLE, FYLIN 2018
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    ioformat extended
+ MISCOM> Expanded I/O format is used.
+  
+ CHARMM>     
+  
+ CHARMM>    !This file must be streamed prior to additional Drude FF toppar stream files
+ CHARMM>    !and it includes parameters for the model compounds (toppar_drude_model*.str)
+ CHARMM>     
+  
+ CHARMM>    !references
+ CHARMM>    !
+ CHARMM>    !Proteins
+ CHARMM>    !Lopes, P.E.M., Huang, J., Shim, J., Luo, Y., Li, H., Roux, B., and
+ CHARMM>    !MacKerell, A.D., Jr., "Polarizable Force Field for Peptides and
+ CHARMM>    !Proteins based on the Classical Drude Oscillator," Journal of
+ CHARMM>    !Chemical Theory and Computation, 9: 5430-5449, 2013 DOI:
+ CHARMM>    !10.1021/ct400781b, NIHMS53671
+ CHARMM>    !
+ CHARMM>    !water
+ CHARMM>    !SWM4-NDP, negative Drude (this will be the default model): Lamoureux,
+ CHARMM>    !G., Harder, E., Vorobyov, I.V., Deng, Y., Roux, B. MacKerell, A.D.,
+ CHARMM>    !Jr., A polarizable model of water for molecular dynamics simulations
+ CHARMM>    !of biomolecules, Chemical Physics Letters, 2006, 418: 245-249.
+ CHARMM>    !
+ CHARMM>    !SWM6: Wenbo Yu, Pedro E. M. Lopes, Benoit Roux and Alexander
+ CHARMM>    !D. MacKerell, Jr.  "Six-site Polarizable Model of Water Based on the
+ CHARMM>    !Classical Drude Oscillator" Journal of Chemical Physics, 138: 034508,
+ CHARMM>    !2013
+ CHARMM>     
+  
+ CHARMM>    !atomic ions
+ CHARMM>    !Yu, H., Whitfield, T.W., Harder, E., Lamoureux, G., Vorobyov, I.,
+ CHARMM>    !Anisimov, V. M., MacKerell, A.D., Jr., and Roux, B. "Simulating
+ CHARMM>    !Monovalent and Divalent Ions in Aqueous Solution Using a Drude
+ CHARMM>    !Polarizable Force Field," Journal of Chemical Theory and Computation,
+ CHARMM>    !6: 774-786, 2010
+ CHARMM>    !
+ CHARMM>    !Luo, Y., Jiang, W., Yu, H., MacKerell, A.D., Jr., and Roux, B.,
+ CHARMM>    !"Simulation study of ion pairing in concentrated aqueous salt
+ CHARMM>    !solutions with a polarizable force field," Faraday Discussions, 160,
+ CHARMM>    !135-149, 2013, PMC3695446
+ CHARMM>    !
+ CHARMM>    !Lemkul, J.A. and MacKerell, A.D., Jr. "Balancing the Interactions of
+ CHARMM>    !Mg2+ in Aqueous Solution and with Nucleic Acid Moieties For a Polarizable
+ CHARMM>    !Force Field Based on the Classical Drude Oscillator Model," J. Phys. Chem B,
+ CHARMM>    !120, 11436-11448, 2016, PMC5148688
+ CHARMM>     
+  
+ CHARMM>    ! note use of D for second character to indicate Drude
+ CHARMM>    ! polarizable FF (be careful of Cadmium: use CDM)
+ CHARMM>     
+  
+ CHARMM>    ! Parameter labeling after !
+ CHARMM>    ! RESName, generic compound name of model compound followed by additional comments
+ CHARMM>    ! for example ! BENZ, benzene, based on crystal survey data
+ CHARMM>     
+  
+ CHARMM>    !Formatting information
+ CHARMM>    !RTF section: please use the following format for future residues, including the spacing
+ CHARMM>    !(and please clean a few up of the residues not in this format if you so desire....)
+ CHARMM>     
+  
+ CHARMM>    !RESI ALA           0.000
+ CHARMM>    !ATOM N    ND2A2   -0.427  ALPHA -1.056  THOLE 0.711
+ CHARMM>    !BOND A1     A2     A3     A4     A5     A6     A7     A8
+ CHARMM>    !IMPR A1     A2     A3     A4
+ CHARMM>    !CMAP A1     A2     A3     A4     A1     A2     A3     A4
+ CHARMM>    !LONEPAIR relative A1       A2       A3      A4       distance 0.30 angle 91.00 dihe 180.00
+ CHARMM>    !ANISOTROPY        A1       A2       A3      A4       A11 0.6968  A22 1.2194
+ CHARMM>    !IC A1     A2     A3     A4       1.3474  124.31  180.00  114.26   0.9979
+ CHARMM>     
+  
+ CHARMM>    !parameter section
+ CHARMM>    !bond
+ CHARMM>    !CD32E    OD30A    360.00      1.415 ! comment
+ CHARMM>    !angles
+ CHARMM>    !HDA1A    CD31A    CD31A     34.50    110.10 ! comment
+ CHARMM>    !HDA1A    CD31A    CD31A     34.50    110.10   22.53   2.1790 ! comment
+ CHARMM>    !dihedrals
+ CHARMM>    !CD2O1A   ND2A2    CD31C    CD2O2A      0.000   3   180.00 ! comment
+ CHARMM>    !impropers
+ CHARMM>    !CD2O1A   CD31A    ND2A2    OD2C1A    120.000   0     0.00 ! comment
+ CHARMM>    !nonbond (LJ)
+ CHARMM>    !HDW      0.0   -0.0000     0.0000 ! comment
+ CHARMM>    !nbfix
+ CHARMM>    !CD30A   ODW    -0.00500	 4.04699 ! comment
+ CHARMM>     
+  
+ CHARMM>    !ioformat extended
+ CHARMM>     
+  
+ CHARMM>    read rtf card !append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * TOPOLOGY FOR DRUDE WATER, IONS AND PROTEINS
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card !append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * DRUDE POLARIZABLE FF PARAMETERS
+ RDTITL> *
+
+ PARRDR> WARNING: ATOMS IN BOND X        DRUD      500.00000   0.00000 DONT EXIST
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>    stream @toppar/toppar_drude_d_aminoacids_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_d_aminoacids_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_d_aminoacids_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * DRUDE TOPOLOGIES FOR D-AMINO ACIDS
+ RDTITL> * BASED ON 2019E REVISION, JAL 3/8/2019
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    ioformat extended
+ MISCOM> Expanded I/O format is used.
+  
+ CHARMM>     
+  
+ CHARMM>    !This file requires the master file to be streamed in first
+ CHARMM>     
+  
+ CHARMM>    read rtf card append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * TOPOLOGY FOR DRUDE WATER, IONS AND PROTEINS
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * PARAMETERS FOR D-AMINO ACIDS, COPIED FROM ANALOGOUS
+ RDTITL> * L-AMINO ACID PARAMETERS
+ RDTITL> * JAL 10/23/2018
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>    stream @toppar/toppar_drude_carbohydrate_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_carbohydrate_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_carbohydrate_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * $ID: TOPPAR_DRUDE_CARBOHYDRATE.STR 25 2015-07-24 16:15:55Z ALEX $
+ RDTITL> * DRUDE TOPOLOGY AND PARAMETER STREAM FILE FOR CARBOHYDRATES
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    !requires toppar_drude_master*.str
+ CHARMM>     
+  
+ CHARMM>    !carbohydrate references
+ CHARMM>    !
+ CHARMM>    !glycosidic linkages/disaccharides
+ CHARMM>    !
+ CHARMM>    !Aytenfisu, A.H., Yang, M., and MacKerell, A.D., Jr.,
+ CHARMM>    !"CHARMM Drude Polarizable Force Field for Glycosidic Linkages
+ CHARMM>    !Involving Pyranoses and Furanoses," Journal of Chemical Theory and
+ CHARMM>    !Computation, 2018 14 (6), 3132-3143
+ CHARMM>    !
+ CHARMM>    !hexopyranoses
+ CHARMM>    !
+ CHARMM>    !Yang, M., Aytenfisu, A.H., and MacKerell, A.D., Jr.,
+ CHARMM>    !"Proper Balance of Solvent-Solute and Solute-Solute Interactions in
+ CHARMM>    !the Treatment of the Diffusion of Glucose using the Drude Polarizable
+ CHARMM>    !Force Field," Carbohydrate Research, 2018 457, 41-50
+ CHARMM>    !
+ CHARMM>    !Patel, D.S., He, X., and MacKerell, A.D., Jr.,
+ CHARMM>    !“Polarizable Empirical Force Field for Hexopyranose Monosaccharides
+ CHARMM>    !based on the Classical Drude Oscillator,” Journal of Physical
+ CHARMM>    !Chemistry B., ASAP article, 2014, 10.1021/jp412696m, NIHMSID #566721
+ CHARMM>    !
+ CHARMM>    !polyalcohols
+ CHARMM>    !
+ CHARMM>    !He, X., Lopes, P.E.M., and MacKerell, A.D., Jr., “Polarizable
+ CHARMM>    !Empirical Force Field for Acyclic Poly-Alcohols Based on the Classical
+ CHARMM>    !Drude Oscillator,” Biopolymers, 99: 724-738 2013, DOI:
+ CHARMM>    !10.1002/bip.22286
+ CHARMM>    !
+ CHARMM>    !furanoses
+ CHARMM>    !
+ CHARMM>    !Jana, M. and MacKerell, A.D., Jr., “CHARMM Drude Polarizable Force
+ CHARMM>    !Field for Aldopentofuranoses and Methyl-aldopentofuranosides,” Journal
+ CHARMM>    !of Physical Chemistry B, 119: 7846-7859, 2015, doi:
+ CHARMM>    !10.1021/acs.jpcb.5b01767, PMC4483154
+ CHARMM>    !
+ CHARMM>    !Carboxylate and N-Acetyl Amine Carbohydrate Derivatives
+ CHARMM>    !
+ CHARMM>    !Pandey, P.; Aytenfisu, A. H.; MacKerell, A. D. Jr.;
+ CHARMM>    !Mallajosyula, S. S., "Drude Polarizable Force Field
+ CHARMM>    !Parametrization of Carboxylate and N-Acetyl Amine Carbohydrate
+ CHARMM>    !Derivatives", Journal of Chemical Theory and Computation 2019,
+ CHARMM>    !15 (9), 4982-5000
+ CHARMM>    !
+ CHARMM>     
+  
+ CHARMM>    read rtf card append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * DRUDE CARBOHYDRATES
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * DRUDE POLARIZABLE FF PARAMETERS
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>    stream @toppar/toppar_drude_model_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_model_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_model_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * DRUDE TOPOLOGY AND PARAMETER STREAM FILE FOR SMALL MODEL COMPOUNDS
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    !requires toppar_drude_master*.str
+ CHARMM>     
+  
+ CHARMM>    !model compounds
+ CHARMM>     
+  
+ CHARMM>    !references
+ CHARMM>    !Alkanes
+ CHARMM>    !Igor V. Vorobyov, Victor M. Anisimov and Alexander D. MacKerell,
+ CHARMM>    !Jr. "Polarizable Empirical Force Field for Alkanes Based on the
+ CHARMM>    !Classical Drude Oscillator Model," Journal of Physical Chemistry B,
+ CHARMM>    !109: 18988-18999, 2005.
+ CHARMM>    !
+ CHARMM>    !Anisotropic polarizability model
+ CHARMM>    !Harder, E., Anisimov, V.M., Vorobyov, I.V., Lopes, P.E., Noskov, S.,
+ CHARMM>    !MacKerell, A.D., Jr.  and Roux, B. Atomic Level Anisotropy in the
+ CHARMM>    !Electrostatic Modeling of Lone Pairs for a Polarizable Force Field
+ CHARMM>    !based on the Classical Drude Oscillator, Journal of Chemical Theory
+ CHARMM>    !and Computation, 2: 1587-1597, 2006
+ CHARMM>    !
+ CHARMM>    !Ethers
+ CHARMM>    !
+ CHARMM>    !Vorobyov, I.V., Anisimov, V.M., Greene, S., Venable, R.M., Moser, A.,
+ CHARMM>    !Pastor, R.W. and MacKerell, A.D., Jr., Additive and Classical Drude
+ CHARMM>    !Polarizable Force Fields for Linear and Cyclic Ethers, Journal of
+ CHARMM>    !Chemical Theory and Computation, 3: 1120-1133, 2007.
+ CHARMM>    !
+ CHARMM>    !Baker, C. and MacKerell, Jr. A.D., “Polarizability Rescaling and
+ CHARMM>    !atom-based Thole Scaling in the CHARMM Drude Polarizable Force Field
+ CHARMM>    !for Ethers” Journal of Molecular Modeling, 16: 567-576, 2010,
+ CHARMM>    !PMC2818097
+ CHARMM>     
+  
+ CHARMM>    !Sulfur containing compounds
+ CHARMM>    !Zhu, X. and MacKerell, A.D., Jr. “Polarizable Empirical Force Field
+ CHARMM>    !for Sulfur-Containing Compounds Based on the Classical Drude
+ CHARMM>    !Oscillator Model,” Journal of Computational Chemistry, 12: 2330-2341,
+ CHARMM>    !2010. PMC2923574
+ CHARMM>    !
+ CHARMM>    !Alcohols
+ CHARMM>    !Anisimov, V.M., Vorobyov, I.V., Roux, B., and MacKerell, A.D., Jr.
+ CHARMM>    !Polarizable empirical force field for the primary and secondary
+ CHARMM>    !alcohol series based on the classical Drude model. Journal of Chemical
+ CHARMM>    !Theory and Computation, 3, 1927-1946, 2007.
+ CHARMM>     
+  
+ CHARMM>    !Amides
+ CHARMM>    !Harder, E., Anisimov, V.M., Whitfield, T., MacKerell, A.D., Jr., Roux,
+ CHARMM>    !B. "Understanding the Dielectric Properties of Liquid Amides from a
+ CHARMM>    !Polarizable Force Field," Journal of Physical Chemistry,
+ CHARMM>    !112:3509-3521. 2008, PMID: 18302362
+ CHARMM>    !
+ CHARMM>    !Final amide model used on 2013 protein FF
+ CHARMM>    !Lin, B., Lopes, P.E.M., Roux, B., and MacKerell, A.D., Jr.,
+ CHARMM>    !“Kirkwood-Buff Analysis of Aqueous N-Methylacetamide and Acetamide
+ CHARMM>    !Solutions Modeled by the CHARMM Additive and Drude Polarizable Force
+ CHARMM>    !Fields,” Journal of Chemical Physics, 139: 084509, 2013, PMC3772949
+ CHARMM>    !
+ CHARMM>    !Aromatics
+ CHARMM>    !Lopes, P., Lamoureux, G., Roux, B., MacKerell, A.D., Jr., "Polarizable
+ CHARMM>    !Empirical Force Field for Aromatic Compounds Based on the Classical
+ CHARMM>    !Drude Oscillator," Journal of Physical Chemistry, B. 111:2873-2885,
+ CHARMM>    !2007
+ CHARMM>    !
+ CHARMM>    !Heterocycles
+ CHARMM>    !Lopes, P.E.M., Lamoureux, G., MacKerell, A.D., Jr., “Polarizable
+ CHARMM>    !Empirical Force Field for Nitrogen-containing Heteroaromatic Compounds
+ CHARMM>    !Based on the Classical Drude Oscillator” Journal of Computational
+ CHARMM>    !Chemistry, 30: 1821-1838, 2009, PMC251901
+ CHARMM>    !
+ CHARMM>    !Nucleic Acid Bases
+ CHARMM>    !Baker, C.M., Anisimov, V.M., and MacKerell, A.D., Jr., “Development of
+ CHARMM>    !CHARMM Polarizable Force Field for Nucleic Acid Bases Based on the
+ CHARMM>    !Classical Drude Oscillator Model,” Journal of Physical Chemistry,
+ CHARMM>    !B. 115; 580–596, 2011, PMC3166616
+ CHARMM>    !
+ CHARMM>    !Halogenated benzenes and ethanes
+ CHARMM>    !Lin, F-Y. and MacKerell, A.D., Jr., “Polarizable Empirical Force Field
+ CHARMM>    !for Halogen-Containing Compounds Based on the Classical Drude
+ CHARMM>    !Oscillator," Journal of Chemical Theory and Computation, 2018, 14 (2),
+ CHARMM>    !1083-1098
+ CHARMM>    !
+ CHARMM>    !Updated Molecular ions
+ CHARMM>    !Lin, F-Y., Lopes, P.E.M., Harder, E., Roux, B., and
+ CHARMM>    !MacKerell, A.D., Jr.,“Polarizable Force Field for Molecular Ions based
+ CHARMM>    !on the Classical Drude Oscillator," Journal of Chemical Information
+ CHARMM>    !and Modeling, 2018, 58 (5), 993–1004.
+ CHARMM>    !
+ CHARMM>    !Reoptimization of DMP and new molecular anions
+ CHARMM>    !Kognole, A.A., Aytenfisu, A.H., and MacKerell, A.D., Jr., “Balanced
+ CHARMM>    !Drude Polarizable Force Field for Molecular Anions: Phosphates,
+ CHARMM>    !Sulfates, Sulfamates and Oxides," Journal of Molecular Modeling,
+ CHARMM>    !(Accepted April 2020)
+ CHARMM>     
+  
+ CHARMM>    read rtf card append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * TOPOLOGY FOR DRUDE MODEL COMPOUNDS
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * DRUDE POLARIZABLE FF PARAMETERS
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>    stream @toppar/toppar_drude_nucleic_acid_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_nucleic_acid_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_nucleic_acid_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * DRUDE TOPOLOGY AND PARAMETER STREAM FILE
+ RDTITL> * NUCLEIC ACIDS
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    !requires toppar_drude_master*.str
+ CHARMM>     
+  
+ CHARMM>    !nucleic acids
+ CHARMM>     
+  
+ CHARMM>    !references
+ CHARMM>    !
+ CHARMM>    !Lemkul, J.A. and MacKerell, A.D., Jr., "Polarizable Force Field for
+ CHARMM>    !DNA Based on the Classical Drude Oscillator: I. Refinement using
+ CHARMM>    !Quantum Mechanical Base Stacking and Conformational Energetics,"
+ CHARMM>    !J. Chem. Theory Comput., 13; 2053-2071, 2017, DOI: 10.1021/acs.jctc.7b00067
+ CHARMM>    !
+ CHARMM>    !Lemkul, J.A. and MacKerell, A.D., Jr., "Polarizable Force Field for
+ CHARMM>    !DNA Based on the Classical Drude Oscillator: II. Microsecond Molecular
+ CHARMM>    !Dynamics Simulations of Duplex DNA," J. Chem. Theory Comput.,
+ CHARMM>    !13; 2072-2085, 2017, DOI: 10.1021/acs.jctc.7b00068
+ CHARMM>    !
+ CHARMM>    !Savelyev, A. and MacKerell, A.D., Jr., "All-Atom Polarizable Force
+ CHARMM>    !Field for DNA Based on the Classical Drude Oscillator Model," Journal
+ CHARMM>    !of Computational Chemistry, 35; 1219-1239, 2014, DOI: 10.1002/jcc.23611,
+ CHARMM>    !NIHMSID #585697
+ CHARMM>    !
+ CHARMM>    !RNA
+ CHARMM>    !Lemkul, J.A. and MacKerell, A.D., Jr., "Polarizable Force Field for
+ CHARMM>    !RNA Based on the Classical Drude Oscillator," J. Comput. Chem.,
+ CHARMM>    !39, 2624–2646, 2018, DOI: 10.1002/jcc.25709, NIHMSID #990779
+ CHARMM>    !
+ CHARMM>    !Nucleic Acid Bases
+ CHARMM>    !Baker, C.M., Anisimov, V.M., and MacKerell, A.D., Jr., "Development of
+ CHARMM>    !CHARMM Polarizable Force Field for Nucleic Acid Bases Based on the
+ CHARMM>    !Classical Drude Oscillator Model," Journal of Physical Chemistry B,
+ CHARMM>    !115; 580-596, 2011, PMC3166616
+ CHARMM>    !
+ CHARMM>     
+  
+ CHARMM>    read rtf card append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * TOPOLOGY FOR DRUDE NUCLEIC ACIDS
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * DRUDE POLARIZABLE FF PARAMETERS
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>    stream @toppar/toppar_drude_lipid_2020b.str
+ Parameter: TOPPAR -> ".."
+ VOPEN> Attempting to open::../toppar_drude_lipid_2020b.str::
+ OPNLGU> Unit 98 opened for READONLY access to ../toppar_drude_lipid_2020b.str
+
+                    INPUT STREAM SWITCHING TO UNIT    98
+ RDTITL> * DRUDE TOPOLOGY AND PARAMETER STREAM FILE FOR LIPIDS
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    !requires toppar_drude_master*.str
+ CHARMM>     
+  
+ CHARMM>    !ioformat extended
+ CHARMM>     
+  
+ CHARMM>    !lipids
+ CHARMM>     
+  
+ CHARMM>    !The following dihedral parameter is commented out below.
+ CHARMM>    !For lipid simulations comment out this term below and
+ CHARMM>    !comment the corresponding parameter in the master_protein
+ CHARMM>    !toppar file.  Use of the following parameters with proteins
+ CHARMM>    !will alter the conformational sampling of Lys sidechains
+ CHARMM>    !
+ CHARMM>    !1,2,3 fold terms differ from master file
+ CHARMM>    !currently these parameters are being used as the default, although this impacts the long
+ CHARMM>    !chain aliphatics and Lys sidechain in proteins.
+ CHARMM>    !
+ CHARMM>    !CD32A    CD32A    CD32A    CD32A       0.005    1   180.00 ! HEXA/HEPT, Hui-2015 protein: 0.073    1     0.00
+ CHARMM>    !CD32A    CD32A    CD32A    CD32A       0.104    2     0.00 ! HEXA/HEPT, Hui-2015          0.043    2     0.00
+ CHARMM>    !CD32A    CD32A    CD32A    CD32A       0.058    3   180.00 ! HEXA/HEPT, Hui-2015          0.119    3   180.00
+ CHARMM>    !CD32A    CD32A    CD32A    CD32A       0.098    4     0.00 ! HEXA/HEPT, Hui-2015          0.098    4     0.00
+ CHARMM>    !CD32A    CD32A    CD32A    CD32A       0.046    5     0.00 ! HEXA/HEPT, Hui-2015          0.046    5     0.00
+ CHARMM>     
+  
+ CHARMM>    !references
+ CHARMM>    !
+ CHARMM>    !Li, H., Chowdhary, J., Huang, L., He, X, MacKerell, A.D., Jr., and
+ CHARMM>    !Roux, B, "Drude Polarizable Force Field for Molecular Dynamics
+ CHARMM>    !Simulations of Saturated and Unsaturated Zwitterionic Lipids,"
+ CHARMM>    !In preparation, 2017.
+ CHARMM>    !
+ CHARMM>    !
+ CHARMM>    !Chowdhary, J., Harder, E., Lopes, P.E.M., MacKerell, Jr., A.D, and
+ CHARMM>    !Roux, B., “A Polarizable Model for Phosphatidylcholine-Containing
+ CHARMM>    !Biological Membranes,” Journal of Physical Chemistry, B.,117:
+ CHARMM>    !9142-9160, 2013.
+ CHARMM>     
+  
+ CHARMM>    read rtf card append
+ MAINIO> Residue topology file being read from unit  98.
+ RDTITL> * TOPOLOGY FOR DRUDE LIPIDS
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read para card append
+
+          PARAMETER FILE BEING READ FROM UNIT 98
+ RDTITL> * DRUDE POLARIZABLE FF PARAMETERS
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ VCLOSE: Closing unit   98 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM    99
+  
+ CHARMM>     
+  
+ CHARMM>    return
+ VCLOSE: Closing unit   99 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM     5
+  
+ CHARMM>     
+  
+ CHARMM>    !Not using ENVI because lowercase strings still cannot be set from the cmdline
+ CHARMM>    if @?pdbdir eq 1 then ! cannot use 1-line syntax because substitution will fail
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>    if @?mini eq 0 set mini 0
+ Comparing "1" and "0".
+ IF test evaluated as false.  Skipping command
+  
+ CHARMM>    if @mini eq 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      if @?mindr eq 0 set mindr 0
+ Comparing "1" and "0".
+ IF test evaluated as false.  Skipping command
+  
+ CHARMM>      if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>        set ins
+ Parameter: INS <- "" <empty>
+  
+ CHARMM>       else
+ Skip commands until next ENDIF
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    set testcasei 1
+ Parameter: TESTCASEI <- "1"
+  
+ CHARMM>    set testcasef @testcases
+ Parameter: TESTCASES -> "7"
+ Parameter: TESTCASEF <- "7"
+  
+ CHARMM>    if @?test eq 0 set test 0
+ Comparing "1" and "0".
+ IF test evaluated as false.  Skipping command
+  
+ CHARMM>    if @test ne 0 then
+ Parameter: TEST -> "6"
+ Comparing "6" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      calc testcasei = @test
+ Parameter: TEST -> "6"
+Evaluating: 6
+ Parameter: TESTCASEI <- "6"
+  
+ CHARMM>      calc testcasef = @test
+ Parameter: TEST -> "6"
+Evaluating: 6
+ Parameter: TESTCASEF <- "6"
+  
+ CHARMM>    endif
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 90 write form name test_drude_all@ins.ene.2020b
+ Parameter: INS -> "" <empty>
+ VOPEN> Attempting to open::test_drude_all.ene.2020b::
+ OPNLGU> Unit 90 opened for WRITE access to test_drude_all.ene.2020b
+  
+ CHARMM>    echu 90
+  
+ CHARMM>    echo $Id: test_drude_all_2020b_auto_all May2020 aak & aha $
+  
+ CHARMM>    echo residue names and energies
+  
+ CHARMM>     
+  
+ CHARMM>    label loop_tests
+  
+ CHARMM>    !if @testcasei eq 2 goto skip_test
+ CHARMM>    stream @test@@testcasei
+ Parameter: TESTCASEI -> "6"
+ Parameter: TEST6 -> "TEST_DRUDE_LIPID_AUTO.STR"
+ VOPEN> Attempting to open::test_drude_lipid_auto.str::
+ OPNLGU> Unit 99 opened for READONLY access to test_drude_lipid_auto.str
+
+                    INPUT STREAM SWITCHING TO UNIT    99
+ RDTITL> * $ID: TEST_DRUDE_LIPID.STR 28 2015-07-29 23:54:15Z ALEX $
+ RDTITL> * TEST CASE, DRUDE LIPID TOPPAR FILE
+ RDTITL> *
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    set boml -5 ! set to -1 if the series contains 3-membered rings
+ Parameter: BOML <- "-5"
+  
+ CHARMM>     
+  
+ CHARMM>    set nres 13
+ Parameter: NRES <- "13"
+  
+ CHARMM>     
+  
+ CHARMM>    set resi1  dmpl
+ Parameter: RESI1 <- "DMPL"
+  
+ CHARMM>    set resi2  glyc
+ Parameter: RESI2 <- "GLYC"
+  
+ CHARMM>    set resi3  glyp
+ Parameter: RESI3 <- "GLYP"
+  
+ CHARMM>    set resi4  pe
+ Parameter: RESI4 <- "PE"
+  
+ CHARMM>    set resi5  pc
+ Parameter: RESI5 <- "PC"
+  
+ CHARMM>    set resi6  dmpc
+ Parameter: RESI6 <- "DMPC"
+  
+ CHARMM>    set resi7  dppc
+ Parameter: RESI7 <- "DPPC"
+  
+ CHARMM>    set resi8  dopc
+ Parameter: RESI8 <- "DOPC"
+  
+ CHARMM>    set resi9  dppe
+ Parameter: RESI9 <- "DPPE"
+  
+ CHARMM>    set resi10 popc
+ Parameter: RESI10 <- "POPC"
+  
+ CHARMM>    set resi11 dope
+ Parameter: RESI11 <- "DOPE"
+  
+ CHARMM>    set resi12 pope
+ Parameter: RESI12 <- "POPE"
+  
+ CHARMM>    set resi13 dlpc
+ Parameter: RESI13 <- "DLPC"
+  
+ CHARMM>    set seed1  1 O11 1 P   1 O12
+ Parameter: SEED1 <- "1 O11 1 P 1 O12"
+  
+ CHARMM>    set seed2  1 O8  1 C2  1 C1
+ Parameter: SEED2 <- "1 O8 1 C2 1 C1"
+  
+ CHARMM>    set seed3  1 CP1 1 OP1 1 P1
+ Parameter: SEED3 <- "1 CP1 1 OP1 1 P1"
+  
+ CHARMM>    set seed4  1 HN1 1 N   1 C1
+ Parameter: SEED4 <- "1 HN1 1 N 1 C1"
+  
+ CHARMM>    set seed5  1 C4  1 N   1 C1
+ Parameter: SEED5 <- "1 C4 1 N 1 C1"
+  
+ CHARMM>    set seed6  1 C15 1 N   1 C12
+ Parameter: SEED6 <- "1 C15 1 N 1 C12"
+  
+ CHARMM>    set seed7  1 C15 1 N   1 C12
+ Parameter: SEED7 <- "1 C15 1 N 1 C12"
+  
+ CHARMM>    set seed8  1 C15 1 N   1 C12
+ Parameter: SEED8 <- "1 C15 1 N 1 C12"
+  
+ CHARMM>    set seed9  1 N   1 C12 1 C11
+ Parameter: SEED9 <- "1 N 1 C12 1 C11"
+  
+ CHARMM>    set seed10 1 C13 1 N   1 C12
+ Parameter: SEED10 <- "1 C13 1 N 1 C12"
+  
+ CHARMM>    set seed11 1 N   1 C12 1 C11
+ Parameter: SEED11 <- "1 N 1 C12 1 C11"
+  
+ CHARMM>    set seed12 1 N   1 C12 1 C11
+ Parameter: SEED12 <- "1 N 1 C12 1 C11"
+  
+ CHARMM>    set seed13 1 C15 1 N   1 C12
+ Parameter: SEED13 <- "1 C15 1 N 1 C12"
+  
+ CHARMM>    !set seed11 1 HN1 1 N   1 C12
+ CHARMM>    !set seed12 1 HN1 1 N   1 C12
+ CHARMM>     
+  
+ CHARMM>    !!set count 1
+ CHARMM>    set count 2
+ Parameter: COUNT <- "2"
+  
+ CHARMM>    label loop_lipid1
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "2"
+ Parameter: RESI2 -> "GLYC"
+ Parameter: RESIDUE <- "GLYC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "GLYC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "GLYC"
+ Drude polarizability will be setup for SEGID: GLYC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     11 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is GLYC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       42   Number of groups     =        3
+         Number of bonds         =       41   Number of angles     =       38
+         Number of dihedrals     =       40   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+         Number of Drudes        =       11
+         Number of true-bonds    =       41   Number of zero-bonds =        0
+         Number of aniso. terms  =        4   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "2"
+ Parameter: SEED2 -> "1 O8 1 C2 1 C1"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   19 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of     42
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        21         1  GLYC      LP4A         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        22         1  GLYC      LP4B         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        23         1  GLYC      LP6A         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        24         1  GLYC      LP6B         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        39         1  GLYC      LP8A         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        40         1  GLYC      LP8B         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        41         1  GLYC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+        42         1  GLYC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  GLYC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     11 atoms have been selected out of     42
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+         375         375         369
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found    267 exclusions and    153 interactions(1-4)
+ <MAKGRP> found      3 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ Allocate space for   5000 Thole shielding pairs 
+ == PRIMARY == SPACE FOR     3529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      594 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      594 atom  pairs and      420 atom  exclusions.
+ There are        0 group pairs and        3 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     3529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      594 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -31.92339      0.00000     17.57958
+ENER INTERN>        0.21120      4.79132      3.19985     26.19938      0.00170
+ENER EXTERN>        2.78350    -69.11035      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "GLYC"
+ RDCMND substituted energy or value "?ENER" to "-31.9233891"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+     95.22692741     48.77592764     12.09835316
+                     72.65524419     46.62911350
+                                    122.50319562
+
+ Transpose of the rotation matrix
+     0.675145    0.562815    0.476885
+    -0.664439    0.183116    0.724561
+     0.320468   -0.806045    0.497586
+ CENTER OF ATOMS BEFORE TRANSLATION     1.07364     0.75609     1.03690
+ AXIS OF ROTATION IS  0.777712 -0.079477  0.623577  ANGLE IS   79.75
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>     42 atoms have been selected out of     42
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:   -0.000000
+ DIPOLE MOMENT (DEBYES) :   -1.987989   -2.610799   -3.462350         4.770350
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "GLYC"
+ RDCMND substituted energy or value "?RDIP" to "4.77034976"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       42   Number of groups     =        3
+         Number of bonds         =       41   Number of angles     =       38
+         Number of dihedrals     =       40   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   19
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>     42 atoms have been selected out of     42
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:        41 bonds deleted
+ DELTIC:        38 angles deleted
+ DELTIC:        40 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "3"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "3" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "3"
+ Parameter: RESI3 -> "GLYP"
+ Parameter: RESIDUE <- "GLYP"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "GLYP"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "GLYP"
+ Drude polarizability will be setup for SEGID: GLYP    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     17 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is GLYP.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       56   Number of groups     =        3
+         Number of bonds         =       55   Number of angles     =       52
+         Number of dihedrals     =       52   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -1.00000
+         Number of Drudes        =       17
+         Number of true-bonds    =       55   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "3"
+ Parameter: SEED3 -> "1 CP1 1 OP1 1 P1"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   25 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of     56
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        35         1  GLYP      LP4A         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        36         1  GLYP      LP4B         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        37         1  GLYP      LP6A         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        38         1  GLYP      LP6B         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        53         1  GLYP      LP8A         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        54         1  GLYP      LP8B         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        55         1  GLYP      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+        56         1  GLYP      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  GLYP      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     17 atoms have been selected out of     56
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+         499         499         495
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found    346 exclusions and    198 interactions(1-4)
+ <MAKGRP> found      3 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     1194 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are     1194 atom  pairs and      544 atom  exclusions.
+ There are        0 group pairs and        3 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     1194 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -11.83834    -20.08505     27.67767
+ENER INTERN>        0.64698      9.60597      2.91172    145.00724      0.00286
+ENER EXTERN>        5.57833   -175.59144      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "GLYP"
+ RDCMND substituted energy or value "?ENER" to "-11.8383368"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+    253.59422744    -38.59508863   -157.25676616
+                    176.59666595    127.36477613
+                                    220.29279466
+
+ Transpose of the rotation matrix
+     0.665928    0.405028   -0.626491
+     0.162207    0.741080    0.651529
+     0.728168   -0.535493    0.427807
+ CENTER OF ATOMS BEFORE TRANSLATION     3.84450     2.25022    -2.81806
+ AXIS OF ROTATION IS  0.653129  0.745367  0.133606  ANGLE IS   65.33
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>     56 atoms have been selected out of     56
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:   -1.000000
+ DIPOLE MOMENT (DEBYES) :   12.368588  -10.842311    0.766189        16.465866
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "GLYP"
+ RDCMND substituted energy or value "?RDIP" to "16.4658657"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       56   Number of groups     =        3
+         Number of bonds         =       55   Number of angles     =       52
+         Number of dihedrals     =       52   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -1.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   25
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>     56 atoms have been selected out of     56
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:        55 bonds deleted
+ DELTIC:        52 angles deleted
+ DELTIC:        52 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "4"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "4" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "4"
+ Parameter: RESI4 -> "PE"
+ Parameter: RESIDUE <- "PE"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "PE"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "PE"
+ Drude polarizability will be setup for SEGID: PE      mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for      9 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is PE.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       28   Number of groups     =        2
+         Number of bonds         =       27   Number of angles     =       32
+         Number of dihedrals     =       30   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =        9
+         Number of true-bonds    =       27   Number of zero-bonds =        0
+         Number of aniso. terms  =        4   Number of lone-pairs =        0
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "4"
+ Parameter: SEED4 -> "1 HN1 1 N 1 C1"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****    9 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      0 atoms have been selected out of     28
+
+      ***** LEVEL  2 WARNING FROM <COORIO> *****
+      ***** ZERO ATOMS SPECIFIED TO WRITE. NO FILE CREATED
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>      9 atoms have been selected out of     28
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    137 exclusions and     66 interactions(1-4)
+ <MAKGRP> found      1 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      241 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      241 atom  pairs and      203 atom  exclusions.
+ There are        0 group pairs and        1 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      241 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0      4.24940    -16.08774     37.33325
+ENER INTERN>        2.54006     10.42367      0.36454    121.22007      0.00000
+ENER EXTERN>       -0.09380   -130.20514      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "PE"
+ RDCMND substituted energy or value "?ENER" to "4.24940291"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+     77.21023704    -46.07195774     34.35092065
+                     72.29489748    -18.17230388
+                                     34.19197432
+
+ Transpose of the rotation matrix
+     0.351206   -0.618709    0.702747
+     0.508126    0.756364    0.411972
+    -0.786423    0.212397    0.580022
+ CENTER OF ATOMS BEFORE TRANSLATION     0.43775     2.12752    -1.94521
+ AXIS OF ROTATION IS  0.106265 -0.792918 -0.599991  ANGLE IS   69.89
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>     28 atoms have been selected out of     28
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   18.917473   11.175552    1.932357        22.056694
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "PE"
+ RDCMND substituted energy or value "?RDIP" to "22.0566943"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       28   Number of groups     =        2
+         Number of bonds         =       27   Number of angles     =       32
+         Number of dihedrals     =       30   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:    9
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>     28 atoms have been selected out of     28
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:        27 bonds deleted
+ DELTIC:        32 angles deleted
+ DELTIC:        30 dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "5"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "5" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "5"
+ Parameter: RESI5 -> "PC"
+ Parameter: RESIDUE <- "PC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "PC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "PC"
+ Drude polarizability will be setup for SEGID: PC      mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     12 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is PC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       40   Number of groups     =        2
+         Number of bonds         =       39   Number of angles     =       50
+         Number of dihedrals     =       57   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       12
+         Number of true-bonds    =       39   Number of zero-bonds =        0
+         Number of aniso. terms  =        4   Number of lone-pairs =        0
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "5"
+ Parameter: SEED5 -> "1 C4 1 N 1 C1"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   12 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      0 atoms have been selected out of     40
+
+      ***** LEVEL  2 WARNING FROM <COORIO> *****
+      ***** ZERO ATOMS SPECIFIED TO WRITE. NO FILE CREATED
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     12 atoms have been selected out of     40
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    206 exclusions and    132 interactions(1-4)
+ <MAKGRP> found      1 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      574 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      574 atom  pairs and      338 atom  exclusions.
+ There are        0 group pairs and        1 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     6273 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      574 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -87.37548     91.62488     34.42532
+ENER INTERN>        2.82236     13.87185      1.91258    144.40811      0.00000
+ENER EXTERN>        0.06055   -250.45094      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "PC"
+ RDCMND substituted energy or value "?ENER" to "-87.3754784"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+    129.75291309    -94.17630688     34.54687938
+                    147.64752683    -24.98356410
+                                     50.12473966
+
+ Transpose of the rotation matrix
+     0.212504   -0.716552    0.664375
+     0.626567    0.621654    0.470065
+    -0.749837    0.316385    0.581072
+ CENTER OF ATOMS BEFORE TRANSLATION     1.16306     1.31740    -1.36160
+ AXIS OF ROTATION IS  0.078552 -0.722857 -0.686518  ANGLE IS   78.02
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>     40 atoms have been selected out of     40
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   18.413310   12.223691    1.912866        22.183951
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "PC"
+ RDCMND substituted energy or value "?RDIP" to "22.183951"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =       40   Number of groups     =        2
+         Number of bonds         =       39   Number of angles     =       50
+         Number of dihedrals     =       57   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   12
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>     40 atoms have been selected out of     40
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:        39 bonds deleted
+ DELTIC:        50 angles deleted
+ DELTIC:        57 dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "6"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "6" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "6"
+ Parameter: RESI6 -> "DMPC"
+ Parameter: RESIDUE <- "DMPC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DMPC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DMPC"
+ Drude polarizability will be setup for SEGID: DMPC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     46 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DMPC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      172   Number of groups     =       28
+         Number of bonds         =      171   Number of angles     =      226
+         Number of dihedrals     =      313   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       46
+         Number of true-bonds    =      171   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "6"
+ Parameter: SEED6 -> "1 C15 1 N 1 C12"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   54 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    172
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        53         1  DMPC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        54         1  DMPC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        55         1  DMPC      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        56         1  DMPC      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        71         1  DMPC      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        72         1  DMPC      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        73         1  DMPC      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+        74         1  DMPC      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DMPC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     46 atoms have been selected out of    172
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1546        1546        1539
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found    987 exclusions and    686 interactions(1-4)
+ <MAKGRP> found     70 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    59169 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    13719 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    13719 atom  pairs and     1673 atom  exclusions.
+ There are        0 group pairs and       70 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    59169 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    13719 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -97.12515      9.74968     20.33490
+ENER INTERN>        2.52498     15.37938      2.94154    161.89020      0.01134
+ENER EXTERN>        6.44065   -286.31323      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DMPC"
+ RDCMND substituted energy or value "?ENER" to "-97.1251542"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   3507.41772847  -2466.04843640  -3284.39453924
+                   7036.41491968    839.05856277
+                                   3894.35953525
+
+ Transpose of the rotation matrix
+     0.433278    0.719635   -0.542582
+    -0.651102    0.666199    0.363654
+     0.623166    0.195714    0.757206
+ CENTER OF ATOMS BEFORE TRANSLATION     5.85156     9.10055    -6.68322
+ AXIS OF ROTATION IS  0.092927  0.645046  0.758473  ANGLE IS   64.64
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    172 atoms have been selected out of    172
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :  -19.409038    6.764505    0.816312        20.570262
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DMPC"
+ RDCMND substituted energy or value "?RDIP" to "20.5702615"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      172   Number of groups     =       28
+         Number of bonds         =      171   Number of angles     =      226
+         Number of dihedrals     =      313   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   54
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    172 atoms have been selected out of    172
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       171 bonds deleted
+ DELTIC:       226 angles deleted
+ DELTIC:       313 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "7"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "7" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "7"
+ Parameter: RESI7 -> "DPPC"
+ Parameter: RESIDUE <- "DPPC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DPPC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DPPC"
+ Drude polarizability will be setup for SEGID: DPPC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     50 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DPPC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      188   Number of groups     =       32
+         Number of bonds         =      187   Number of angles     =      250
+         Number of dihedrals     =      349   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       50
+         Number of true-bonds    =      187   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "7"
+ Parameter: SEED7 -> "1 C15 1 N 1 C12"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   58 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    188
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        53         1  DPPC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        54         1  DPPC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        55         1  DPPC      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        56         1  DPPC      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        71         1  DPPC      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        72         1  DPPC      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        73         1  DPPC      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+        74         1  DPPC      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DPPC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     50 atoms have been selected out of    188
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1698        1698        1683
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1075 exclusions and    750 interactions(1-4)
+ <MAKGRP> found     82 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    70689 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    16503 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    16503 atom  pairs and     1825 atom  exclusions.
+ There are        0 group pairs and       82 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    70689 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    16503 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -95.21960     -1.90555     19.41392
+ENER INTERN>        2.59236     15.77913      2.98062    164.13605      0.01270
+ENER EXTERN>        5.48586   -286.20631      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DPPC"
+ RDCMND substituted energy or value "?ENER" to "-95.2195997"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   4725.92200137  -2897.46134325  -4323.27463298
+                   9490.98291443   1004.21648895
+                                   4669.31239200
+
+ Transpose of the rotation matrix
+     0.408362    0.742875   -0.530450
+    -0.624345    0.651233    0.431380
+     0.665908    0.155025    0.729749
+ CENTER OF ATOMS BEFORE TRANSLATION     6.05466    10.22226    -6.99924
+ AXIS OF ROTATION IS  0.150386  0.651028  0.744007  ANGLE IS   66.75
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    188 atoms have been selected out of    188
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :  -19.071474    7.516941    0.389448        20.503102
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DPPC"
+ RDCMND substituted energy or value "?RDIP" to "20.5031021"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      188   Number of groups     =       32
+         Number of bonds         =      187   Number of angles     =      250
+         Number of dihedrals     =      349   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   58
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    188 atoms have been selected out of    188
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       187 bonds deleted
+ DELTIC:       250 angles deleted
+ DELTIC:       349 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "8"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "8" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "8"
+ Parameter: RESI8 -> "DOPC"
+ Parameter: RESIDUE <- "DOPC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DOPC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DOPC"
+ Drude polarizability will be setup for SEGID: DOPC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     54 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DOPC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      200   Number of groups     =       36
+         Number of bonds         =      199   Number of angles     =      262
+         Number of dihedrals     =      363   Number of impropers  =        6
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       54
+         Number of true-bonds    =      199   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "8"
+ Parameter: SEED8 -> "1 C15 1 N 1 C12"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   62 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    200
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        53         1  DOPC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        54         1  DOPC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        55         1  DOPC      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        56         1  DOPC      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        71         1  DOPC      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        72         1  DOPC      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        73         1  DOPC      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+        74         1  DOPC      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DOPC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     54 atoms have been selected out of    200
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1792        1792        1791
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1135 exclusions and    784 interactions(1-4)
+ <MAKGRP> found     94 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    18765 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    18765 atom  pairs and     1919 atom  exclusions.
+ There are        0 group pairs and       94 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    18765 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -72.80966    -22.40994     19.11277
+ENER INTERN>        3.26841     17.62988      2.97851    181.38765      0.01612
+ENER CROSS>        -0.49690      0.00000      0.00000      0.00000
+ENER EXTERN>        7.10702   -284.70034      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DOPC"
+ RDCMND substituted energy or value "?ENER" to "-72.8096625"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   3002.34686780   -884.01797743   2597.12371294
+                   8694.28223611  -1119.69090828
+                                   5507.98139364
+
+ Transpose of the rotation matrix
+     0.422558   -0.860561    0.284393
+     0.737338    0.508873    0.444275
+    -0.527045    0.021962    0.849553
+ CENTER OF ATOMS BEFORE TRANSLATION     0.08529    11.55205     1.56059
+ AXIS OF ROTATION IS  0.229367 -0.440709 -0.867852  ANGLE IS   67.01
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    200 atoms have been selected out of    200
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   19.566787    0.318219   -3.435704        19.868680
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DOPC"
+ RDCMND substituted energy or value "?RDIP" to "19.8686805"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      200   Number of groups     =       36
+         Number of bonds         =      199   Number of angles     =      262
+         Number of dihedrals     =      363   Number of impropers  =        6
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   62
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    200 atoms have been selected out of    200
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       199 bonds deleted
+ DELTIC:       262 angles deleted
+ DELTIC:       363 dihedrals deleted
+ DELTIC:         6 improper dihedrals deleted
+ DELTIC:         2 crossterm maps deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "9"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "9" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "9"
+ Parameter: RESI9 -> "DPPE"
+ Parameter: RESIDUE <- "DPPE"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DPPE"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DPPE"
+ Drude polarizability will be setup for SEGID: DPPE    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     47 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DPPE.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      176   Number of groups     =       32
+         Number of bonds         =      175   Number of angles     =      232
+         Number of dihedrals     =      322   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       47
+         Number of true-bonds    =      175   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "9"
+ Parameter: SEED9 -> "1 N 1 C12 1 C11"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   55 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    176
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        41         1  DPPE      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        42         1  DPPE      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        43         1  DPPE      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        44         1  DPPE      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        59         1  DPPE      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        60         1  DPPE      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        61         1  DPPE      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+        62         1  DPPE      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DPPE      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     47 atoms have been selected out of    176
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1576        1576        1575
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1006 exclusions and    684 interactions(1-4)
+ <MAKGRP> found     82 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    14394 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    14394 atom  pairs and     1690 atom  exclusions.
+ There are        0 group pairs and       82 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    14394 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0     -2.79318    -70.01648     19.26364
+ENER INTERN>        3.27752     14.79143      2.53407    141.42006      0.01270
+ENER EXTERN>        3.20173   -168.03069      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DPPE"
+ RDCMND substituted energy or value "?ENER" to "-2.79318191"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   4343.80078712  -4563.20421546    150.51121356
+                   5180.76525531   -819.75128356
+                                   6694.13180356
+
+ Transpose of the rotation matrix
+     0.244168   -0.724056    0.645077
+     0.967356    0.135318   -0.214268
+     0.067851    0.676337    0.733461
+ CENTER OF ATOMS BEFORE TRANSLATION    -3.32227     8.30757    -8.72913
+ AXIS OF ROTATION IS -0.446014 -0.289074 -0.847058  ANGLE IS   86.76
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    176 atoms have been selected out of    176
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   13.626924  -13.297421    2.757920        19.238518
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DPPE"
+ RDCMND substituted energy or value "?RDIP" to "19.2385184"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      176   Number of groups     =       32
+         Number of bonds         =      175   Number of angles     =      232
+         Number of dihedrals     =      322   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   55
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    176 atoms have been selected out of    176
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       175 bonds deleted
+ DELTIC:       232 angles deleted
+ DELTIC:       322 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "10"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "10" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "10"
+ Parameter: RESI10 -> "POPC"
+ Parameter: RESIDUE <- "POPC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "POPC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "POPC"
+ Drude polarizability will be setup for SEGID: POPC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     52 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is POPC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      194   Number of groups     =       34
+         Number of bonds         =      193   Number of angles     =      256
+         Number of dihedrals     =      356   Number of impropers  =        4
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       52
+         Number of true-bonds    =      193   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "10"
+ Parameter: SEED10 -> "1 C13 1 N 1 C12"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   60 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    194
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        53         1  POPC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        54         1  POPC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        55         1  POPC      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        56         1  POPC      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        71         1  POPC      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        72         1  POPC      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        73         1  POPC      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+        74         1  POPC      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  POPC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     52 atoms have been selected out of    194
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1745        1745        1737
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1105 exclusions and    767 interactions(1-4)
+ <MAKGRP> found     88 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    17616 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    17616 atom  pairs and     1872 atom  exclusions.
+ There are        0 group pairs and       88 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    17616 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -82.36812     79.57494     19.01553
+ENER INTERN>        2.92569     17.24131      2.97524    177.77714      0.00939
+ENER CROSS>        -0.34630      0.00000      0.00000      0.00000
+ENER EXTERN>        5.97645   -288.92705      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "POPC"
+ RDCMND substituted energy or value "?ENER" to "-82.3681197"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   8085.15174969    245.56286161  -1416.40579864
+                   6824.72838678   3868.85453520
+                                   3328.56393857
+
+ Transpose of the rotation matrix
+     0.546807    0.735262   -0.400490
+     0.081529    0.429303    0.899473
+     0.833280   -0.524490    0.174800
+ CENTER OF ATOMS BEFORE TRANSLATION     7.13871    10.20361     3.60801
+ AXIS OF ROTATION IS  0.714017  0.618649  0.327801  ANGLE IS   85.67
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    194 atoms have been selected out of    194
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   -8.765200  -12.117874  -11.920997        19.125422
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "POPC"
+ RDCMND substituted energy or value "?RDIP" to "19.1254223"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      194   Number of groups     =       34
+         Number of bonds         =      193   Number of angles     =      256
+         Number of dihedrals     =      356   Number of impropers  =        4
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   60
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    194 atoms have been selected out of    194
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       193 bonds deleted
+ DELTIC:       256 angles deleted
+ DELTIC:       356 dihedrals deleted
+ DELTIC:         4 improper dihedrals deleted
+ DELTIC:         2 crossterm maps deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "11"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "11" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "11"
+ Parameter: RESI11 -> "DOPE"
+ Parameter: RESIDUE <- "DOPE"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DOPE"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DOPE"
+ Drude polarizability will be setup for SEGID: DOPE    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     51 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DOPE.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      188   Number of groups     =       36
+         Number of bonds         =      187   Number of angles     =      244
+         Number of dihedrals     =      336   Number of impropers  =        6
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       51
+         Number of true-bonds    =      187   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "11"
+ Parameter: SEED11 -> "1 N 1 C12 1 C11"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   59 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    188
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        41         1  DOPE      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        42         1  DOPE      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        43         1  DOPE      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        44         1  DOPE      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        59         1  DOPE      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        60         1  DOPE      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        61         1  DOPE      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+        62         1  DOPE      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DOPE      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     51 atoms have been selected out of    188
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1685        1685        1683
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1066 exclusions and    718 interactions(1-4)
+ <MAKGRP> found     94 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    16512 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    16512 atom  pairs and     1784 atom  exclusions.
+ There are        0 group pairs and       94 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    16512 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0     67.19308   -149.56120     27.78454
+ENER INTERN>        4.07358     18.98330      2.33767    159.19602      0.00146
+ENER CROSS>        -0.49690      0.00000      0.00000      0.00000
+ENER EXTERN>       81.32631   -198.22835      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DOPE"
+ RDCMND substituted energy or value "?ENER" to "67.1930776"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   7269.41798381   1547.89833319   1704.61130421
+                   2619.04823168   3335.35925412
+                                   6365.12414455
+
+ Transpose of the rotation matrix
+     0.658337    0.421644    0.623545
+     0.576973    0.249341   -0.777773
+    -0.483419    0.871806   -0.079126
+ CENTER OF ATOMS BEFORE TRANSLATION    -3.76402     0.29310     9.28889
+ AXIS OF ROTATION IS -0.827837 -0.555527 -0.077952  ANGLE IS   94.92
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    188 atoms have been selected out of    188
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   -2.646654    4.750043  -14.182171        15.188866
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DOPE"
+ RDCMND substituted energy or value "?RDIP" to "15.1888658"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      188   Number of groups     =       36
+         Number of bonds         =      187   Number of angles     =      244
+         Number of dihedrals     =      336   Number of impropers  =        6
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   59
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    188 atoms have been selected out of    188
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       187 bonds deleted
+ DELTIC:       244 angles deleted
+ DELTIC:       336 dihedrals deleted
+ DELTIC:         6 improper dihedrals deleted
+ DELTIC:         2 crossterm maps deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "12"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "12" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "12"
+ Parameter: RESI12 -> "POPE"
+ Parameter: RESIDUE <- "POPE"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "POPE"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "POPE"
+ Drude polarizability will be setup for SEGID: POPE    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     49 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is POPE.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      182   Number of groups     =       34
+         Number of bonds         =      181   Number of angles     =      238
+         Number of dihedrals     =      329   Number of impropers  =        4
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       49
+         Number of true-bonds    =      181   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "12"
+ Parameter: SEED12 -> "1 N 1 C12 1 C11"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   57 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    182
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        41         1  POPE      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        42         1  POPE      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        43         1  POPE      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        44         1  POPE      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        59         1  POPE      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        60         1  POPE      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        61         1  POPE      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+        62         1  POPE      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  POPE      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     49 atoms have been selected out of    182
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1638        1638        1629
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found   1036 exclusions and    701 interactions(1-4)
+ <MAKGRP> found     88 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    15435 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    15435 atom  pairs and     1737 atom  exclusions.
+ There are        0 group pairs and       88 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    15435 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        2 SPECIFIC THOLE SHIELDING PAIRS FOUND 
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0      4.47515     62.71792     22.22548
+ENER INTERN>        3.70722     17.23161      2.53484    149.64776      0.01727
+ENER CROSS>        -0.29427      0.00000      0.00000      0.00000
+ENER EXTERN>       21.31026   -189.67953      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "POPE"
+ RDCMND substituted energy or value "?ENER" to "4.47515312"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   6246.06974942   -721.54227269   1485.45754886
+                   8333.18314844    898.75721019
+                                   1107.95004729
+
+ Transpose of the rotation matrix
+     0.065030    0.964441   -0.256174
+     0.291851    0.227110    0.929109
+     0.954251   -0.135185   -0.266704
+ CENTER OF ATOMS BEFORE TRANSLATION     4.31604     1.32833    10.51077
+ AXIS OF ROTATION IS  0.609390  0.693061  0.385110  ANGLE IS  119.16
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    182 atoms have been selected out of    182
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :   -9.269197   -7.633586    8.623185        14.783402
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "POPE"
+ RDCMND substituted energy or value "?RDIP" to "14.7834023"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      182   Number of groups     =       34
+         Number of bonds         =      181   Number of angles     =      238
+         Number of dihedrals     =      329   Number of impropers  =        4
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   57
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    182 atoms have been selected out of    182
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       181 bonds deleted
+ DELTIC:       238 angles deleted
+ DELTIC:       329 dihedrals deleted
+ DELTIC:         4 improper dihedrals deleted
+ DELTIC:         2 crossterm maps deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "13"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "13" and "13".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>     
+  
+ CHARMM>    set residue @resi@@count
+ Parameter: COUNT -> "13"
+ Parameter: RESI13 -> "DLPC"
+ Parameter: RESIDUE <- "DLPC"
+  
+ CHARMM>    read sequence @residue 1
+ Parameter: RESIDUE -> "DLPC"
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev @boml
+ Parameter: BOML -> "-5"
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    generate @residue first none last none setup warn drude dmass 0.4 !show
+ Parameter: RESIDUE -> "DLPC"
+ Drude polarizability will be setup for SEGID: DLPC    mass of Drudes particles =    0.4000
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+
+ MKDRUDE generate list and setup for drude polarizability
+
+ All okay for     42 added Drude particles 
+
+ GENPSF> Segment   1 has been generated. Its identifier is DLPC.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      156   Number of groups     =       24
+         Number of bonds         =      155   Number of angles     =      202
+         Number of dihedrals     =      277   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+         Number of Drudes        =       42
+         Number of true-bonds    =      155   Number of zero-bonds =        0
+         Number of aniso. terms  =        8   Number of lone-pairs =        8
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed @seed@@count
+ Parameter: COUNT -> "13"
+ Parameter: SEED13 -> "1 C15 1 N 1 C12"
+  
+ CHARMM>    ic build
+ ****  WARNING  ****   50 COORDINATES ARE STILL UNDEFINED
+  
+ CHARMM>    coor print sele .not. init .and. .not. type d* end
+ SELRPN>      8 atoms have been selected out of    156
+ NOTE: A SELECTED SUBSET OF ATOMS WILL BE USED
+
+
+          COORDINATE FILE MODULE
+ TITLE>  * $ID: TEST_DRUDE_ALL.INP 28 2015-07-29 23:54:15Z ALEX $
+ TITLE>  * MASTER TEST CASE FOR DRUDE
+ TITLE>  *
+         8  EXT
+        53         1  DLPC      LP1A         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        54         1  DLPC      LP1B         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        55         1  DLPC      LPMA         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        56         1  DLPC      LPMB         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        71         1  DLPC      LP1C         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        72         1  DLPC      LP1D         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        73         1  DLPC      LPMC         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+        74         1  DLPC      LPMD         9999.0000000000     9999.0000000000     9999.0000000000  DLPC      1               0.0000000000
+  
+ CHARMM>    coor sdrude
+  
+ CHARMM>    coor shake
+ SELECTED COORDINATES CONSTRAINED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    ! instead of relaxing Drude, move all Drude a little bit away from their parent atom
+ CHARMM>    coor trans xdir -0.002 ydir -0.002 zdir -0.002 sele type D* end
+ SELRPN>     42 atoms have been selected out of    156
+ TRANSLATION VECTOR    -0.002000   -0.002000   -0.002000
+ SELECTED COORDINATES TRANSLATED IN THE MAIN SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>    update inbfrq -1 ihbfrq 0 switch atom vatom vswitch cutnb 999.0 ctofnb 997.0 ctonnb 995.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+        1401        1401        1395
+ <MAKINB>: Ran out of space. RESIZING
+ <MAKINB> with mode   5 found    899 exclusions and    622 interactions(1-4)
+ <MAKGRP> found     58 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    11191 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    if @mindr eq 0 then
+ Parameter: MINDR -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>      energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =999.000 CTEXNB =999.000 CTONNB =995.000 CTOFNB =997.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are    11191 atom  pairs and     1521 atom  exclusions.
+ There are        0 group pairs and       58 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR    80001 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+    11191 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    272.43013   -267.95497     27.92825
+ENER INTERN>        2.50249    344.19674     43.24177    161.57744      0.01270
+ENER EXTERN>        7.57650   -286.67752      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     else
+ Skip commands until next ENDIF
+  
+ CHARMM>    echo @residue starting E: ?ener
+ Parameter: RESIDUE -> "DLPC"
+ RDCMND substituted energy or value "?ENER" to "272.430126"
+  
+ CHARMM>     
+  
+ CHARMM>    if @?pdbdir eq 1 then
+ Comparing "0" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    if @mini ne 0 then
+ Parameter: MINI -> "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+   2866.74313752  -1948.61298479  -2431.10645755
+                   5218.72218579    837.90585179
+                                   2544.67013778
+
+ Transpose of the rotation matrix
+     0.418285    0.718368   -0.555864
+    -0.609859    0.675634    0.414236
+     0.673134    0.165730    0.720711
+ CENTER OF ATOMS BEFORE TRANSLATION     5.52902     8.16495    -6.16312
+ AXIS OF ROTATION IS  0.136050  0.672843  0.727168  ANGLE IS   65.96
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    coor dipole oxyz select all end
+ SELRPN>    156 atoms have been selected out of    156
+ THE TOTAL CHARGE OF SELECTED ATOMS IS:    0.000000
+ DIPOLE MOMENT (DEBYES) :  -20.103103    6.898402   -1.518722        21.307962
+  
+ CHARMM>    echo @residue dipole: ?rdip
+ Parameter: RESIDUE -> "DLPC"
+ RDCMND substituted energy or value "?RDIP" to "21.3079618"
+  
+ CHARMM>    !! Check molecular polarizability
+ CHARMM>    !VIBRAN
+ CHARMM>    !diag dscf fini step 0.001
+ CHARMM>    !END
+ CHARMM>     
+  
+ CHARMM>    shake off
+ SHKCOM> SHAKE constraints removed.
+  
+ CHARMM>    drude reset
+ DRUDE> Drude particles ready to be deleted
+
+        Call: DELETE ATOMS SELECT TYPE D* END
+
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =      156   Number of groups     =       24
+         Number of bonds         =      155   Number of angles     =      202
+         Number of dihedrals     =      277   Number of impropers  =        2
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    lone clear
+LONEPR: Lone-pair facility is cleared
+ *****  WARNING  ***** Number of atoms with zero mass that are no longer lonepairs:   50
+  
+ CHARMM>    delete atom sele all end
+ SELRPN>    156 atoms have been selected out of    156
+
+ Message from MAPIC: Atom numbers are changed.
+
+ Message from MAPIC:          1 residues deleted.
+
+ Message from MAPIC:          1 segments deleted.
+ DELTIC:       155 bonds deleted
+ DELTIC:       202 angles deleted
+ DELTIC:       277 dihedrals deleted
+ DELTIC:         2 improper dihedrals deleted
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        0   Number of residues   =        0
+         Number of atoms         =        0   Number of groups     =        0
+         Number of bonds         =        0   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        0   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    incr count
+ Parameter: COUNT <- "14"
+  
+ CHARMM>    if count le @nres goto loop_lipid1
+ Parameter: NRES -> "13"
+ Comparing "14" and "13".
+ IF test evaluated as false.  Skipping command
+  
+ VCLOSE: Closing unit   99 with status "KEEP"
+
+                    RETURNING TO INPUT STREAM     5
+  
+ CHARMM>    !labe skip_test
+ CHARMM>    incr testcasei
+ Parameter: TESTCASEI <- "7"
+  
+ CHARMM>    if @testcasei le @testcasef goto loop_tests
+ Parameter: TESTCASEI -> "7"
+ Parameter: TESTCASEF -> "6"
+ Comparing "7" and "6".
+ IF test evaluated as false.  Skipping command
+  
+ CHARMM>     
+  
+ VCLOSE: Closing unit   90 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+   Shake Setup                     0.00 Other:            0.00
+   Shake time                      0.01 Other:            0.00
+   List time                       0.00 Other:            0.00
+         Electrostatic & VDW             0.01 Other:            0.00
+      Nonbond force                   0.02 Other:            0.01
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.00 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.04 Other:            0.04
+   Energy time                     0.06 Other:            0.00
+ Total time                      2.00 Other:            1.92
+
+                    NORMAL TERMINATION BY END OF FILE
+                    MOST SEVERE WARNING WAS AT LEVEL  2
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     2.09  SECONDS 
+                         CPU TIME:     0.90  SECONDS 

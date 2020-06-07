@@ -2552,7 +2552,7 @@ patc firs none last none
  
 !! Acyclic ethers 
  
-RESI DMET          0.000 ! Dimethylether 
+RESI DMEE          0.000 ! Dimethylether 
 ! 
 !         H11      H31 
 !         |         | 
@@ -2584,7 +2584,7 @@ LONEPAIR bisector LP2B O2 C1 C3 distance 0.35 angle 110.0 dihe 270.0
 LONEPAIR bisector LPX  O2 C1 C3 distance 0.10 angle   0.0 dihe   0.0 
 ANISOTROPY O2 LPX LP2A LP2B A11 0.8889  A22 1.2222 
  
-!! IC for DMET staggered (C2v) conformer MP2/6-31G* optimized 
+!! IC for DMEE staggered (C2v) conformer MP2/6-31G* optimized 
 IC C1    O2    C3   H31     1.4156  111.05  -60.70  111.47   1.0993 
 IC H11   C1    O2   C3      1.0993  111.47  -60.70  111.05   1.4156 
 IC H11   O2   *C1   H12     1.0993  111.47 -119.30  106.89   1.0906 

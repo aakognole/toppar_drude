@@ -4772,7 +4772,7 @@ CD326B   OD306A   CD326B   CD326B      0.52702  1   180.00 ! THP,  sng 1/06
 CD326B   OD306A   CD326B   CD326B      0.68297  2     0.00 ! THP,  sng 1/06 
 CD326B   OD306A   CD326B   CD326B      0.20977  3   180.00 ! THP,  sng 1/06 
 CD326B   OD306A   CD326B   CD326B      0.15037  4     0.00 ! THP,  sng 1/06 
-CD326B   OD306A   CD326B   HDA2E       0.284    3     0.00 ! DMET, viv 
+CD326B   OD306A   CD326B   HDA2E       0.284    3     0.00 ! DMEE, viv 
 CD32A    OD30A    CD32A    CD32A       0.570    1     0.00 ! DMOE, ATM 
 CD32A    OD30A    CD32A    CD32A       0.290    2     0.00 ! DMOE, ATM 
 CD32A    OD30A    CD32A    CD32A       0.430    3     0.00 ! DMOE, ATM 
@@ -4817,6 +4817,13 @@ CD32A    CD31C    CD32C    HDA2A       0.200    3     0.00 ! GLYC, alkane, lipid
 CD32C    CD31C    CD32A    HDA2A       0.190    3     0.00 ! GLYC, alkane 
 CD32C    CD31C    CD33A    HDA3A       0.190    3     0.00 ! GLYC, alkane, lipid 
 CD32C    CD32A    CD32A    HDA2A       0.160    3     0.00 ! Lipid-H, alkane, ester 
+CD32C    OD30CL   CD2O3B   CD33C       1.810    1   180.00 ! EAS, MODIFIED BY JC
+CD32C    OD30CL   CD2O3B   CD33C       2.929    2   180.00 ! EAS, MODIFIED BY JC
+CD32C    OD30CL   CD2O3B   CD33C       0.048    3     0.00 ! EAS, MODIFIED BY JC
+CD32C    OD30CL   CD2O3B   CD33C       0.000    4     0.00 ! EAS, MODIFIED BY JC
+CD32C    OD30CL   CD2O3B   CD33C       0.781    5   180.00 ! EAS, MODIFIED BY JC
+CD32C    OD30CL   CD2O3B   CD33C       0.000    6     0.00 ! EAS, MODIFIED BY JC
+CD33D    OD30CL   CD2O3B   CD32C       2.500    2   180.00 ! CT1, MAS
 HDA1A    CD31C    CD32C    OD30C       0.200    3     0.00 ! EAS/Lipid-H, charmm27 
 OD30C    CD31C    CD32C    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 
 CD2O3A   OD30C    CD32C    CD33A       1.250    1   180.00 ! EAS, EH 2007 
@@ -4824,6 +4831,22 @@ CD2O3A   OD30C    CD32C    CD33A       0.500    3   180.00 ! EAS, EH 2007
 CD2O3A   OD30C    CD32C    HDA2A       0.200    3   180.00 ! MAS, PEML 2009 
 CD2O3A   OD30C    CD33C    HDA3A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
 CD2O3A   OD30C    CD33D    HDA3A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED *** 
+CD2O3B   CD32C    CD32A    CD33A       0.000    1   180.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    CD33A       0.071    2     0.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    CD33A       0.451    3   180.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    CD33A       0.000    4   180.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    CD33A       0.025    5     0.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    CD33A       0.064    6   180.00 ! JC-v2-21: MBU
+CD2O3B   CD32C    CD32A    HDA2A       0.200    3     0.00 ! alkane, ester, lipid specific
+CD2O3B   CD32C    CD33A    HDA3A       0.200    3     0.00 ! alkane, ester
+CD2O3B   OD30CL   CD32C    HDA2A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
+CD2O3B   OD30CL   CD33D    HDA3A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
+CD2O3B   OD30CL   CD32C    CD33A       1.138    1   180.00 ! JC-v2-3: EAS, ester to glycerol
+CD2O3B   OD30CL   CD32C    CD33A       0.231    2     0.00 ! JC-v2-3: EAS, ester to glycerol
+CD2O3B   OD30CL   CD32C    CD33A       0.425    3     0.00 ! JC-v2-3: EAS, ester to glycerol
+CD2O3B   OD30CL   CD32C    CD33A       0.278    4     0.00 ! JC-v2-3: EAS, ester to glycerol
+CD2O3B   OD30CL   CD32C    CD33A       0.106    5   180.00 ! JC-v2-3: EAS, ester to glycerol
+CD2O3B   OD30CL   CD32C    CD33A       0.119    6   180.00 ! JC-v2-3: EAS, ester to glycerol
 HDP1A    OD31F    CD2O3A   OD2C3A      1.110    2   180.00 ! ACEH, PEML 
 HDP1A    OD31F    CD2O3A   CD31A       3.800    2   180.00 ! CNEU/ACEH, PEML 
 HDP1A    OD31F    CD2O3A   CD31C       3.800    2   180.00 ! CNEU/ACEH, PEML 
@@ -5047,6 +5070,26 @@ OD30C    CD2O3A   CD31C    CD32C       0.300    2   180.00 ! CT1, PEML by analog
 OD30C    CD2O3A   CD31C    CD33A       0.300    1     0.00 ! CT1, MPO, EH 2007 
 OD30C    CD2O3A   CD31C    CD33A       0.300    2   180.00 ! CT1, MPO, EH 2007 
 OD30C    CD2O3A   CD31C    HDA1A       0.200    3   180.00 ! CT1, MAS 
+OD30CL   CD2O3B   CD31C    HDA1A       0.200    3   180.00 ! CT1, MAS
+OD30CL   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
+OD30CL   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
+OD30CL   CD2O3B   CD32C    CD32A       0.218    1   180.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD32A       0.303    2   180.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD32A       1.647    3     0.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD32A       0.983    4   180.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD32A       3.430    5   180.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD32A       0.720    6   180.00 ! JC-v2-11: ester to aliphatic tail
+OD30CL   CD2O3B   CD32C    CD33A       0.086    1   180.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD2O3B   CD32C    CD33A       0.154    2   180.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD2O3B   CD32C    CD33A       1.008    3     0.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD2O3B   CD32C    CD33A       0.000    4     0.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD2O3B   CD32C    CD33A       2.828    5   180.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD2O3B   CD32C    CD33A       0.012    6   180.00 ! JC-v2-12: ester to aliphatic tail, MPRO
+OD30CL   CD31C    CD32A    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27
+OD30CL   CD31C    CD32C    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27
+OD30CL   CD31C    CD33A    HDA3A       0.190    3     0.00 ! EAS/Lipid-H, charmm27
+OD30CL   CD32C    CD31C    HDA1A       0.200    3     0.00 ! EAS/Lipid-H, charmm27
+OD30CL   CD32C    CD33A    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
 OD31F    CD2O3A   CD31C    ND2A2       0.000    1     0.00 ! CNEU, PEML   pseudo-psi 
 OD31F    CD2O3A   CD31C    ND2A2       2.800    2   180.00 ! CNEU, PEML   pseudo-psi 
 OD31F    CD2O3A   CD31C    CD31A       1.500    2     0.00 ! CNEU/NTER 
@@ -5063,6 +5106,30 @@ OD2C3A   CD2O3A   CD32C    CD32B       0.200    3     0.00 ! GLUP, c22, chi2
 OD2C3A   CD2O3A   CD32C    CD32A       0.100    4     0.00 ! MPO, EH 2007, ester 
 OD2C3A   CD2O3A   CD32C    CD33A       0.100    4     0.00 ! MPO, EH 2007, ester 
 OD2C3A   CD2O3A   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009 
+OD2C3B   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009
+OD2C3B   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009
+OD2C3B   CD2O3B   CD32C    CD32A       0.387    1   180.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD32A       0.031    2     0.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD32A       1.748    3     0.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD32A       0.916    4     0.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD32A       3.501    5   180.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD32A       0.839    6     0.00 ! JC-v2-9: ester to aliphatic tail
+OD2C3B   CD2O3B   CD32C    CD33A       0.142    1   180.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   CD32C    CD33A       0.271    2   180.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   CD32C    CD33A       1.017    3     0.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   CD32C    CD33A       0.000    4     0.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   CD32C    CD33A       2.891    5   180.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   CD32C    CD33A       0.000    6     0.00 ! JC-v2-10: ester to aliphatic tail, MPRO
+OD2C3B   CD2O3B   OD30CL   CD32C       0.017    1   180.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD32C       3.011    2   180.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD32C       0.486    3   180.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD32C       0.073    4   180.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD32C       0.823    5   180.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD32C       0.251    6     0.00 ! EAS, MODIFIED BY JC
+OD2C3B   CD2O3B   OD30CL   CD33D       0.229    1     0.00 ! lipids
+OD2C3B   CD2O3B   OD30CL   CD33D       3.567    2   180.00 ! lipids
+OD2C3B   CD2O3B   OD30CL   CD33D       0.049    3   180.00 ! lipids
+OD2C3B   CD2O3B   OD30CL   CD33D       0.040    6   180.00 ! lipids
 OD30C    CD2O3A   CD32C    ND2A2       0.200    3     0.00 ! CT1, c22, gly 
 OD30C    CD2O3A   CD32C    CD32A       0.300    1     0.00 ! MPO, EH 2007, ester 
 OD30C    CD2O3A   CD32C    CD32A       0.300    2   180.00 ! MPO, EH 2007, ester 
@@ -6151,9 +6218,15 @@ OD2C3A   CD32A    OD30C    CD2O3A     85.000   0     0.00 ! MAS
 OD2C3A   CD33C    OD30C    CD2O3A     85.000   0     0.00 ! MAS 
 OD2C3A   CD33D    OD30C    CD2O3A     85.000   0     0.00 ! MAS 
 OD2C3A   CD32C    OD30C    CD2O3A     85.000   0     0.00 ! MAS 
-OD2C3A   CD31C    OD30C    CD2O3A     85.000   0     0.00 ! MAS, CT1 
+OD2C3A   CD31C    OD30C    CD2O3A     85.000   0     0.00 ! MAS, CT1
 CD2O3A   OD31F    CD33C    OD2C3A     85.000   0     0.00 ! ACEH, PEML 
 CD2O3A   OD31F    CD33D    OD2C3A     85.000   0     0.00 ! ACEH, PEML 
+OD2C3B   CD33A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
+OD2C3B   CD32A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
+OD2C3B   CD33C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
+OD2C3B   CD33D    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
+OD2C3B   CD32C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
+OD2C3B   CD31C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS, CT1
 !alkenes
 CD2C1A   CD32A    CD2C1A    HD2C1A     1.100     2    180.0 ! Hui-v9
 CD2C1A   CD33A    CD2C1A    HD2C1A     1.100     2    180.0 ! Hui-v9
@@ -7992,7 +8065,7 @@ CD31HC   0.0   -0.0560     2.0100  0.0 -0.01 1.9 ! hexopyranoses, C5
 CD32A    0.0   -0.0560     2.1000  0.0 -0.01 1.9 ! PROP, propane, VA, 10/07 
 CD32B    0.0   -0.0560     2.1000  0.0 -0.01 1.9 ! for GLU, from CD32A 
 CD32C    0.0   -0.0560     1.8100  0.0 -0.01 1.9 ! NMA/MAS/ACEH PEML 
-CD32E    0.0   -0.0540     2.0200  0.0 -0.01 1.9 ! DMET, ethers, cmb 11/08 
+CD32E    0.0   -0.0540     2.0200  0.0 -0.01 1.9 ! DMEE, ethers, cmb 11/08 
 CD32F    0.0   -0.1200     2.1500  0.0 -0.01 1.9 ! ethylene glycol, xhe 
 CD325A   0.0   -0.0600     2.0200  0.0 -0.01 1.9 ! CPEN, cyclopentane, viv 
 CD325B   0.0   -0.0600     2.0200  0.0 -0.01 1.9 ! THF, tetrahydrofuran, from CPEN, viv 
@@ -8002,7 +8075,7 @@ CD33A    0.0   -0.0780     2.0400  0.0 -0.01 1.9 ! ETHA, ethane, 4/98, yin, adm 
 CD33B    0.0   -0.1100     2.0400  0.0 -0.01 1.9 ! special methyl C for MEOH, methanol 
 CD33C    0.0   -0.0780     1.9400 ! special methyl C for amides 
 CD33D    0.0   -0.0780     1.9400 ! special methyl C for MAS, CT1, lipid conflict
-CD33E    0.0   -0.1040     2.0000  0.0 -0.01 1.9 ! DMET, ethers, cmb 11/08 
+CD33E    0.0   -0.1040     2.0000  0.0 -0.01 1.9 ! DMEE, ethers, cmb 11/08 
  
 !! Nitrogens 
 ND2A1    0.0   -0.1600     1.8500 ! ACEM, acetamide 
@@ -8609,7 +8682,8 @@ CLAD ND2A2    2.86000 ! protein backbone/amide, Hui-2015, undergoing testing
 CLAD ND2R6C   2.86000 ! protein backbone/amide, Hui-2015, for Cyt-N1, Thy-N3, Ura-N1/N3, Gua-N1, undergoing testing
 
 ! nucleic acid specific
-CD32C OD2C2B  1.45000 !-1.642  -0.931 !phosphate anionic O to C5' special 1,4 term
+CD32C  OD2C2B  1.45000 ! phosphate anionic O to C5' special 1,4 term
+CD315B OD2C2B  1.45000 ! phosphate anionic O to C3' special 1,4 term
 
 END 
 

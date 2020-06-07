@@ -9662,16 +9662,16 @@ OD306A   CD31HC   CD31HB   HDA1A       0.190   3     0.00 ! from, THP, viv
 OD306A   CD31HC   CD32A    HDA2A       0.190   3     0.00 ! from, DEET, diethylether alex
 CD31HB   CD31HC   CD32A    HDA2A       0.190   3     0.00 ! from, THP, viv
 HDA1A    CD31HB   CD31HC   CD32A       0.190   3     0.00 ! from, THP, viv
-CD31HB   OD306A   CD31HC   HDA2E       0.284   3     0.00 ! from, DMET, viv   
+CD31HB   OD306A   CD31HC   HDA2E       0.284   3     0.00 ! from, DMEE, viv   
 CD31HB   CD31HB   CD31HB   HDA1A       0.190   3     0.00 ! from, THP, viv 
-HDA1A    CD31HB   OD306A   CD31HC      0.284   3     0.00 ! from, DMET, viv
+HDA1A    CD31HB   OD306A   CD31HC      0.284   3     0.00 ! from, DMEE, viv
 HDA1A    CD31HB   CD31HB   HDA1A       0.190   3     0.00 ! from, THP, viv
 OD31E    CD31HB   CD31HB   HDA1A       0.270   1     0.00 ! from, ethylene glycol, xhe
 OD31E    CD31HB   CD31HB   HDA1A       0.050   2     0.00 ! from, ethylene glycol, xhe
 OD31E    CD31HB   CD31HB   HDA1A       0.120   3     0.00 ! from, ethylene glycol, xhe
 !after change in anomeric carbon atom type
 CD31HA   CD31HB   CD31HB   HDA1A       0.190   3     0.00 ! from, THP, viv
-CD31HA   OD306A   CD31HC   HDA2E       0.284   3     0.00 ! from, DMET, viv
+CD31HA   OD306A   CD31HC   HDA2E       0.284   3     0.00 ! from, DMEE, viv
 HDP1A    OD31E    CD31HA   HDA1A       0.060   1     0.00 ! glycerol, xhe
 HDP1A    OD31E    CD31HA   HDA1A       0.060   2     0.00 ! glycerol, xhe
 HDP1A    OD31E    CD31HA   HDA1A       0.000   3     0.00 ! glycerol, xhe
@@ -9680,7 +9680,7 @@ OD31E    CD31HB   CD31HA   HDA1A       0.270   1     0.00 ! from, ethylene glyco
 OD31E    CD31HB   CD31HA   HDA1A       0.050   2     0.00 ! from, ethylene glycol, xhe
 OD31E    CD31HB   CD31HA   HDA1A       0.120   3     0.00 ! from, ethylene glycol, xhe
 CD31HB   CD31HB   CD31HA   HDA1A       0.190   3     0.00 ! from, THP, viv
-HDA1A    CD31HA   OD306A   CD31HC      0.284   3     0.00 ! from, DMET, viv
+HDA1A    CD31HA   OD306A   CD31HC      0.284   3     0.00 ! from, DMEE, viv
 OD31E    CD31HA   CD31HB   HDA1A       0.270   1     0.00 ! from, ethylene glycol, xhe
 OD31E    CD31HA   CD31HB   HDA1A       0.050   2     0.00 ! from, ethylene glycol, xhe
 OD31E    CD31HA   CD31HB   HDA1A       0.120   3     0.00 ! from, ethylene glycol, xhe

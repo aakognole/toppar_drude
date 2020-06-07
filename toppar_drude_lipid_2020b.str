@@ -3441,26 +3441,26 @@ DIHEDRALS
 !3) refit with only individual multiplicities of 1 through 6 
 !4) maintain the number of significant figures used below
 ! 
-OD30CL   CD2O3B   CD31C    HDA1A       0.200    3   180.00 ! CT1, MAS 
-OD30CL   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** 
-OD30CL   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** 
-OD2C3B   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009      
-OD2C3B   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009      
-OD2C3B   CD2O3B   OD30CL   CD33D       0.229    1     0.00 ! lipids       
-OD2C3B   CD2O3B   OD30CL   CD33D       3.567    2   180.00 ! lipids   
-OD2C3B   CD2O3B   OD30CL   CD33D       0.049    3   180.00 ! lipids 
-OD2C3B   CD2O3B   OD30CL   CD33D       0.040    6   180.00 ! lipids 
-OD30CL   CD31C    CD32A    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 
-OD30CL   CD31C    CD33A    HDA3A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 
-HDA1A    CD31C    CD32C    OD30CL      0.200    3     0.00 ! EAS/Lipid-H, charmm27 
-OD30CL   CD31C    CD32C    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 
+!OD30CL   CD2O3B   CD31C    HDA1A       0.200    3   180.00 ! CT1, MAS ! moved to master 2020b
+!OD30CL   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** ! moved to master 2020b
+!OD2C3B   CD2O3B   CD32C    HDA2A       0.000    3   180.00 ! MAS, PEML 2009 ! moved to master 2020b
+!OD2C3B   CD2O3B   CD33C    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 ! moved to master 2020b
+!OD2C3B   CD2O3B   OD30CL   CD33D       0.229    1     0.00 ! lipids ! moved to master 2020b
+!OD2C3B   CD2O3B   OD30CL   CD33D       3.567    2   180.00 ! lipids ! moved to master 2020b
+!OD2C3B   CD2O3B   OD30CL   CD33D       0.049    3   180.00 ! lipids ! moved to master 2020b
+!OD2C3B   CD2O3B   OD30CL   CD33D       0.040    6   180.00 ! lipids ! moved to master 2020b
+!OD30CL   CD31C    CD32A    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 ! moved to master 2020b
+!OD30CL   CD31C    CD33A    HDA3A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 ! moved to master 2020b
+!HDA1A    CD31C    CD32C    OD30CL      0.200    3     0.00 ! EAS/Lipid-H, charmm27 ! moved to master 2020b
+!OD30CL   CD31C    CD32C    HDA2A       0.190    3     0.00 ! EAS/Lipid-H, charmm27 ! moved to master 2020b
 CD32A    CD32A    CD32C    CD2O3B      0.350    1     0.00 ! MBU, EH 2007, ester, lipid specific
-HDA2A    CD32A    CD32C    CD2O3B      0.200    3     0.00 ! alkane, ester, lipid specific
-OD30CL   CD32C    CD33A    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** 
-CD2O3B   CD32C    CD33A    HDA3A       0.200    3     0.00 ! alkane, ester 
-CD2O3B   OD30CL   CD32C    HDA2A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
-CD2O3B   OD30CL   CD33D    HDA3A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED ***
-CD33D    OD30CL   CD2O3B   CD32C       2.500    2   180.00 ! CT1, MAS
+!HDA2A    CD32A    CD32C    CD2O3B      0.200    3     0.00 ! alkane, ester, lipid specific ! moved to master 2020b
+!OD30CL   CD32C    CD33A    HDA3A       0.000    3   180.00 ! MAS, PEML 2009 *** CHANGED *** ! moved to master 2020b
+!CD2O3B   CD32C    CD33A    HDA3A       0.200    3     0.00 ! alkane, ester ! moved to master 2020b
+!CD2O3B   OD30CL   CD32C    HDA2A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED *** ! moved to master 2020b
+!CD2O3B   OD30CL   CD33D    HDA3A       0.200    3   180.00 ! MAS, PEML 2009 *** CHANGED *** ! moved to master 2020b
+!CD33D    OD30CL   CD2O3B   CD32C       2.500    2   180.00 ! CT1, MAS ! moved to master 2020b
 
 !start DPPC
 CD32A    CD31C    OD30CL   CD2O3B      3.501    1   283.77 ! Hui-2015
@@ -3522,19 +3522,19 @@ CD31C    OD30CL   CD2O3B   CD33C       2.803    3     0.00 ! MODIFIED BY JC
 CD31C    OD30CL   CD2O3B   CD33C       0.000    4   180.00 ! MODIFIED BY JC 
 CD31C    OD30CL   CD2O3B   CD33C       1.377    5     0.00 ! MODIFIED BY JC 
 CD31C    OD30CL   CD2O3B   CD33C       0.000    6     0.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      0.017    1   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      3.011    2   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      0.486    3   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      0.073    4   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      0.823    5   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   OD2C3B      0.251    6     0.00 ! MODIFIED BY JC 
+!CD32C    OD30CL   CD2O3B   OD2C3B      0.017    1   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   OD2C3B      3.011    2   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   OD2C3B      0.486    3   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   OD2C3B      0.073    4   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   OD2C3B      0.823    5   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   OD2C3B      0.251    6     0.00 ! MODIFIED BY JC ! moved to master 2020b
 CD32C    OD30CL   CD2O3B   CD32C       2.500    2   180.00 ! MAS, EH 2007 
-CD32C    OD30CL   CD2O3B   CD33C       1.810    1   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   CD33C       2.929    2   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   CD33C       0.048    3     0.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   CD33C       0.000    4     0.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   CD33C       0.781    5   180.00 ! MODIFIED BY JC 
-CD32C    OD30CL   CD2O3B   CD33C       0.000    6     0.00 ! MODIFIED BY JC 
+!CD32C    OD30CL   CD2O3B   CD33C       1.810    1   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   CD33C       2.929    2   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   CD33C       0.048    3     0.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   CD33C       0.000    4     0.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   CD33C       0.781    5   180.00 ! MODIFIED BY JC ! moved to master 2020b
+!CD32C    OD30CL   CD2O3B   CD33C       0.000    6     0.00 ! MODIFIED BY JC ! moved to master 2020b
 CD33C    OD30CL   CD2O3B   OD2C3B      0.229    1     0.00 ! MODIFIED BY JC
 CD33C    OD30CL   CD2O3B   OD2C3B      3.567    2   180.00 ! MODIFIED BY JC
 CD33C    OD30CL   CD2O3B   OD2C3B      0.049    3   180.00 ! MODIFIED BY JC 
@@ -3587,48 +3587,48 @@ CD32A    CD31C    CD32C    OD30CL      2.905    3     0.00 ! Hui-2015
 !PE 
 HDP1B    ND3P3A   CD32A    HDA2A       0.100    3     0.00 ! Hui-2015
 HDA2A    CD32A    CD32A    OD30B       0.190    3     0.00 ! Hui-2015
-CD33A    CD32C    OD30CL   CD2O3B      0.106    5   180.00 ! JC-v2-3: EAS, ester to glycerol
-CD33A    CD32C    OD30CL   CD2O3B      0.119    6   180.00 ! JC-v2-3
-CD33A    CD32C    OD30CL   CD2O3B      0.231    2     0.00 ! JC-v2-3
-CD33A    CD32C    OD30CL   CD2O3B      0.278    4     0.00 ! JC-v2-3
-CD33A    CD32C    OD30CL   CD2O3B      0.425    3     0.00 ! JC-v2-3
-CD33A    CD32C    OD30CL   CD2O3B      1.138    1   180.00 ! JC-v2-3
-CD32A    CD32C    CD2O3B   OD2C3B      0.031    2     0.00 ! JC-v2-9: ester to aliphatic tail
-CD32A    CD32C    CD2O3B   OD2C3B      0.387    1   180.00 ! JC-v2-9
-CD32A    CD32C    CD2O3B   OD2C3B      0.839    6     0.00 ! JC-v2-9
-CD32A    CD32C    CD2O3B   OD2C3B      0.916    4     0.00 ! JC-v2-9
-CD32A    CD32C    CD2O3B   OD2C3B      1.748    3     0.00 ! JC-v2-9
-CD32A    CD32C    CD2O3B   OD2C3B      3.501    5   180.00 ! JC-v2-9
-CD33A    CD32C    CD2O3B   OD2C3B      0.000    4     0.00 ! JC-v2-10: ester to aliphatic tail, MPRO
-CD33A    CD32C    CD2O3B   OD2C3B      0.000    6     0.00 ! JC-v2-10
-CD33A    CD32C    CD2O3B   OD2C3B      0.142    1   180.00 ! JC-v2-10
-CD33A    CD32C    CD2O3B   OD2C3B      0.271    2   180.00 ! JC-v2-10
-CD33A    CD32C    CD2O3B   OD2C3B      1.017    3     0.00 ! JC-v2-10
-CD33A    CD32C    CD2O3B   OD2C3B      2.891    5   180.00 ! JC-v2-10
-OD30CL   CD2O3B   CD32C    CD32A       0.218    1   180.00 ! JC-v2-11: ester to aliphatic tail
-OD30CL   CD2O3B   CD32C    CD32A       0.303    2   180.00 ! JC-v2-11
-OD30CL   CD2O3B   CD32C    CD32A       0.720    6   180.00 ! JC-v2-11
-OD30CL   CD2O3B   CD32C    CD32A       0.983    4   180.00 ! JC-v2-11
-OD30CL   CD2O3B   CD32C    CD32A       1.647    3     0.00 ! JC-v2-11
-OD30CL   CD2O3B   CD32C    CD32A       3.430    5   180.00 ! JC-v2-11
-OD30CL   CD2O3B   CD32C    CD33A       0.000    4     0.00 ! JC-v2-12: ester to aliphatic tail, MPRO
-OD30CL   CD2O3B   CD32C    CD33A       0.012    6   180.00 ! JC-v2-12
-OD30CL   CD2O3B   CD32C    CD33A       0.086    1   180.00 ! JC-v2-12
-OD30CL   CD2O3B   CD32C    CD33A       0.154    2   180.00 ! JC-v2-12
-OD30CL   CD2O3B   CD32C    CD33A       1.008    3     0.00 ! JC-v2-12
-OD30CL   CD2O3B   CD32C    CD33A       2.828    5   180.00 ! JC-v2-12
+!CD33A    CD32C    OD30CL   CD2O3B      0.106    5   180.00 ! JC-v2-3: EAS, ester to glycerol ! moved to master 2020b
+!CD33A    CD32C    OD30CL   CD2O3B      0.119    6   180.00 ! JC-v2-3 ! moved to master 2020b
+!CD33A    CD32C    OD30CL   CD2O3B      0.231    2     0.00 ! JC-v2-3 ! moved to master 2020b
+!CD33A    CD32C    OD30CL   CD2O3B      0.278    4     0.00 ! JC-v2-3 ! moved to master 2020b
+!CD33A    CD32C    OD30CL   CD2O3B      0.425    3     0.00 ! JC-v2-3 ! moved to master 2020b
+!CD33A    CD32C    OD30CL   CD2O3B      1.138    1   180.00 ! JC-v2-3 ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      0.031    2     0.00 ! JC-v2-9: ester to aliphatic tail ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      0.387    1   180.00 ! JC-v2-9 ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      0.839    6     0.00 ! JC-v2-9 ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      0.916    4     0.00 ! JC-v2-9 ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      1.748    3     0.00 ! JC-v2-9 ! moved to master 2020b
+!CD32A    CD32C    CD2O3B   OD2C3B      3.501    5   180.00 ! JC-v2-9 ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      0.000    4     0.00 ! JC-v2-10: ester to aliphatic tail, MPRO ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      0.000    6     0.00 ! JC-v2-10 ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      0.142    1   180.00 ! JC-v2-10 ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      0.271    2   180.00 ! JC-v2-10 ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      1.017    3     0.00 ! JC-v2-10 ! moved to master 2020b
+!CD33A    CD32C    CD2O3B   OD2C3B      2.891    5   180.00 ! JC-v2-10 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       0.218    1   180.00 ! JC-v2-11: ester to aliphatic tail ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       0.303    2   180.00 ! JC-v2-11 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       0.720    6   180.00 ! JC-v2-11 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       0.983    4   180.00 ! JC-v2-11 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       1.647    3     0.00 ! JC-v2-11 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD32A       3.430    5   180.00 ! JC-v2-11 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       0.000    4     0.00 ! JC-v2-12: ester to aliphatic tail, MPRO ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       0.012    6   180.00 ! JC-v2-12 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       0.086    1   180.00 ! JC-v2-12 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       0.154    2   180.00 ! JC-v2-12 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       1.008    3     0.00 ! JC-v2-12 ! moved to master 2020b
+!OD30CL   CD2O3B   CD32C    CD33A       2.828    5   180.00 ! JC-v2-12 ! moved to master 2020b
 ND3P2A   CD32A    CD32A    OD30B       0.000    1     0.00 ! JC-v2-16: PC
 ND3P2A   CD32A    CD32A    OD30B       0.000    3   180.00 ! JC-v2-16
 ND3P2A   CD32A    CD32A    OD30B       0.000    4     0.00 ! JC-v2-16
 ND3P2A   CD32A    CD32A    OD30B       0.031    5     0.00 ! JC-v2-16
 ND3P2A   CD32A    CD32A    OD30B       0.646    6     0.00 ! JC-v2-16
 ND3P2A   CD32A    CD32A    OD30B       3.887    2     0.00 ! JC-v2-16
-CD33A    CD32A    CD32C    CD2O3B      0.000    1   180.00 ! JC-v2-21: MBU
-CD33A    CD32A    CD32C    CD2O3B      0.071    2     0.00 ! JC-v2-21
-CD33A    CD32A    CD32C    CD2O3B      0.451    3   180.00 ! JC-v2-21
-CD33A    CD32A    CD32C    CD2O3B      0.000    4   180.00 ! JC-v2-21
-CD33A    CD32A    CD32C    CD2O3B      0.025    5     0.00 ! JC-v2-21
-CD33A    CD32A    CD32C    CD2O3B      0.064    6   180.00 ! JC-v2-21
+!CD33A    CD32A    CD32C    CD2O3B      0.000    1   180.00 ! JC-v2-21: MBU ! moved to master 2020b
+!CD33A    CD32A    CD32C    CD2O3B      0.071    2     0.00 ! JC-v2-21 ! moved to master 2020b
+!CD33A    CD32A    CD32C    CD2O3B      0.451    3   180.00 ! JC-v2-21 ! moved to master 2020b
+!CD33A    CD32A    CD32C    CD2O3B      0.000    4   180.00 ! JC-v2-21 ! moved to master 2020b
+!CD33A    CD32A    CD32C    CD2O3B      0.025    5     0.00 ! JC-v2-21 ! moved to master 2020b
+!CD33A    CD32A    CD32C    CD2O3B      0.064    6   180.00 ! JC-v2-21 ! moved to master 2020b
 !1,2,3 fold terms differ from master file: reconcile 
 !see toppar_drude_master
 !CD32A    CD32A    CD32A    CD32A       0.005    1   180.00 ! HEXA/HEPT, hybrid CCSD(T)/cc-pVQZ surf. fit, va, 10/07 Hui-2015
@@ -3645,12 +3645,12 @@ IMPROPER
 !psi0: degrees 
 !note that the second column of numbers (0) is ignored 
 ! 
-OD2C3B   CD33A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
-OD2C3B   CD32A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
-OD2C3B   CD33C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
-OD2C3B   CD33D    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
-OD2C3B   CD32C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS
-OD2C3B   CD31C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS, CT1
+!OD2C3B   CD33A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS ! moved to master 2020b
+!OD2C3B   CD32A    OD30CL   CD2O3B     85.000   0     0.00 ! MAS ! moved to master 2020b
+!OD2C3B   CD33C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS ! moved to master 2020b
+!OD2C3B   CD33D    OD30CL   CD2O3B     85.000   0     0.00 ! MAS ! moved to master 2020b
+!OD2C3B   CD32C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS ! moved to master 2020b
+!OD2C3B   CD31C    OD30CL   CD2O3B     85.000   0     0.00 ! MAS, CT1 ! moved to master 2020b
 
 NONBONDED nbxmod  5 atom vatom cdiel vdistance switch vswitch - 
 cutnb 16.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5 
